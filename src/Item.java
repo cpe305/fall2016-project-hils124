@@ -1,5 +1,13 @@
 import java.util.ArrayList;
 
-public interface Item {
-	public String getItemName();
+public class Item {
+	private String name;
+	
+	public Item(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
 }

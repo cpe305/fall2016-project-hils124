@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		LinkedList<Item> inventory = new LinkedList<Item>();
 		Player player = new Player();
+		player.addItem(new Item("matches"));
 		Scanner scanner = new Scanner(System.in);
 		boolean validResponse = false;
-		scrollText("Welcome to Abandoned.\n");
+		scrollText("\nWelcome to Abandoned.\n");
 		while (!validResponse) {
 			scrollText("Would you like to start a new game (yes/no)?\n");
 			String answer = scanner.next();
@@ -42,11 +42,12 @@ public class Main {
 	public static void startGame(Player player) throws Exception {
 		scrollText("\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\n");
 		scrollText("You are surrounded by darkness as you realize you have no idea where you are or how you got there.\n");
-		System.out.println("Type HELP to view commands.");
+		System.out.println("Type HELP to view commands.\n");
 		Scanner scanner = new Scanner(System.in);
-		while(scanner.hasNextLine()) {
+		boolean done = false;
+		while(!done && scanner.hasNextLine()) {
 			String option = scanner.nextLine();
-			optionParser(option.toLowerCase(), player);
+			done = optionParser(option.toLowerCase(), player);
 		}
 	}
 	
@@ -55,19 +56,17 @@ public class Main {
 	}
 	
 	public static  void viewHelpMenu() {
-		System.out.println("\nKey Functions");
-		System.out.println("'⬅' - view left wall");
-		System.out.println("'➡' - view right wall");
-		System.out.println("'⬆' - view front wall");
-		System.out.println("'⬇' - view back wall");
 		System.out.println("\nCommands");
 		System.out.println("INSPECT [ELEMENT]");
 		System.out.println("TAKE [ITEM]");
+		System.out.println("TURN [LEFT, RIGHT, BACK, FORWARD]");
 		System.out.println("USE [ITEM]");
-		System.out.println("VIEW INVENTORY");	
+		System.out.println("VIEW INVENTORY");
+		System.out.println("QUIT\n");
 	}
 	
-	public static void optionParser(String option, Player player) {
+	public static boolean optionParser(String option, Player player) {
+		boolean done = false;
 		Scanner lineScanner = new Scanner(option);
 		String command = lineScanner.next();
 		switch(command) {
@@ -75,13 +74,27 @@ public class Main {
 				viewHelpMenu();
 				break;
 			}
+			case "use": {
+				if (lineScanner.hasNext()) {
+					String command2 = lineScanner.next().toLowerCase();
+					if (!lineScanner.hasNext()) {
+						processItemAction(player, command2);
+					}
+				}
+				break;
+			}
 			case "view": {
 				if (lineScanner.hasNext()) {
 					String command2 = lineScanner.next().toLowerCase();
-					if (command2.equals("inventory")) {
+					if (command2.equals("inventory") && !lineScanner.hasNext()) {
 						displayInventory(player.getInventory());
 					}
 				}
+				break;
+			}
+			case "quit": {
+				System.out.println("Quitting...");
+				done = true;
 				break;
 			}
 			default: {
@@ -89,6 +102,7 @@ public class Main {
 				break;
 			}
 		}
+		return done;
 	}
 	
 	public static void displayInventory(ArrayList<Item> inventory) {
@@ -96,11 +110,16 @@ public class Main {
 			System.out.println("Your inventory is empty.");
 		}
 		else {
-			
+			for (int i = 0; i < inventory.size(); i++) {
+				System.out.println("- " + inventory.get(i).getName());
+			}
+			System.out.println();
 		}
 	}
 	
-	
+	public static void processItemAction(Player player, String itemName) {
+		System.out.println("Item: " + itemName);
+	}
 }
 
 
