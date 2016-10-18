@@ -9,6 +9,7 @@ public class Player {
 	}
 	
 	public void useItem(Item item) {
+		item.use();
 		inventory.remove(item);
 	}
 	

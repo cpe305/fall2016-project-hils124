@@ -1,13 +1,9 @@
-import java.util.ArrayList;
-
-public class Item {
-	private String name;
-	
+public class Item extends Entity {
 	public Item(String name) {
-		this.name = name;
+		super(name);
 	}
 	
-	public String getName() {
-		return this.name;
+	public void use() {
+		System.out.println("Using " + this.getName() + "...");
 	}
 }

@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
@@ -57,10 +56,10 @@ public class Main {
 	
 	public static  void viewHelpMenu() {
 		System.out.println("\nCommands");
-		System.out.println("INSPECT [ELEMENT]");
-		System.out.println("TAKE [ITEM]");
+		System.out.println("INSPECT [\u001B[32mELEMENT\u001B[0m]");
+		System.out.println("TAKE [\u001B[36mITEM\u001B[0m]");
 		System.out.println("TURN [LEFT, RIGHT, BACK, FORWARD]");
-		System.out.println("USE [ITEM]");
+		System.out.println("USE [\u001B[36mITEM\u001B[0m]");
 		System.out.println("VIEW INVENTORY");
 		System.out.println("QUIT\n");
 	}
@@ -72,6 +71,15 @@ public class Main {
 		switch(command) {
 			case "help": {
 				viewHelpMenu();
+				break;
+			}
+			case "take": {
+				if (lineScanner.hasNext()) {
+					String command2 = lineScanner.next().toLowerCase();
+					if (!lineScanner.hasNext() && !lineScanner.hasNext()) {
+						processTakeItem(player, command2);
+					}
+				}
 				break;
 			}
 			case "use": {
@@ -111,14 +119,44 @@ public class Main {
 		}
 		else {
 			for (int i = 0; i < inventory.size(); i++) {
-				System.out.println("- " + inventory.get(i).getName());
+				System.out.println("- \u001B[36m" + inventory.get(i).getName() + "\u001B[0m");
 			}
 			System.out.println();
 		}
 	}
 	
 	public static void processItemAction(Player player, String itemName) {
-		System.out.println("Item: " + itemName);
+		boolean itemFound = false;
+		Item chosenItem = null;
+		for (Item item: player.getInventory()) {
+			if (item.getName().equals(itemName)) {
+				itemFound = true;
+				chosenItem = item;
+			}
+		}
+		if (itemFound) {
+			player.useItem(chosenItem);
+		}
+		else {
+			System.out.println("No such item to use.");	
+		}
+	}
+	
+	public static void processTakeItem(Player player, String itemName) {
+//		boolean itemFound = false;
+//		Item chosenItem = null;
+//		for (Item item: player.getInventory()) {
+//			if (item.getName().equals(itemName)) {
+//				itemFound = true;
+//				chosenItem = item;
+//			}
+//		}
+//		if (itemFound) {
+//			player.addItem(chosenItem);
+//		}
+//		else {
+//			System.out.println("No such item to take.");	
+//		}
 	}
 }
 
