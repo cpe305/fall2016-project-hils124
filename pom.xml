@@ -3,6 +3,13 @@
   <groupId>Abandoned</groupId>
   <artifactId>Abandoned</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+    	<groupId>org.codehaus.jackson</groupId>
+    	<artifactId>jackson-mapper-asl</artifactId>
+    	<version>1.9.13</version>
+   	</dependency>
+   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

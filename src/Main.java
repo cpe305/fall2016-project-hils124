@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
+		GameBuilder.initGame();
 		Player player = new Player();
 		player.addItem(new Item("matches"));
 		Scanner scanner = new Scanner(System.in);

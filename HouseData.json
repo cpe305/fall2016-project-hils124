@@ -1,0 +1,186 @@
+{
+	"rooms": [
+		{
+			"name": "bedroom",
+			"leftWall": {
+				"name": "bedroomLeft",
+				"containers": [
+					{
+						"name": "desk",
+						"items": [
+							{
+								"name": "letter"
+							}
+						]
+					}
+				],
+				"items": []
+			},
+			"rightWall": {
+				"name": "bedroomRight",
+				"containers": [],
+				"items": [
+					{
+						"name": "kitchenDoor"
+					}
+				]
+			},
+			"frontWall": {
+				"name": "bedroomFront",
+				"containers": [],
+				"items": [
+					{
+						"name": "lamp"
+					}
+				]
+			},
+			"backWall": {
+				"name": "bedroomBack",
+				"containers": [],
+				"items": [
+					{
+						"name": "bed"
+					}
+				]
+			}
+		},
+		{
+			"name": "kitchen",
+			"leftWall": {
+				"name": "kitchenLeft",
+				"containers": [],
+				"items": []
+			},
+			"rightWall": {
+				"name": "kitchenRight",
+				"containers": [],
+				"items": []
+			},
+			"frontWall": {
+				"name": "kitchenFront",
+				"containers": [],
+				"items": []
+			},
+			"backWall": {
+				"name": "kitchenBack",
+				"containers": [],
+				"items": []
+			}
+		},
+		{
+			"name": "library",
+			"leftWall": {
+				"name": "libraryLeft",
+				"containers": [],
+				"items": []
+			},
+			"rightWall": {
+				"name": "libraryRight",
+				"containers": [],
+				"items": []
+			},
+			"frontWall": {
+				"name": "libraryFront",
+				"containers": [],
+				"items": []
+			},
+			"backWall": {
+				"name": "libraryBack",
+				"containers": [],
+				"items": []
+			}
+		},
+		{
+			"name": "attic",
+			"leftWall": {
+				"name": "atticLeft",
+				"containers": [],
+				"items": []
+			},
+			"rightWall": {
+				"name": "atticRight",
+				"containers": [],
+				"items": []
+			},
+			"frontWall": {
+				"name": "atticFront",
+				"containers": [],
+				"items": []
+			},
+			"backWall": {
+				"name": "atticBack",
+				"containers": [],
+				"items": []
+			}
+		},
+		{
+			"name": "garden",
+			"leftWall": {
+				"name": "gardenLeft",
+				"containers": [],
+				"items": []
+			},
+			"rightWall": {
+				"name": "gardenRight",
+				"containers": [],
+				"items": []
+			},
+			"frontWall": {
+				"name": "gardenFront",
+				"containers": [],
+				"items": []
+			},
+			"backWall": {
+				"name": "gardenBack",
+				"containers": [],
+				"items": []
+			}
+		},
+		{
+			"name": "basement",
+			"leftWall": {
+				"name": "basementLeft",
+				"containers": [],
+				"items": []
+			},
+			"rightWall": {
+				"name": "basementRight",
+				"containers": [],
+				"items": []
+			},
+			"frontWall": {
+				"name": "basementFront",
+				"containers": [],
+				"items": []
+			},
+			"backWall": {
+				"name": "basementBack",
+				"containers": [],
+				"items": []
+			}
+		},
+		{
+			"name": "secretRoom",
+			"leftWall": {
+				"name": "secretRoomLeft",
+				"containers": [],
+				"items": []
+			},
+			"rightWall": {
+				"name": "secretRoomRight",
+				"containers": [],
+				"items": []
+			},
+			"frontWall": {
+				"name": "secretRoomFront",
+				"containers": [],
+				"items": []
+			},
+			"backWall": {
+				"name": "secretRoomBack",
+				"containers": [],
+				"items": []
+			}
+		}
+	]
+}

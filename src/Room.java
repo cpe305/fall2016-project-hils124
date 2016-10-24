@@ -1,17 +1,26 @@
 public class Room {
 
+	private String name;
     private Wall leftWall;
     private Wall rightWall;
     private Wall frontWall;
     private Wall backWall;
-    private String name;
 
+    public Room() {}
+    
     public Room(String name, Wall leftWall, Wall rightWall, Wall frontWall, Wall backWall) {
-        this.leftWall = leftWall;
+    	this.name = name;
+    	this.leftWall = leftWall;
         this.rightWall = rightWall;
         this.frontWall = frontWall;
         this.backWall = backWall;
+    }
+    
+    public void setName(String name) {
         this.name = name;
+    }
+    public String getName() {
+        return this.name;
     }
     
     public void setLeftWall(Wall wall) {
@@ -44,12 +53,5 @@ public class Room {
 
     public Wall getBackWall() {
         return this.backWall;
-    }
-
-    public void setRoomName(String name) {
-        this.name = name;
-    }
-    public String getRoomName() {
-        return this.name;
     }
 }
