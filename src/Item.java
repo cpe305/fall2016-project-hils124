@@ -1,10 +1,15 @@
-public class Item extends Entity {
+public class Item {
+  private String name;
 
   public Item() {
   }
 
   public Item(String name) {
-    super(name);
+    this.name = name;
+  }
+
+  public String getName() {
+    return this.name;
   }
 
   public void use() {
