@@ -1,14 +1,19 @@
 import java.util.ArrayList;
 
-public class Container extends Entity {
+public class Container {
+  private String name;
   private ArrayList<Item> items;
 
   public Container() {
   }
 
   public Container(String name, ArrayList<Item> items) {
-    super(name);
+    this.name = name;
     this.items = items;
+  }
+
+  public String getName() {
+      return this.name;
   }
 
   public ArrayList<Item> getItems() {
