@@ -48,7 +48,16 @@
 			"name": "kitchen",
 			"leftWall": {
 				"name": "kitchenLeft",
-				"containers": [],
+				"containers": [
+					{
+						"name": "cupboard",
+						"items": [
+							{
+								"name": "knife"
+							}
+						]
+					}
+				],
 				"items": []
 			},
 			"rightWall": {
@@ -71,7 +80,12 @@
 			"name": "library",
 			"leftWall": {
 				"name": "libraryLeft",
-				"containers": [],
+				"containers": [
+					{
+						"name": "bookshelf",
+						"items": []
+					}
+				],
 				"items": []
 			},
 			"rightWall": {
@@ -146,7 +160,11 @@
 			"rightWall": {
 				"name": "basementRight",
 				"containers": [],
-				"items": []
+				"items": [
+					{
+						"name": "shovel"
+					}
+				]
 			},
 			"frontWall": {
 				"name": "basementFront",
