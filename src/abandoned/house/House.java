@@ -27,10 +27,10 @@ public class House {
   public void printHouse() {
     for (Room room : rooms) {
       System.out.println("Room: " + room.getName());
-      Wall leftWall = room.getLeftWall();
-      Wall rightWall = room.getRightWall();
-      Wall frontWall = room.getFrontWall();
-      Wall backWall = room.getBackWall();
+      Wall leftWall = room.getWestWall();
+      Wall rightWall = room.getEastWall();
+      Wall frontWall = room.getNorthWall();
+      Wall backWall = room.getSouthWall();
       System.out.println("  Left:");
       for (Container c : leftWall.getContainers()) {
         System.out.println("    " + c.getName());

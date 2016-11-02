@@ -64,7 +64,7 @@ public class Main {
     System.out.println("\nCommands");
     System.out.println("INSPECT [\u001B[32mELEMENT\u001B[0m]");
     System.out.println("TAKE [\u001B[36mITEM\u001B[0m]");
-    System.out.println("TURN [LEFT, RIGHT, BACK, FORWARD]");
+    System.out.println("TURN [LEFT, RIGHT, AROUND]");
     System.out.println("USE [\u001B[36mITEM\u001B[0m]");
     System.out.println("VIEW INVENTORY");
     System.out.println("QUIT\n");
@@ -87,6 +87,15 @@ public class Main {
           }
         }
         break;
+      }
+      case "turn": {
+        if (lineScanner.hasNext()) {
+          String command2 = lineScanner.next().toLowerCase();
+          if (!lineScanner.hasNext() && !lineScanner.hasNext()) {
+            processTurnPlayer(player, command2);
+          }
+        }
+        break; 
       }
       case "use": {
         if (lineScanner.hasNext()) {
@@ -161,5 +170,26 @@ public class Main {
     // else {
     // System.out.println("No such item to take.");
     // }
+  }
+  
+  public static void processTurnPlayer(Player player, String direction) {
+    switch(direction) {
+      case "left": {
+        player.turnLeft();
+        break;
+      }
+      case "right": {
+        player.turnRight();
+        break;
+      }
+      case "around": {
+        player.turnAround();
+        break;
+      }
+      default: {
+        System.out.println("Action cannot be made.");
+        break;
+      }
+    }
   }
 }

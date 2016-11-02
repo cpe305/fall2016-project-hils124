@@ -2,20 +2,20 @@ package abandoned.house;
 public class Room {
 
   private String name;
-  private Wall leftWall;
-  private Wall rightWall;
-  private Wall frontWall;
-  private Wall backWall;
+  private Wall westWall;
+  private Wall eastWall;
+  private Wall northWall;
+  private Wall southWall;
 
   public Room() {
   }
 
-  public Room(String name, Wall leftWall, Wall rightWall, Wall frontWall, Wall backWall) {
+  public Room(String name, Wall westWall, Wall eastWall, Wall northWall, Wall southWall) {
     this.name = name;
-    this.leftWall = leftWall;
-    this.rightWall = rightWall;
-    this.frontWall = frontWall;
-    this.backWall = backWall;
+    this.westWall = westWall;
+    this.eastWall = eastWall;
+    this.northWall = northWall;
+    this.southWall = southWall;
   }
 
   public void setName(String name) {
@@ -26,35 +26,35 @@ public class Room {
     return this.name;
   }
 
-  public void setLeftWall(Wall wall) {
-    this.leftWall = wall;
+  public void setWestWall(Wall wall) {
+    this.westWall = wall;
   }
 
-  public Wall getLeftWall() {
-    return this.leftWall;
+  public Wall getWestWall() {
+    return this.westWall;
   }
 
-  public void setRightWall(Wall wall) {
-    this.rightWall = wall;
+  public void setEastWall(Wall wall) {
+    this.eastWall = wall;
   }
 
-  public Wall getRightWall() {
-    return this.rightWall;
+  public Wall getEastWall() {
+    return this.eastWall;
   }
 
-  public void setFrontWall(Wall wall) {
-    this.frontWall = wall;
+  public void setNorthWall(Wall wall) {
+    this.northWall = wall;
   }
 
-  public Wall getFrontWall() {
-    return this.frontWall;
+  public Wall getNorthWall() {
+    return this.northWall;
   }
 
-  public void setBackWall(Wall wall) {
-    this.backWall = wall;
+  public void setSouthWall(Wall wall) {
+    this.southWall = wall;
   }
 
-  public Wall getBackWall() {
-    return this.backWall;
+  public Wall getSouthWall() {
+    return this.southWall;
   }
 }

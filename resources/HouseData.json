@@ -2,8 +2,9 @@
 	"rooms": [
 		{
 			"name": "bedroom",
-			"leftWall": {
-				"name": "BEDROOM - LEFT",
+			"westWall": {
+				"name": "BEDROOM - WEST",
+				"direction": "w",
 				"containers": [
 					{
 						"name": "desk",
@@ -16,8 +17,9 @@
 				],
 				"items": []
 			},
-			"rightWall": {
-				"name": "BEDROOM - RIGHT",
+			"eastWall": {
+				"name": "BEDROOM - EAST",
+				"direction": "e",
 				"containers": [],
 				"items": [
 					{
@@ -25,8 +27,9 @@
 					}
 				]
 			},
-			"frontWall": {
-				"name": "BEDROOM - FRONT",
+			"northWall": {
+				"name": "BEDROOM - NORTH",
+				"direction": "n",
 				"containers": [],
 				"items": [
 					{
@@ -34,8 +37,9 @@
 					}
 				]
 			},
-			"backWall": {
-				"name": "BEDROOM BACK",
+			"southWall": {
+				"name": "BEDROOM - SOUTH",
+				"direction": "s",
 				"containers": [],
 				"items": [
 					{
@@ -46,8 +50,9 @@
 		},
 		{
 			"name": "kitchen",
-			"leftWall": {
-				"name": "KITCHEN LEFT",
+			"westWall": {
+				"name": "KITCHEN - WEST",
+				"direction": "w",
 				"containers": [
 					{
 						"name": "cupboard",
@@ -60,26 +65,30 @@
 				],
 				"items": []
 			},
-			"rightWall": {
-				"name": "KITCHEN - RIGHT",
+			"eastWall": {
+				"name": "KITCHEN - EAST",
+				"direction": "e",
 				"containers": [],
 				"items": []
 			},
-			"frontWall": {
-				"name": "KITCHE - FRONT",
+			"northWall": {
+				"name": "KITCHEN - NORTH",
+				"direction": "n",
 				"containers": [],
 				"items": []
 			},
-			"backWall": {
-				"name": "KITCHEN - BACK",
+			"southWall": {
+				"name": "KITCHEN - SOUTH",
+				"direction": "s",
 				"containers": [],
 				"items": []
 			}
 		},
 		{
 			"name": "library",
-			"leftWall": {
-				"name": "LIBRARY - LEFT",
+			"westWall": {
+				"name": "LIBRARY - WEST",
+				"direction": "w",
 				"containers": [
 					{
 						"name": "bookshelf",
@@ -88,77 +97,90 @@
 				],
 				"items": []
 			},
-			"rightWall": {
-				"name": "LIBRARY - RIGHT",
+			"eastWall": {
+				"name": "LIBRARY - EAST",
+				"direction": "e",
 				"containers": [],
 				"items": []
 			},
-			"frontWall": {
-				"name": "LIBRARY - FRONT",
+			"northWall": {
+				"name": "LIBRARY - NORTH",
+				"direction": "n",
 				"containers": [],
 				"items": []
 			},
-			"backWall": {
-				"name": "LIBRARY - BACK",
+			"southWall": {
+				"name": "LIBRARY - SOUTH",
+				"direction": "s",
 				"containers": [],
 				"items": []
 			}
 		},
 		{
 			"name": "attic",
-			"leftWall": {
-				"name": "ATTIC - LEFT",
+			"westWall": {
+				"name": "ATTIC - WEST",
+				"direction": "w",
 				"containers": [],
 				"items": []
 			},
-			"rightWall": {
-				"name": "ATTIC - RIGHT",
+			"eastWall": {
+				"name": "ATTIC - EAST",
+				"direction": "e",
 				"containers": [],
 				"items": []
 			},
-			"frontWall": {
-				"name": "ATTIC - FRONT",
+			"northWall": {
+				"name": "ATTIC - NORTH",
+				"direction": "n",
 				"containers": [],
 				"items": []
 			},
-			"backWall": {
-				"name": "ATTIC - BACK",
+			"southWall": {
+				"name": "ATTIC - SOUTH",
+				"direction": "s",
 				"containers": [],
 				"items": []
 			}
 		},
 		{
 			"name": "garden",
-			"leftWall": {
-				"name": "GARDEN - LEFT",
+			"westWall": {
+				"name": "GARDEN - WEST",
+				"direction": "w",
 				"containers": [],
 				"items": []
 			},
-			"rightWall": {
-				"name": "GARDEN - RIGHT",
+			"eastWall": {
+				"name": "GARDEN - EAST",
+				"direction": "e",
 				"containers": [],
 				"items": []
 			},
-			"frontWall": {
-				"name": "GARDEN - FRONT",
+			"northWall": {
+				"name": "GARDEN - NORTH",
+				"direction": "n",
 				"containers": [],
 				"items": []
 			},
-			"backWall": {
-				"name": "GARDEN - BACK",
+			"southWall": {
+				"name": "GARDEN - SOUTH",
+				"direction": "s",
 				"containers": [],
 				"items": []
 			}
 		},
 		{
 			"name": "basement",
-			"leftWall": {
-				"name": "BASEMENT - LEFT",
+			"westWall": {
+				"name": "BASEMENT - WEST",
+				"direction": "w",
 				"containers": [],
 				"items": []
 			},
-			"rightWall": {
-				"name": "BASEMENT - RIGHT",
+			"eastWall": {
+				"name": "BASEMENT - EAST",
+				"direction": "e",
 				"containers": [],
 				"items": [
 					{
@@ -166,36 +188,42 @@
 					}
 				]
 			},
-			"frontWall": {
-				"name": "BASEMENT - FRONT",
+			"northWall": {
+				"name": "BASEMENT - NORTH",
+				"direction": "n",
 				"containers": [],
 				"items": []
 			},
-			"backWall": {
-				"name": "BASEMENT - BACK",
+			"southWall": {
+				"name": "BASEMENT - SOUTH",
+				"direction": "s",
 				"containers": [],
 				"items": []
 			}
 		},
 		{
 			"name": "secretRoom",
-			"leftWall": {
-				"name": "SECRET ROOM - LEFT",
+			"westWall": {
+				"name": "SECRET ROOM - WEST",
+				"direction": "w",
 				"containers": [],
 				"items": []
 			},
-			"rightWall": {
-				"name": "SECRET ROOM - RIGHT",
+			"eastWall": {
+				"name": "SECRET ROOM - EAST",
+				"direction": "e",
 				"containers": [],
 				"items": []
 			},
-			"frontWall": {
-				"name": "SECRET ROOM - FRONT",
+			"northWall": {
+				"name": "SECRET ROOM - NORTH",
+				"direction": "n",
 				"containers": [],
 				"items": []
 			},
-			"backWall": {
-				"name": "SECRET ROOM - BACK",
+			"southWall": {
+				"name": "SECRET ROOM - SOUTH",
+				"direction": "s",
 				"containers": [],
 				"items": []
 			}

@@ -12,7 +12,7 @@ public class GameBuilder {
   public static House initGame() {
     try {
       ObjectMapper mapper = new ObjectMapper();
-      House house = mapper.readValue(new File("HouseData.json"), House.class);
+      House house = mapper.readValue(new File("resources/HouseData.json"), House.class);
       return house;
       
     } catch (JsonGenerationException ex) {

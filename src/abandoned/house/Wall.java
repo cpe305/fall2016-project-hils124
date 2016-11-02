@@ -2,16 +2,18 @@ package abandoned.house;
 import java.util.ArrayList;
 
 public class Wall {
-  String name;
-  ArrayList<Container> containers;
-  ArrayList<Item> items;
+  private String name;
+  private String direction;
+  private ArrayList<Container> containers;
+  private ArrayList<Item> items;
   // ArrayList<Entity> entities;
 
   public Wall() {
   }
 
-  public Wall(String name, ArrayList<Container> containers, ArrayList<Item> items) {
+  public Wall(String name, String direction, ArrayList<Container> containers, ArrayList<Item> items) {
     this.name = name;
+    this.direction = direction;
     this.containers = containers;
     this.items = items;
   }
@@ -19,7 +21,15 @@ public class Wall {
   public String getName() {
     return this.name;
   }
+  
+  public String getDirection() {
+    return this.direction;
+  }
 
+  public void setDirection(String direction) {
+    this.direction = direction;
+  }
+  
   public ArrayList<Container> getContainers() {
     return this.containers;
   }
