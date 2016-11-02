@@ -1,3 +1,4 @@
+package abandoned.game;
 
 import java.util.ArrayList;
 import java.util.Scanner;

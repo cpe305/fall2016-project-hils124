@@ -1,3 +1,4 @@
+package abandoned.house;
 public class Room {
 
   private String name;
