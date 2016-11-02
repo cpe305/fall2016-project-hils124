@@ -3,6 +3,9 @@ package abandoned.game;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import abandoned.house.House;
+import abandoned.house.Item;
+
 public class Main {
   public static void main(String[] args) throws Exception {
     House house = GameBuilder.initGame();

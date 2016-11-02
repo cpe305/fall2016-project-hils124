@@ -1,6 +1,8 @@
 package abandoned.game;
 import java.util.ArrayList;
 
+import abandoned.house.*;
+
 public class Player {
   private ArrayList<Item> inventory;
   private Room currentRoom;
