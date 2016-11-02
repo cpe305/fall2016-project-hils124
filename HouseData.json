@@ -3,7 +3,7 @@
 		{
 			"name": "bedroom",
 			"leftWall": {
-				"name": "bedroomLeft",
+				"name": "BEDROOM - LEFT",
 				"containers": [
 					{
 						"name": "desk",
@@ -17,7 +17,7 @@
 				"items": []
 			},
 			"rightWall": {
-				"name": "bedroomRight",
+				"name": "BEDROOM - RIGHT",
 				"containers": [],
 				"items": [
 					{
@@ -26,7 +26,7 @@
 				]
 			},
 			"frontWall": {
-				"name": "bedroomFront",
+				"name": "BEDROOM - FRONT",
 				"containers": [],
 				"items": [
 					{
@@ -35,7 +35,7 @@
 				]
 			},
 			"backWall": {
-				"name": "bedroomBack",
+				"name": "BEDROOM BACK",
 				"containers": [],
 				"items": [
 					{
@@ -47,7 +47,7 @@
 		{
 			"name": "kitchen",
 			"leftWall": {
-				"name": "kitchenLeft",
+				"name": "KITCHEN LEFT",
 				"containers": [
 					{
 						"name": "cupboard",
@@ -61,17 +61,17 @@
 				"items": []
 			},
 			"rightWall": {
-				"name": "kitchenRight",
+				"name": "KITCHEN - RIGHT",
 				"containers": [],
 				"items": []
 			},
 			"frontWall": {
-				"name": "kitchenFront",
+				"name": "KITCHE - FRONT",
 				"containers": [],
 				"items": []
 			},
 			"backWall": {
-				"name": "kitchenBack",
+				"name": "KITCHEN - BACK",
 				"containers": [],
 				"items": []
 			}
@@ -79,7 +79,7 @@
 		{
 			"name": "library",
 			"leftWall": {
-				"name": "libraryLeft",
+				"name": "LIBRARY - LEFT",
 				"containers": [
 					{
 						"name": "bookshelf",
@@ -89,17 +89,17 @@
 				"items": []
 			},
 			"rightWall": {
-				"name": "libraryRight",
+				"name": "LIBRARY - RIGHT",
 				"containers": [],
 				"items": []
 			},
 			"frontWall": {
-				"name": "libraryFront",
+				"name": "LIBRARY - FRONT",
 				"containers": [],
 				"items": []
 			},
 			"backWall": {
-				"name": "libraryBack",
+				"name": "LIBRARY - BACK",
 				"containers": [],
 				"items": []
 			}
@@ -107,22 +107,22 @@
 		{
 			"name": "attic",
 			"leftWall": {
-				"name": "atticLeft",
+				"name": "ATTIC - LEFT",
 				"containers": [],
 				"items": []
 			},
 			"rightWall": {
-				"name": "atticRight",
+				"name": "ATTIC - RIGHT",
 				"containers": [],
 				"items": []
 			},
 			"frontWall": {
-				"name": "atticFront",
+				"name": "ATTIC - FRONT",
 				"containers": [],
 				"items": []
 			},
 			"backWall": {
-				"name": "atticBack",
+				"name": "ATTIC - BACK",
 				"containers": [],
 				"items": []
 			}
@@ -130,22 +130,22 @@
 		{
 			"name": "garden",
 			"leftWall": {
-				"name": "gardenLeft",
+				"name": "GARDEN - LEFT",
 				"containers": [],
 				"items": []
 			},
 			"rightWall": {
-				"name": "gardenRight",
+				"name": "GARDEN - RIGHT",
 				"containers": [],
 				"items": []
 			},
 			"frontWall": {
-				"name": "gardenFront",
+				"name": "GARDEN - FRONT",
 				"containers": [],
 				"items": []
 			},
 			"backWall": {
-				"name": "gardenBack",
+				"name": "GARDEN - BACK",
 				"containers": [],
 				"items": []
 			}
@@ -153,12 +153,12 @@
 		{
 			"name": "basement",
 			"leftWall": {
-				"name": "basementLeft",
+				"name": "BASEMENT - LEFT",
 				"containers": [],
 				"items": []
 			},
 			"rightWall": {
-				"name": "basementRight",
+				"name": "BASEMENT - RIGHT",
 				"containers": [],
 				"items": [
 					{
@@ -167,12 +167,12 @@
 				]
 			},
 			"frontWall": {
-				"name": "basementFront",
+				"name": "BASEMENT - FRONT",
 				"containers": [],
 				"items": []
 			},
 			"backWall": {
-				"name": "basementBack",
+				"name": "BASEMENT - BACK",
 				"containers": [],
 				"items": []
 			}
@@ -180,22 +180,22 @@
 		{
 			"name": "secretRoom",
 			"leftWall": {
-				"name": "secretRoomLeft",
+				"name": "SECRET ROOM - LEFT",
 				"containers": [],
 				"items": []
 			},
 			"rightWall": {
-				"name": "secretRoomRight",
+				"name": "SECRET ROOM - RIGHT",
 				"containers": [],
 				"items": []
 			},
 			"frontWall": {
-				"name": "secretRoomFront",
+				"name": "SECRET ROOM - FRONT",
 				"containers": [],
 				"items": []
 			},
 			"backWall": {
-				"name": "secretRoomBack",
+				"name": "SECRET ROOM - BACK",
 				"containers": [],
 				"items": []
 			}

@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) throws Exception {
-    GameBuilder.initGame();
-    Player player = new Player();
+    House house = GameBuilder.initGame();
+    Player player = new Player(house);
     player.addItem(new Item("matches"));
     Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
@@ -40,7 +40,8 @@ public class Main {
   }
 
   public static void startGame(Player player) throws Exception {
-    scrollText("\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\n");
+    System.out.println("\n\n" + player.getCurrentWall().getName());
+    scrollText("You slowly open your eyes as you notice a dull pain in the side of your head.\n");
     scrollText("You are surrounded by darkness as you realize you have no idea where you are or how you got there.\n");
     System.out.println("Type HELP to view commands.\n");
     Scanner scanner = new Scanner(System.in);

@@ -13,6 +13,15 @@ public class House {
   public ArrayList<Room> getRooms() {
     return this.rooms;
   }
+  
+  public Room getRoom(String name) {
+    for (Room r: this.rooms) {
+      if (r.getName().equals(name)) {
+        return r;
+      }
+    }
+    return null;
+  }
 
   public void printHouse() {
     for (Room room : rooms) {

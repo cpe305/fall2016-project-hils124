@@ -6,17 +6,19 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 public class GameBuilder {
-  public static void initGame() {
+  public static House initGame() {
     try {
       ObjectMapper mapper = new ObjectMapper();
       House house = mapper.readValue(new File("HouseData.json"), House.class);
-      house.printHouse();
-    } catch (JsonGenerationException e) {
-      e.printStackTrace();
-    } catch (JsonMappingException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
+      return house;
+      
+    } catch (JsonGenerationException ex) {
+      ex.printStackTrace(); 
+    } catch (JsonMappingException ex) {
+      ex.printStackTrace();  
+    } catch (IOException ex) {
+      ex.printStackTrace();
     }
+    return null;
   }
 }
