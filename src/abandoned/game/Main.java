@@ -1,19 +1,32 @@
 package abandoned.game;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import abandoned.entities.Item;
+import abandoned.entities.EntityUseType;
 import abandoned.house.House;
-import abandoned.house.Item;
 
 public class Main {
+  public static final House house = GameBuilder.initGame();
+  
   public static void main(String[] args) throws Exception {
-    House house = GameBuilder.initGame();
+//    Runtime.getRuntime().exec("/usr/bin/open -a Terminal .");
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+    try (BufferedReader br = new BufferedReader(new FileReader("resources/title.txt"))) {
+      String line = null;
+      while ((line = br.readLine()) != null) {
+          System.out.println(line);
+      }
+    }
     Player player = new Player(house);
-    player.addItem(new Item("matches"));
+    player.addItem(new Item("matches", EntityUseType.MATCH, true));
     Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
-    scrollText("\nWelcome to Abandoned.\n");
+    scrollText("Welcome to Abandoned.\n");
     while (!validResponse) {
       scrollText("Would you like to start a new game (yes/no)?\n");
       String answer = scanner.next();

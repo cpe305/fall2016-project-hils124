@@ -1,6 +1,8 @@
 package abandoned.house;
 import java.util.ArrayList;
 
+import abandoned.entities.Item;
+
 public class Container {
   private String name;
   private ArrayList<Item> items;

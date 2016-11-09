@@ -1,6 +1,8 @@
 package abandoned.house;
 import java.util.ArrayList;
 
+import abandoned.entities.Item;
+
 public class Wall {
   private String name;
   private String direction;
@@ -19,7 +21,7 @@ public class Wall {
   }
 
   public String getName() {
-    return this.name;
+    return "\033[0;1m" + this.name + "\033[0;0m";
   }
   
   public String getDirection() {

@@ -1,6 +1,8 @@
 package abandoned.house;
 import java.util.ArrayList;
 
+import abandoned.entities.Item;
+
 public class House {
   private ArrayList<Room> rooms;
 

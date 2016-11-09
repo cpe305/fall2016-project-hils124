@@ -1,7 +1,9 @@
 package abandoned.game;
 import java.util.ArrayList;
 
+import abandoned.entities.Item;
 import abandoned.house.*;
+
 
 public class Player {
   private ArrayList<Item> inventory;
@@ -15,7 +17,7 @@ public class Player {
   }
 
   public void useItem(Item item) {
-    item.use();
+    item.use(item, Main.house, currentRoom, currentWall);
     inventory.remove(item);
   }
 
