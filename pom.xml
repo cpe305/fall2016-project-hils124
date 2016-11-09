@@ -12,6 +12,7 @@
    </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -35,6 +36,7 @@
             <version>3.2</version>
         </plugin>
     </plugins>
+    </pluginManagement>
   </build>
   <profiles>
     <profile>
