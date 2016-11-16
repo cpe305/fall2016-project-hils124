@@ -21,7 +21,7 @@ public class WallTest {
   
   @Test
   public void testCreateWall() {
-    Assert.assertTrue(wall.hasPortal());
+    Assert.assertFalse(wall.hasPortal());
     Assert.assertEquals(wall.getDirection(), "w");
     Assert.assertNull(wall.getPortal());
   }
