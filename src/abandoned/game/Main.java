@@ -1,20 +1,29 @@
 package abandoned.game;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import abandoned.entities.Item;
 import abandoned.entities.EntityUseType;
+import abandoned.entities.Item;
 import abandoned.house.Container;
 import abandoned.house.House;
 import abandoned.house.Portal;
 import abandoned.house.Wall;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Scanner;
+
+/**
+ * Class to run the game.
+ * @author hils124
+ */
 public class Main {
   public static final House house = GameBuilder.initGame();
   
+  /**
+   * Main driver method.
+   * @param args - given arguments
+   * @throws Exception
+   * 
+   */
   public static void main(String[] args) throws Exception {
     System.out.print("\033[H\033[2J");
     System.out.flush();
@@ -52,6 +61,12 @@ public class Main {
     scanner.close();
   }
 
+  /**
+   * Prints a string with scrolling effect.
+   * @param str - message to print
+   * @throws Exception
+   * 
+   */
   public static void scrollText(String str) throws Exception {
     for (int i = 0; i < str.length(); i++) {
       System.out.print(str.charAt(i));
@@ -59,9 +74,18 @@ public class Main {
     }
   }
 
+  /**
+   * Initiates game state.
+   * @param player - current player
+   * @throws Exception
+   * 
+   */
   public static void startGame(Player player) throws Exception {
-    scrollText("\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\n");
-    scrollText("You are surrounded by darkness as you realize you have no idea where you are or how you got there.\n");
+    scrollText(
+        "\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\n");
+    scrollText(
+        "You are surrounded by darkness as you realize you have no idea where you are or "
+        + "how you got there.\n");
     System.out.println("Type HELP to view commands.\n");
     Scanner scanner = new Scanner(System.in);
     boolean done = false;
@@ -76,6 +100,9 @@ public class Main {
 
   }
 
+  /**
+   * Displays help menu.
+   */
   public static void viewHelpMenu() {
     System.out.println("\nCommands");
     System.out.println("ENTER [\u001B[33mPORTAL\u001B[0m]");
@@ -88,6 +115,14 @@ public class Main {
     System.out.println("QUIT\n");
   }
 
+  /**
+   * Processes player commands.
+   * @param option - player's chosen action
+   * @param player - current player
+   * @return if player is done
+   * @throws Exception
+   * 
+   */
   public static boolean optionParser(String option, Player player) throws Exception {
     boolean done = false;
     Scanner lineScanner = new Scanner(option);
@@ -99,12 +134,10 @@ public class Main {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
             processEnterPortal(player, command2);
-          }
-          else {
+          } else {
             System.out.println("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]");
           }
-        }
-        else {
+        } else {
           System.out.println("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]");
         }
         break;
@@ -118,33 +151,28 @@ public class Main {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
             processInspectElement(player, command2);
-          }
-          else {
+          } else {
             System.out.println("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]");
           }
-        }
-        else {
+        } else {
           System.out.println("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]");
         }
         break;
       }
-
+  
       case "take": {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
             if (!player.getCanSee()) {
               System.out.println("It is too dark. Action cannot be made.");
-            }
-            else {
+            } else {
               processTakeItem(player, command2);
             }
-          }
-          else {
+          } else {
             System.out.println("Usage: TAKE [\u001B[36mITEM\u001B[0m]");
           }
-        }
-        else {
+        } else {
           System.out.println("Usage: TAKE [\u001B[36mITEM\u001B[0m]");
         }
         break;
@@ -155,31 +183,26 @@ public class Main {
           if (!lineScanner.hasNext()) {
             if (!player.getCanSee()) {
               System.out.println("It is too dark. Action cannot be made.");
-            }
-            else {
+            } else {
               processTurnPlayer(player, command2);
             }
-          }
-          else {
+          } else {
             System.out.println("Usage: TURN [LEFT, RIGHT, AROUND]");
           }
-        }
-        else {
+        } else {
           System.out.println("Usage: TURN [LEFT, RIGHT, AROUND]");
         }
-        break; 
+        break;
       }
       case "use": {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
             processItemAction(player, command2);
-          }
-          else {
+          } else {
             System.out.println("Usage: USE [\u001B[36mITEM\u001B[0m]");
           }
-        } 
-        else {
+        } else {
           System.out.println("Usage: USE [\u001B[36mITEM\u001B[0m]");
         }
         break;
@@ -189,12 +212,10 @@ public class Main {
           command2 = lineScanner.next().toLowerCase();
           if ("inventory".equals(command2) && !lineScanner.hasNext()) {
             player.displayInventory();
-          }
-          else {
+          } else {
             System.out.println("Usage: VIEW INVENTORY");
           }
-        }
-        else {
+        } else {
           System.out.println("Usage: VIEW INVENTORY");
         }
         break;
@@ -207,8 +228,7 @@ public class Main {
       default: {
         if (!player.getCanSee()) {
           System.out.println("It is too dark. Action cannot be made.");
-        }
-        else {
+        } else {
           System.out.println("Action cannot be made.");
         }
         break;
@@ -218,6 +238,13 @@ public class Main {
     return done;
   }
   
+  /**
+   * Processes a player entering a portal.
+   * @param player - current player
+   * @param portalName - selected portal's name
+   * @throws Exception
+   * 
+   */
   public static void processEnterPortal(Player player, String portalName) throws Exception {
     Wall curWal = player.getCurrentWall();
     if (curWal.hasPortal()) {
@@ -228,6 +255,13 @@ public class Main {
     }
   }
   
+  /**
+   * Processes a player inspecting an element.
+   * @param player - current player
+   * @param elementName -  selected element's name
+   * @throws Exception
+   * 
+   */
   public static void processInspectElement(Player player, String elementName) throws Exception {
     Wall curWal = player.getCurrentWall();
     for (Container c : curWal.getContainers()) {
@@ -241,6 +275,13 @@ public class Main {
     }
   }
 
+  /**
+   * Processes a player using an item.
+   * @param player - current player
+   * @param itemName - selected item's name
+   * @throws Exception
+   * 
+   */
   public static void processItemAction(Player player, String itemName) throws Exception {
     boolean itemFound = false;
     Item chosenItem = null;
@@ -260,6 +301,11 @@ public class Main {
     }
   }
 
+  /**
+   * Processes a player taking an item.
+   * @param player - current player
+   * @param itemName - selected item's name
+   */
   public static void processTakeItem(Player player, String itemName) {
     boolean itemFound = false;
     for (Item item : player.getCurrentWall().getItems()) {
@@ -287,8 +333,15 @@ public class Main {
     }
   }
   
+  /**
+   * Processes a player turning a certain direction.
+   * @param player - current player
+   * @param direction - selected direction
+   * @throws Exception
+   * 
+   */
   public static void processTurnPlayer(Player player, String direction) throws Exception {
-    switch(direction) {
+    switch (direction) {
       case "left": {
         player.turnLeft();
         break;

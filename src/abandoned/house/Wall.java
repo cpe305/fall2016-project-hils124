@@ -6,18 +6,30 @@ import abandoned.game.Main;
 import java.util.ArrayList;
 
 
+/**
+ * Class to model a wall.
+ * @author hils124
+ */
 public class Wall {
   private String name;
   private String direction;
   private ArrayList<Container> containers;
   private ArrayList<Item> items;
   private Portal portal;
-  // ArrayList<Entity> entities;
 
   public Wall() {
   }
 
-  public Wall(String name, String direction, ArrayList<Container> containers, ArrayList<Item> items, Portal portal) {
+  /**
+   * Public constructor.
+   * @param name - wall name
+   * @param direction - wall direction according to its room
+   * @param containers - list of containers on the wall
+   * @param items - list of items on the wall
+   * @param portal - portal on the wall. Null if there isn't one
+   */
+  public Wall(String name, String direction, ArrayList<Container> containers, ArrayList<Item> items,
+      Portal portal) {
     this.name = name;
     this.direction = direction;
     this.containers = containers;
@@ -61,6 +73,11 @@ public class Wall {
     this.items.remove(item);
   }
 
+  /**
+   * Prints all wall's container and item descriptions. 
+   * @throws Exception
+   * 
+   */
   public void describe() throws Exception {
     System.out.println("\n" + getName());
     for (Container c : containers) {

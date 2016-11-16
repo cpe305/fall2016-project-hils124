@@ -2,6 +2,10 @@ package abandoned.house;
 
 import abandoned.game.Main;
 
+/**
+ * Class to model a room.
+ * @author hils124
+ */
 public class Room {
 
   private String name;
@@ -13,6 +17,14 @@ public class Room {
   public Room() {
   }
 
+  /**
+   * Public constructor.
+   * @param name - room name
+   * @param westWall - room's west wall
+   * @param eastWall - room's east wall
+   * @param northWall - room's north wall
+   * @param southWall - room's south wall
+   */
   public Room(String name, Wall westWall, Wall eastWall, Wall northWall, Wall southWall) {
     this.name = name;
     this.westWall = westWall;
@@ -61,20 +73,24 @@ public class Room {
     return this.southWall;
   }
   
+  /**
+   * Processes a portal being entered.
+   * @param wallName - name of the new wall
+   * @return new wall that the player is now facing
+   * @throws Exception
+   * 
+   */
   public Wall enter(String wallName) throws Exception {
     Wall newWall;
     if ("westWall".equals(wallName)) {
       newWall = this.westWall;
-    }
-    else if ("eastWall".equals(wallName)) {
+    } else if ("eastWall".equals(wallName)) {
       newWall = this.eastWall;
-    }
-    else if ("northWall".equals(wallName)) {
+    } else if ("northWall".equals(wallName)) {
       newWall = this.northWall;
-    }
-    else {
+    } else {
       newWall = this.southWall;
-    }  
+    }
     Main.scrollText("\nYou have entered the " + this.name + ".\n");
     return newWall;
   }

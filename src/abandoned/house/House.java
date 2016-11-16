@@ -1,14 +1,21 @@
 package abandoned.house;
+
 import java.util.ArrayList;
 
-import abandoned.entities.Item;
-
+/**
+ * Class to model a house.
+ * @author hils124
+ */
 public class House {
   private ArrayList<Room> rooms;
 
   public House() {
   }
 
+  /**
+   * Public constructor.
+   * @param rooms - list of rooms in the house
+   */
   public House(ArrayList<Room> rooms) {
     this.rooms = rooms;
   }
@@ -17,6 +24,11 @@ public class House {
     return this.rooms;
   }
   
+  /**
+   * Gets the specified room in the house
+   * @param name - name of the requested room
+   * @return requested room if it is in the house. Else returns null.
+   */
   public Room getRoom(String name) {
     for (Room r: this.rooms) {
       if (r.getName().equals(name)) {
@@ -24,59 +36,5 @@ public class House {
       }
     }
     return null;
-  }
-
-  public void printHouse() {
-    for (Room room : rooms) {
-      System.out.println("Room: " + room.getName());
-      Wall leftWall = room.getWestWall();
-      Wall rightWall = room.getEastWall();
-      Wall frontWall = room.getNorthWall();
-      Wall backWall = room.getSouthWall();
-      System.out.println("  Left:");
-      for (Container c : leftWall.getContainers()) {
-        System.out.println("    " + c.getName());
-        for (Item i : c.getItems()) {
-          System.out.println("      -" + i.getName());
-        }
-      }
-      for (Item i : leftWall.getItems()) {
-        System.out.println("   " + i.getName());
-      }
-
-      System.out.println("  Right:");
-      for (Container c : rightWall.getContainers()) {
-        System.out.println("    " + c.getName());
-        for (Item i : c.getItems()) {
-          System.out.println("      -" + i.getName());
-        }
-      }
-      for (Item i : rightWall.getItems()) {
-        System.out.println("    " + i.getName());
-      }
-
-      System.out.println("  Front:");
-      for (Container c : frontWall.getContainers()) {
-        System.out.println("    " + c.getName());
-        for (Item i : c.getItems()) {
-          System.out.println("      -" + i.getName());
-        }
-      }
-      for (Item i : frontWall.getItems()) {
-        System.out.println("    " + i.getName());
-      }
-
-      System.out.println("  Back:");
-      for (Container c : backWall.getContainers()) {
-        System.out.println("    " + c.getName());
-        for (Item i : c.getItems()) {
-          System.out.println("      -" + i.getName());
-        }
-      }
-      for (Item i : backWall.getItems()) {
-        System.out.println("    " + i.getName());
-      }
-      System.out.println();
-    }
   }
 }

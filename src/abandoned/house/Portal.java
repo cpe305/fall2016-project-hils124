@@ -1,5 +1,9 @@
 package abandoned.house;
 
+/**
+ * Class to model a portal.
+ * @author hils124
+ */
 public class Portal {
   private String name;
   private String type;
@@ -11,6 +15,14 @@ public class Portal {
     
   }
   
+  /**
+   * Public constructor.
+   * @param name - portal name
+   * @param type - portal type
+   * @param roomName - room that the portal leads to
+   * @param wallName - wall that the portal leads to 
+   * @param description - portal description
+   */
   public Portal(String name, String type, String roomName, String wallName, String description) {
     this.name = name;
     this.type = type;

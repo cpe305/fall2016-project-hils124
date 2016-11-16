@@ -9,12 +9,20 @@ import abandoned.house.Wall;
 import java.util.ArrayList;
 
 
+/**
+ * Class to model a player in the game.
+ * @author hils124
+ */
 public class Player {
   private ArrayList<Item> inventory;
   private Room currentRoom;
   private Wall currentWall;
   private boolean canSee;
 
+  /**
+   * Public constructor.
+   * @param house - main house
+   */
   public Player(House house) {
     inventory = new ArrayList<Item>();
     this.currentRoom = house.getRoom("bedroom");
@@ -22,6 +30,13 @@ public class Player {
     this.canSee = false;
   }
 
+  /**
+   * Using an item.
+   * @param item - chosen item
+   * @return true on success
+   * @throws Exception
+   * 
+   */
   public boolean useItem(Item item) throws Exception {
     boolean success = item.use(this, item, Main.house, currentRoom, currentWall);
     if (success) {
@@ -62,6 +77,9 @@ public class Player {
     return this.canSee;
   }
   
+  /**
+   * Displays everything in the player's inventory.
+   */
   public void displayInventory() {
     if (inventory.isEmpty()) {
       System.out.println("Your inventory is empty.");
@@ -73,12 +91,24 @@ public class Player {
     }
   }
   
+  /**
+   * Processes a player entering a portal.
+   * @param portal - chosen portal
+   * @param house - main house
+   * @throws Exception
+   * 
+   */
   public void enter(Portal portal, House house) throws Exception {
     currentRoom = house.getRoom(portal.getRoomName());
     currentWall = currentRoom.enter(portal.getWallName());
     currentWall.describe();
   }
   
+  /**
+   * Processes a player turning left.
+   * @throws Exception
+   * 
+   */
   public void turnLeft() throws Exception {
     switch (currentWall.getDirection()) {
       case "n": {
@@ -104,6 +134,11 @@ public class Player {
     currentWall.describe();
   }
   
+  /**
+   * Processes a player turning right.
+   * @throws Exception
+   * 
+   */
   public void turnRight() throws Exception {
     switch (currentWall.getDirection()) {
       case "n": {
@@ -129,6 +164,11 @@ public class Player {
     currentWall.describe();
   }
   
+  /**
+   * Processes a player turning around.
+   * @throws Exception
+   * 
+   */
   public void turnAround() throws Exception {
     switch (currentWall.getDirection()) {
       case "n": {

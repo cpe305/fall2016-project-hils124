@@ -7,6 +7,10 @@ import abandoned.house.Room;
 import abandoned.house.Wall;
 
 
+/**
+ * Class to model an item.
+ * @author hils124
+ */
 public class Item {
   
   private String name;
@@ -17,6 +21,13 @@ public class Item {
   public Item() {
   }
 
+  /**
+   * public Item constructor.
+   * @param name - item name
+   * @param description - item description
+   * @param useType - type of item use
+   * @param isTakeable - item can be picked up
+   */
   public Item(String name, String description, EntityUseType useType, boolean isTakeable) {
     this.name = name;
     this.description = description;
@@ -44,7 +55,19 @@ public class Item {
     return this.isTakeable;
   }
   
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) throws Exception {
+  /**
+   * Called when player uses an item.
+   * @param player - current player
+   * @param item - item being used
+   * @param house - main house
+   * @param curRoom - current room the player is in
+   * @param curWall - current wall the player is facing
+   * @return item use success
+   * @throws Exception
+   * 
+   */
+  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
+      throws Exception {
     if (this.useType != null) {
       return this.useType.getAction().use(player, item, Main.house, curRoom, curWall);  
     }

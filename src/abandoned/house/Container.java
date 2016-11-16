@@ -1,9 +1,15 @@
 package abandoned.house;
-import java.util.ArrayList;
 
 import abandoned.entities.Item;
 import abandoned.game.Main;
 
+import java.util.ArrayList;
+
+
+/**
+ * Class to model a container that may hold items.
+ * @author hils124
+ */
 public class Container {
   private String name;
   private String description;
@@ -13,6 +19,12 @@ public class Container {
   public Container() {
   }
 
+  /**
+   * Public constructor.
+   * @param name - container's name
+   * @param description - container's description
+   * @param items - list of items in the container
+   */
   public Container(String name, String description, ArrayList<Item> items) {
     this.name = name;
     this.description = description;
@@ -48,6 +60,11 @@ public class Container {
     return !items.isEmpty();
   }
   
+  /**
+   * Inspecting a container to display its items' descriptions.
+   * @throws Exception
+   * 
+   */
   public void inspect() throws Exception {
     inspected = true;
     for (Item i: items) {
