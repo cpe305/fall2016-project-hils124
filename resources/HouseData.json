@@ -8,52 +8,76 @@
 				"containers": [
 					{
 						"name": "desk",
+						"description": "You see a rotting wooden \u001B[32mdesk\u001B[0m propped against the wall.",
+						"inspected": false,
 						"items": [
 							{
 								"name": "letter",
+								"description": "",
 								"useType": null,
 								"isTakeable": true
 							}
 						]
 					}
 				],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"eastWall": {
 				"name": "BEDROOM - EAST",
 				"direction": "e",
 				"containers": [],
-				"items": [
-					{
-						"name": "kitchenDoor",
-						"useType": null,
-						"isTakeable": false
-					}
-				]
+				"items": [],
+				"portal": {
+					"name": "kitchenDoor",
+					"type": "door",
+					"roomName": "kitchen",
+					"wallName": "eastWall",
+					"description": "You see a discolored white \u001B[33mdoor\u001B[0m."
+				}
 			},
 			"northWall": {
 				"name": "BEDROOM - NORTH",
 				"direction": "n",
-				"containers": [],
+				"containers": [
+					{
+						"name": "painting",
+						"description": "You see a \u001B[32mpainting\u001B[0m crookedly hanging on a wall.",
+						"inspected": false,
+						"items": []
+					}
+				],
 				"items": [
 					{
 						"name": "lamp",
+						"description": "",
 						"useType": null,
 						"isTakeable": false
 					}
-				]
+				],
+				"portal": null
 			},
 			"southWall": {
 				"name": "BEDROOM - SOUTH",
 				"direction": "s",
-				"containers": [],
+				"containers": [
+					{
+						"name": "bed",
+						"description": "There is an old dusty \u001B[32mbed\u001B[0m.",
+						"inspected": false,
+						"items": []
+
+					}
+				],
 				"items": [
 					{
 						"name": "bed",
+						"description": "",
 						"useType": null,
 						"isTakeable": false
 					}
-				]
+				],
+				"portal": null
 			}
 		},
 		{
@@ -61,37 +85,51 @@
 			"westWall": {
 				"name": "KITCHEN - WEST",
 				"direction": "w",
+				"containers": [],
+				"items": [],
+				"portal": null
+			},
+			"eastWall": {
+				"name": "KITCHEN - EAST",
+				"direction": "e",
 				"containers": [
 					{
 						"name": "cupboard",
+						"description": "You see a dusty \u001B[32mcupboard\u001B[0m with a handle missing.",
+						"inspected": false,
 						"items": [
 							{
 								"name": "knife",
+								"description": "There is a large carving \u001B[36mknife\u001B[0m lying on top of the cupboard.",
 								"useType": null,
 								"isTakeable": true
 							}
 						]
 					}
 				],
-				"items": []
-			},
-			"eastWall": {
-				"name": "KITCHEN - EAST",
-				"direction": "e",
-				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"northWall": {
 				"name": "KITCHEN - NORTH",
 				"direction": "n",
 				"containers": [],
-				"items": []
+				"items": [
+					{
+						"name": "scissors",
+						"description": "There is a pair of red \u001B[36mscissors\u001B[0m on the floor to your left.",
+						"useType": null,
+						"isTakeable": true
+					}
+				],
+				"portal": null
 			},
 			"southWall": {
 				"name": "KITCHEN - SOUTH",
 				"direction": "s",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			}
 		},
 		{
@@ -102,28 +140,33 @@
 				"containers": [
 					{
 						"name": "bookshelf",
+						"description": "",
 						"items": []
 					}
 				],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"eastWall": {
 				"name": "LIBRARY - EAST",
 				"direction": "e",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"northWall": {
 				"name": "LIBRARY - NORTH",
 				"direction": "n",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"southWall": {
 				"name": "LIBRARY - SOUTH",
 				"direction": "s",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			}
 		},
 		{
@@ -132,25 +175,29 @@
 				"name": "ATTIC - WEST",
 				"direction": "w",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"eastWall": {
 				"name": "ATTIC - EAST",
 				"direction": "e",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"northWall": {
 				"name": "ATTIC - NORTH",
 				"direction": "n",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"southWall": {
 				"name": "ATTIC - SOUTH",
 				"direction": "s",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			}
 		},
 		{
@@ -159,25 +206,29 @@
 				"name": "GARDEN - WEST",
 				"direction": "w",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"eastWall": {
 				"name": "GARDEN - EAST",
 				"direction": "e",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"northWall": {
 				"name": "GARDEN - NORTH",
 				"direction": "n",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"southWall": {
 				"name": "GARDEN - SOUTH",
 				"direction": "s",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			}
 		},
 		{
@@ -186,7 +237,8 @@
 				"name": "BASEMENT - WEST",
 				"direction": "w",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"eastWall": {
 				"name": "BASEMENT - EAST",
@@ -194,21 +246,27 @@
 				"containers": [],
 				"items": [
 					{
-						"name": "shovel"
+						"name": "shovel",
+						"description": "",
+						"useType": null,
+						"isTakeable": true
 					}
-				]
+				],
+				"portal": null
 			},
 			"northWall": {
 				"name": "BASEMENT - NORTH",
 				"direction": "n",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"southWall": {
 				"name": "BASEMENT - SOUTH",
 				"direction": "s",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			}
 		},
 		{
@@ -217,25 +275,29 @@
 				"name": "SECRET ROOM - WEST",
 				"direction": "w",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"eastWall": {
 				"name": "SECRET ROOM - EAST",
 				"direction": "e",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"northWall": {
 				"name": "SECRET ROOM - NORTH",
 				"direction": "n",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			},
 			"southWall": {
 				"name": "SECRET ROOM - SOUTH",
 				"direction": "s",
 				"containers": [],
-				"items": []
+				"items": [],
+				"portal": null
 			}
 		}
 	]

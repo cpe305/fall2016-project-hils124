@@ -2,22 +2,25 @@ package abandoned.house;
 import java.util.ArrayList;
 
 import abandoned.entities.Item;
+import abandoned.game.Main;
 
 public class Wall {
   private String name;
   private String direction;
   private ArrayList<Container> containers;
   private ArrayList<Item> items;
+  private Portal portal;
   // ArrayList<Entity> entities;
 
   public Wall() {
   }
 
-  public Wall(String name, String direction, ArrayList<Container> containers, ArrayList<Item> items) {
+  public Wall(String name, String direction, ArrayList<Container> containers, ArrayList<Item> items, Portal portal) {
     this.name = name;
     this.direction = direction;
     this.containers = containers;
     this.items = items;
+    this.portal = portal;
   }
 
   public String getName() {
@@ -39,6 +42,18 @@ public class Wall {
   public ArrayList<Item> getItems() {
     return this.items;
   }
+  
+  public boolean hasPortal() {
+    return this.portal != null;
+  }
+  
+  public Portal getPortal() {
+    return this.portal;
+  }
+  
+  public void removeItem(Item item) {
+    this.items.remove(item);
+  }
 
   // public ArrayList<Entity> getEntities() {
   // return this.entities;
@@ -52,7 +67,17 @@ public class Wall {
   // this.entities.remove(entity);
   // }
 
-  public void getInitialDescription(String description) {
-    System.out.println(description);
+  public void describe() throws Exception {
+    System.out.println("\n" + getName());
+    for (Container c : containers) {
+      Main.scrollText(c.getDescription());
+    }
+    for (Item i : items) {
+      Main.scrollText(i.getDescription());
+    }
+    if (portal != null) {
+      Main.scrollText(portal.getDescription());
+    }
+    System.out.println("\n");
   }
 }

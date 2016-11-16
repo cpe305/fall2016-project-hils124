@@ -1,4 +1,7 @@
 package abandoned.house;
+
+import abandoned.game.Main;
+
 public class Room {
 
   private String name;
@@ -56,5 +59,23 @@ public class Room {
 
   public Wall getSouthWall() {
     return this.southWall;
+  }
+  
+  public Wall enter(String wallName) throws Exception {
+    Wall newWall;
+    if (wallName.equals("westWall")) {
+      newWall = this.westWall;
+    }
+    else if (wallName.equals("eastWall")) {
+      newWall = this.eastWall;
+    }
+    else if (wallName.equals("northWall")) {
+      newWall = this.northWall;
+    }
+    else {
+      newWall = this.southWall;
+    }  
+    Main.scrollText("\nYou have entered the " + this.name + ".\n");
+    return newWall;
   }
 }

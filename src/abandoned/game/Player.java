@@ -9,16 +9,21 @@ public class Player {
   private ArrayList<Item> inventory;
   private Room currentRoom;
   private Wall currentWall;
+  private boolean canSee;
 
   public Player(House house) {
     inventory = new ArrayList<Item>();
     this.currentRoom = house.getRoom("bedroom");
     this.currentWall = this.currentRoom.getNorthWall();
+    this.canSee = false;
   }
 
-  public void useItem(Item item) {
-    item.use(item, Main.house, currentRoom, currentWall);
-    inventory.remove(item);
+  public boolean useItem(Item item) throws Exception {
+    boolean success = item.use(this, item, Main.house, currentRoom, currentWall);
+    if (success) {
+      inventory.remove(item);
+    }
+    return success;
   }
 
   public void addItem(Item item) {
@@ -45,7 +50,32 @@ public class Player {
     return this.currentWall;
   }
   
-  public void turnLeft() {
+  public void setCanSee(boolean value) {
+    this.canSee = value;
+  }
+  
+  public boolean getCanSee() {
+    return this.canSee;
+  }
+  
+  public void displayInventory() {
+    if (inventory.size() < 1) {
+      System.out.println("Your inventory is empty.");
+    } else {
+      for (Item i : inventory) {
+        System.out.println("> \u001B[36m" + i.getName() + "\u001B[0m");
+      }
+      System.out.println();
+    }
+  }
+  
+  public void enter(Portal portal, House house) throws Exception {
+    currentRoom = house.getRoom(portal.getRoomName());
+    currentWall = currentRoom.enter(portal.getWallName());
+    currentWall.describe();
+  }
+  
+  public void turnLeft() throws Exception {
     switch(currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getWestWall();
@@ -64,10 +94,10 @@ public class Player {
         break;
       } 
     }
-    System.out.println(currentWall.getName());
+    currentWall.describe();
   }
   
-  public void turnRight() {
+  public void turnRight() throws Exception {
     switch(currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getEastWall();
@@ -86,10 +116,10 @@ public class Player {
         break;
       }
     }
-    System.out.println(currentWall.getName());
+    currentWall.describe();
   }
   
-  public void turnAround() {
+  public void turnAround() throws Exception {
     switch(currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getSouthWall();
@@ -108,6 +138,6 @@ public class Player {
         break;
       }
     }
-    System.out.println(currentWall.getName());
+    currentWall.describe();
   }
 }

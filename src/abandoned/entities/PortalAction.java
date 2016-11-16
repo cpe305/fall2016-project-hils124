@@ -6,10 +6,8 @@ import abandoned.house.House;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
-public class MatchAction implements EntityAction {
+public class PortalAction {
   public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) throws Exception {
-    player.setCanSee(true);
-    Main.scrollText("\nYou strike a match and squint as a room slowly lights up around you.\n");
     curWall.describe();
     return true;
   }
