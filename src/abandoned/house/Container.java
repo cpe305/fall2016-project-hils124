@@ -16,6 +16,9 @@ public class Container {
   private boolean inspected;
   private ArrayList<Item> items;
 
+  /**
+   * Empty constructor for JSON serializing.
+   */
   public Container() {
   }
 

@@ -11,6 +11,9 @@ public class Portal {
   private String wallName;
   private String description;
   
+  /**
+   * Empty constructor for JSON serializing.
+   */
   public Portal() {
     
   }

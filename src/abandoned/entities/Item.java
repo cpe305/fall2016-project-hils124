@@ -18,6 +18,9 @@ public class Item {
   private EntityUseType useType;
   private boolean isTakeable;
 
+  /**
+   * Empty constructor for JSON serializing.
+   */
   public Item() {
   }
 
@@ -66,10 +69,9 @@ public class Item {
    * @throws Exception
    * 
    */
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
-      throws Exception {
+  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) throws Exception {
     if (this.useType != null) {
-      return this.useType.getAction().use(player, item, Main.house, curRoom, curWall);  
+      return this.useType.getAction().use(player, item, house, curRoom, curWall);  
     }
     return false;
   }

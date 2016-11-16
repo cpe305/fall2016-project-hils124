@@ -17,6 +17,9 @@ public class Wall {
   private ArrayList<Item> items;
   private Portal portal;
 
+  /**
+   * Empty constructor for JSON serializing.
+   */
   public Wall() {
   }
 

@@ -14,6 +14,9 @@ public class Room {
   private Wall northWall;
   private Wall southWall;
 
+  /**
+   * Empty constructor for JSON serializing.
+   */
   public Room() {
   }
 
