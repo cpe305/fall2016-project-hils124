@@ -1,8 +1,10 @@
 package abandoned.house;
-import java.util.ArrayList;
 
 import abandoned.entities.Item;
 import abandoned.game.Main;
+
+import java.util.ArrayList;
+
 
 public class Wall {
   private String name;
@@ -51,21 +53,13 @@ public class Wall {
     return this.portal;
   }
   
+  public void addItem(Item item) {
+    this.items.add(item);
+  }
+  
   public void removeItem(Item item) {
     this.items.remove(item);
   }
-
-  // public ArrayList<Entity> getEntities() {
-  // return this.entities;
-  // }
-  //
-  // public void addEntity(Entity entity) {
-  // this.entities.add(entity);
-  // }
-  //
-  // public void removeEntity(Entity entity) {
-  // this.entities.remove(entity);
-  // }
 
   public void describe() throws Exception {
     System.out.println("\n" + getName());

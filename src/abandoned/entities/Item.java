@@ -1,9 +1,11 @@
 package abandoned.entities;
+
 import abandoned.game.Main;
+import abandoned.game.Player;
 import abandoned.house.House;
 import abandoned.house.Room;
 import abandoned.house.Wall;
-import abandoned.game.Player;
+
 
 public class Item {
   

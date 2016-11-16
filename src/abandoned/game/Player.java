@@ -1,8 +1,12 @@
 package abandoned.game;
-import java.util.ArrayList;
 
 import abandoned.entities.Item;
-import abandoned.house.*;
+import abandoned.house.House;
+import abandoned.house.Portal;
+import abandoned.house.Room;
+import abandoned.house.Wall;
+
+import java.util.ArrayList;
 
 
 public class Player {
@@ -76,7 +80,7 @@ public class Player {
   }
   
   public void turnLeft() throws Exception {
-    switch(currentWall.getDirection()) {
+    switch (currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getWestWall();
         break;
@@ -92,13 +96,16 @@ public class Player {
       case "w": {
         currentWall = currentRoom.getSouthWall();
         break;
-      } 
+      }
+      default: {
+        break;
+      }
     }
     currentWall.describe();
   }
   
   public void turnRight() throws Exception {
-    switch(currentWall.getDirection()) {
+    switch (currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getEastWall();
         break;
@@ -113,6 +120,9 @@ public class Player {
       }
       case "w": {
         currentWall = currentRoom.getNorthWall();
+        break;
+      }
+      default: {
         break;
       }
     }
@@ -120,7 +130,7 @@ public class Player {
   }
   
   public void turnAround() throws Exception {
-    switch(currentWall.getDirection()) {
+    switch (currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getSouthWall();
         break;
@@ -135,6 +145,9 @@ public class Player {
       }
       case "w": {
         currentWall = currentRoom.getEastWall();
+        break;
+      }
+      default: {
         break;
       }
     }
