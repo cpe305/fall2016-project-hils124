@@ -63,13 +63,13 @@ public class Room {
   
   public Wall enter(String wallName) throws Exception {
     Wall newWall;
-    if (wallName.equals("westWall")) {
+    if ("westWall".equals(wallName)) {
       newWall = this.westWall;
     }
-    else if (wallName.equals("eastWall")) {
+    else if ("eastWall".equals(wallName)) {
       newWall = this.eastWall;
     }
-    else if (wallName.equals("northWall")) {
+    else if ("northWall".equals(wallName)) {
       newWall = this.northWall;
     }
     else {

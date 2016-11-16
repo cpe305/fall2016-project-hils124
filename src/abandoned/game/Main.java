@@ -16,13 +16,12 @@ public class Main {
   public static final House house = GameBuilder.initGame();
   
   public static void main(String[] args) throws Exception {
-//    Runtime.getRuntime().exec("/usr/bin/open -a Terminal .");
     System.out.print("\033[H\033[2J");
     System.out.flush();
     try (BufferedReader br = new BufferedReader(new FileReader("resources/title.txt"))) {
       String line = null;
       while ((line = br.readLine()) != null) {
-          System.out.println(line);
+        System.out.println(line);
       }
     }
     Player player = new Player(house);
@@ -50,6 +49,7 @@ public class Main {
         }
       }
     }
+    scanner.close();
   }
 
   public static void scrollText(String str) throws Exception {
@@ -69,6 +69,7 @@ public class Main {
       String option = scanner.nextLine();
       done = optionParser(option.toLowerCase(), player);
     }
+    scanner.close();
   }
 
   public static void quitGame() {
@@ -186,7 +187,7 @@ public class Main {
       case "view": {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
-          if (command2.equals("inventory") && !lineScanner.hasNext()) {
+          if ("inventory".equals(command2) && !lineScanner.hasNext()) {
             player.displayInventory();
           }
           else {
@@ -213,6 +214,7 @@ public class Main {
         break;
       }
     }
+    lineScanner.close();
     return done;
   }
   

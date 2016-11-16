@@ -45,7 +45,7 @@ public class Container {
   }
   
   public boolean hasItems() {
-    return items.size() != 0;
+    return !items.isEmpty();
   }
   
   public void inspect() throws Exception {

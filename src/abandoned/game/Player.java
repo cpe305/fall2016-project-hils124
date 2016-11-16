@@ -63,7 +63,7 @@ public class Player {
   }
   
   public void displayInventory() {
-    if (inventory.size() < 1) {
+    if (inventory.isEmpty()) {
       System.out.println("Your inventory is empty.");
     } else {
       for (Item i : inventory) {
