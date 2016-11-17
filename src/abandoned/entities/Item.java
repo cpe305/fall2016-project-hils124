@@ -1,6 +1,5 @@
 package abandoned.entities;
 
-import abandoned.game.Main;
 import abandoned.game.Player;
 import abandoned.house.House;
 import abandoned.house.Room;
@@ -69,7 +68,8 @@ public class Item {
    * @throws Exception
    * 
    */
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) throws Exception {
+  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
+      throws Exception {
     if (this.useType != null) {
       return this.useType.getAction().use(player, item, house, curRoom, curWall);  
     }

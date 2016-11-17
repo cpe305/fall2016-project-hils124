@@ -65,8 +65,14 @@
 						"name": "bed",
 						"description": "There is an old dusty \u001B[32mbed\u001B[0m.",
 						"inspected": false,
-						"items": []
-
+						"items": [
+							{
+								"name": "handle",
+								"description": "After looking all around, you see a \u001B[36mhandle\u001B[0m underneath the bed.",
+								"useType": "HANDLE",
+								"isTakeable": true
+							}
+						]
 					}
 				],
 				"items": [

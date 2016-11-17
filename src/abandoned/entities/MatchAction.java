@@ -11,13 +11,6 @@ import abandoned.house.Wall;
  * @author hils124
  */
 public class MatchAction implements EntityAction {
-  /*
-   * (non-Javadoc)
-   * @see abandoned.entities.EntityAction#use(abandoned.game.Player,
-   * abandoned.entities.Item, abandoned.house.House, abandoned.house.Room,
-   * abandoned.house.Wall)
-   * 
-   */
   public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
       throws Exception {
     player.setCanSee(true);

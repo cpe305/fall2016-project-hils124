@@ -41,7 +41,7 @@ public class Wall {
   }
 
   public String getName() {
-    return "\033[0;1m" + this.name + "\033[0;0m";
+    return this.name;
   }
   
   public String getDirection() {
@@ -54,6 +54,16 @@ public class Wall {
   
   public ArrayList<Container> getContainers() {
     return this.containers;
+  }
+  
+  public Container getContainer(String name) {
+    Container container = null;
+    for (Container c: containers) {
+      if (name.equals(c.getName())) {
+        container = c;
+      }
+    }
+    return container;
   }
 
   public ArrayList<Item> getItems() {
