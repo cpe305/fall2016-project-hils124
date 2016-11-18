@@ -75,14 +75,7 @@
 						]
 					}
 				],
-				"items": [
-					{
-						"name": "bed",
-						"description": "",
-						"useType": null,
-						"isTakeable": false
-					}
-				],
+				"items": [],
 				"portal": null
 			}
 		},
@@ -93,7 +86,13 @@
 				"direction": "w",
 				"containers": [],
 				"items": [],
-				"portal": null
+				"portal": {
+					"name": "bedroomDoor",
+					"type": "door",
+					"roomName": "bedroom",
+					"wallName": "westWall",
+					"description": "You see a discolored white \u001B[33mdoor\u001B[0m."
+				}
 			},
 			"eastWall": {
 				"name": "KITCHEN - EAST",

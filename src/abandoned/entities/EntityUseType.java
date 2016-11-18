@@ -7,9 +7,7 @@ package abandoned.entities;
  */
 
 public enum EntityUseType {
-  /**
-   * Models a match action.
-   */
+
   MATCH(new MatchAction()),
   HANDLE(new HandleAction()),
   KEY(new KeyAction());

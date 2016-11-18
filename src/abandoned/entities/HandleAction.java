@@ -12,7 +12,7 @@ public class HandleAction implements EntityAction {
       throws Exception {
     if ("KITCHEN - EAST".equals(curWall.getName())) {
       Main.scrollText(
-          "The handle fits into the \u001B[32mcupboard\u001B[0m and you slowly open it.");
+          "The handle fits into the \u001B[32mcupboard\u001B[0m and you slowly open it.\n");
       Container cupboard = curWall.getContainer("cupboard");
       cupboard.setDescription("You see a dusty \u001B[32mcupboard\u001B[0m with an open drawer.");
       cupboard.addItem(new Item("key",
