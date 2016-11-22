@@ -1,13 +1,13 @@
 package abandoned.house;
 
 import abandoned.entities.Item;
-import abandoned.game.Main;
+import abandoned.game.Print;
 
 import java.util.ArrayList;
 
-
 /**
  * Class to model a wall.
+ * 
  * @author hils124
  */
 public class Wall {
@@ -25,11 +25,17 @@ public class Wall {
 
   /**
    * Public constructor.
-   * @param name - wall name
-   * @param direction - wall direction according to its room
-   * @param containers - list of containers on the wall
-   * @param items - list of items on the wall
-   * @param portal - portal on the wall. Null if there isn't one
+   * 
+   * @param name
+   *          - wall name
+   * @param direction
+   *          - wall direction according to its room
+   * @param containers
+   *          - list of containers on the wall
+   * @param items
+   *          - list of items on the wall
+   * @param portal
+   *          - portal on the wall. Null if there isn't one
    */
   public Wall(String name, String direction, ArrayList<Container> containers, ArrayList<Item> items,
       Portal portal) {
@@ -43,7 +49,7 @@ public class Wall {
   public String getName() {
     return this.name;
   }
-  
+
   public String getDirection() {
     return this.direction;
   }
@@ -51,14 +57,14 @@ public class Wall {
   public void setDirection(String direction) {
     this.direction = direction;
   }
-  
+
   public ArrayList<Container> getContainers() {
     return this.containers;
   }
-  
+
   public Container getContainer(String name) {
     Container container = null;
-    for (Container c: containers) {
+    for (Container c : containers) {
       if (name.equals(c.getName())) {
         container = c;
       }
@@ -69,38 +75,39 @@ public class Wall {
   public ArrayList<Item> getItems() {
     return this.items;
   }
-  
+
   public boolean hasPortal() {
     return this.portal != null;
   }
-  
+
   public Portal getPortal() {
     return this.portal;
   }
-  
+
   public void addItem(Item item) {
     this.items.add(item);
   }
-  
+
   public void removeItem(Item item) {
     this.items.remove(item);
   }
 
   /**
-   * Prints all wall's container and item descriptions. 
+   * Prints all wall's container and item descriptions.
+   * 
    * @throws Exception
    * 
    */
   public void describe() throws Exception {
     System.out.println("\n" + getName());
     for (Container c : containers) {
-      Main.scrollText(c.getDescription());
+      Print.printString(c.getDescription(), true);
     }
     for (Item i : items) {
-      Main.scrollText(i.getDescription());
+      Print.printString(i.getDescription(), true);
     }
     if (portal != null) {
-      Main.scrollText(portal.getDescription());
+      Print.printString(portal.getDescription(), true);
     }
     System.out.println("\n");
   }

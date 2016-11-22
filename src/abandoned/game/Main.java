@@ -1,5 +1,9 @@
 package abandoned.game;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Scanner;
+
 import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
 import abandoned.house.Container;
@@ -7,40 +11,39 @@ import abandoned.house.House;
 import abandoned.house.Portal;
 import abandoned.house.Wall;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.Scanner;
-
 /**
  * Class to run the game.
+ * 
  * @author hils124
  */
 public class Main {
   public static final House house = GameBuilder.initGame();
-  
+
   /**
    * Main driver method.
-   * @param args - given arguments
+   * 
+   * @param args
+   *          - given arguments
    * @throws Exception
    * 
    */
   public static void main(String[] args) throws Exception {
-    //clears terminal window
+    // clears terminal window
     System.out.print("\033[H\033[2J");
     System.out.flush();
     try (BufferedReader br = new BufferedReader(new FileReader("resources/title.txt"))) {
       String line = null;
       while ((line = br.readLine()) != null) {
-        System.out.println(line);
+        Print.printString(line + "\n", false);
       }
     }
     Player player = new Player(house);
     player.addItem(new Item("matches", "", EntityUseType.MATCH, true));
     Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
-    scrollText("Welcome to Abandoned.\n");
+    Print.printString("Welcome to Abandoned.\n", true);
     while (!validResponse) {
-      scrollText("Would you like to start a new game (yes/no)?\n");
+      Print.printString("Would you like to start a new game (yes/no)?\n", true);
       String answer = scanner.next();
       switch (answer) {
         case "yes": {
@@ -54,7 +57,7 @@ public class Main {
           break;
         }
         default: {
-          scrollText("Invalid response.\n");
+          Print.printString("Invalid response.\n", true);
           break;
         }
       }
@@ -63,31 +66,22 @@ public class Main {
   }
 
   /**
-   * Prints a string with scrolling effect.
-   * @param str - message to print
-   * @throws Exception
-   * 
-   */
-  public static void scrollText(String str) throws Exception {
-    for (int i = 0; i < str.length(); i++) {
-      System.out.print(str.charAt(i));
-      Thread.sleep(50);
-    }
-  }
-
-  /**
    * Initiates game state.
-   * @param player - current player
+   * 
+   * @param player
+   *          - current player
    * @throws Exception
    * 
    */
   public static void startGame(Player player) throws Exception {
-    scrollText(
-        "\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\n");
-    scrollText(
+    Print.printString(
+        "\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\n",
+        true);
+    Print.printString(
         "You are surrounded by darkness as you realize you have no idea where you are or "
-        + "how you got there.\n");
-    System.out.println("Type HELP to view commands.\n");
+            + "how you got there.\n",
+        true);
+    Print.printString("Type HELP to view commands.\n\n", false);
     Scanner scanner = new Scanner(System.in);
     boolean done = false;
     while (!done && scanner.hasNextLine()) {
@@ -103,21 +97,23 @@ public class Main {
 
   /**
    * Displays help menu.
+   * @throws InterruptedException - for scroll text
    */
-  public static void viewHelpMenu() {
-    System.out.println("\nCommands");
-    System.out.println("ENTER [\u001B[33mPORTAL\u001B[0m]");
-    System.out.println("INSPECT [\u001B[32mELEMENT\u001B[0m]");
-    System.out.println("INTERACT [\u001B[32mELEMENT\u001B[0m]");
-    System.out.println("TAKE [\u001B[36mITEM\u001B[0m]");
-    System.out.println("TURN [LEFT, RIGHT, AROUND]");
-    System.out.println("USE [\u001B[36mITEM\u001B[0m]");
-    System.out.println("VIEW INVENTORY");
-    System.out.println("QUIT\n");
+  public static void viewHelpMenu() throws InterruptedException {
+    Print.printString("\nCommands\n"
+        + "ENTER [\u001B[33mPORTAL\u001B[0m]\n" 
+        + "INSPECT [\u001B[32mELEMENT\u001B[0m]\n" 
+        + "INTERACT [\u001B[32mELEMENT\u001B[0m]\n" 
+        + "TAKE [\u001B[36mITEM\u001B[0m]\n"
+        + "TURN [LEFT, RIGHT, AROUND]\n"
+        + "USE [\u001B[36mITEM\u001B[0m]\n" 
+        + "VIEW INVENTORY\n"
+        + "QUIT\n", false);
   }
 
   /**
    * Processes player commands.
+   * 
    * @param option - player's chosen action
    * @param player - current player
    * @return if player is done
@@ -136,10 +132,10 @@ public class Main {
           if (!lineScanner.hasNext()) {
             processEnterPortal(player, command2);
           } else {
-            System.out.println("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]");
+            Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]\n", false);
           }
         } else {
-          System.out.println("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]");
+          Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]\n", false);
         }
         break;
       }
@@ -153,10 +149,10 @@ public class Main {
           if (!lineScanner.hasNext()) {
             processInspectElement(player, command2);
           } else {
-            System.out.println("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]");
+            Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]\n", false);
           }
         } else {
-          System.out.println("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]");
+          Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]\n", false);
         }
         break;
       }
@@ -166,15 +162,15 @@ public class Main {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
             if (!player.getCanSee()) {
-              System.out.println("It is too dark. Action cannot be made.");
+              Print.printString("It is too dark. Action cannot be made.\n", false);
             } else {
               processTakeItem(player, command2);
             }
           } else {
-            System.out.println("Usage: TAKE [\u001B[36mITEM\u001B[0m]");
+            Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]\n", false);
           }
         } else {
-          System.out.println("Usage: TAKE [\u001B[36mITEM\u001B[0m]");
+          Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]\n", false);
         }
         break;
       }
@@ -183,15 +179,15 @@ public class Main {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
             if (!player.getCanSee()) {
-              System.out.println("It is too dark. Action cannot be made.");
+              Print.printString("It is too dark. Action cannot be made.\n", false);
             } else {
               processTurnPlayer(player, command2);
             }
           } else {
-            System.out.println("Usage: TURN [LEFT, RIGHT, AROUND]");
+            Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]\n", false);
           }
         } else {
-          System.out.println("Usage: TURN [LEFT, RIGHT, AROUND]");
+          Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]\n", false);
         }
         break;
       }
@@ -201,10 +197,10 @@ public class Main {
           if (!lineScanner.hasNext()) {
             processItemAction(player, command2);
           } else {
-            System.out.println("Usage: USE [\u001B[36mITEM\u001B[0m]");
+            Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]\n", false);
           }
         } else {
-          System.out.println("Usage: USE [\u001B[36mITEM\u001B[0m]");
+          Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]\n", false);
         }
         break;
       }
@@ -214,23 +210,23 @@ public class Main {
           if ("inventory".equals(command2) && !lineScanner.hasNext()) {
             player.displayInventory();
           } else {
-            System.out.println("Usage: VIEW INVENTORY");
+            Print.printString("Usage: VIEW INVENTORY\n", false);
           }
         } else {
-          System.out.println("Usage: VIEW INVENTORY");
+          Print.printString("Usage: VIEW INVENTORY\n", false);
         }
         break;
       }
       case "quit": {
-        System.out.println("Quitting...");
+        Print.printString("Quitting...\n", false);
         done = true;
         break;
       }
       default: {
         if (!player.getCanSee()) {
-          System.out.println("It is too dark. Action cannot be made.");
+          Print.printString("It is too dark. Action cannot be made.\n", false);
         } else {
-          System.out.println("Action cannot be made.");
+          Print.printString("Action cannot be made.\n", false);
         }
         break;
       }
@@ -238,9 +234,10 @@ public class Main {
     lineScanner.close();
     return done;
   }
-  
+
   /**
    * Processes a player entering a portal.
+   * 
    * @param player - current player
    * @param portalName - selected portal's name
    * @throws Exception
@@ -255,11 +252,12 @@ public class Main {
       }
     }
   }
-  
+
   /**
    * Processes a player inspecting an element.
+   * 
    * @param player - current player
-   * @param elementName -  selected element's name
+   * @param elementName - selected element's name
    * @throws Exception
    * 
    */
@@ -270,7 +268,7 @@ public class Main {
         if (c.hasItems()) {
           c.inspect();
         } else {
-          System.out.println("Nothing to inspect.");
+          Print.printString("Nothing to inspect.\n", false);
         }
       }
     }
@@ -278,6 +276,7 @@ public class Main {
 
   /**
    * Processes a player using an item.
+   * 
    * @param player - current player
    * @param itemName - selected item's name
    * @throws Exception
@@ -295,19 +294,21 @@ public class Main {
     if (itemFound) {
       boolean success = player.useItem(chosenItem);
       if (!success) {
-        System.out.println("Cannot use item here.");
+        Print.printString("Cannot use item here.\n", false);
       }
     } else {
-      System.out.println("No such item to use.");
+      Print.printString("No such item to use.\n", false);
     }
   }
 
   /**
    * Processes a player taking an item.
+   * 
    * @param player - current player
    * @param itemName - selected item's name
+   * @throws InterruptedException - for scroll text
    */
-  public static void processTakeItem(Player player, String itemName) {
+  public static void processTakeItem(Player player, String itemName) throws InterruptedException {
     boolean itemFound = false;
     for (Item item : player.getCurrentWall().getItems()) {
       if (item.getName().equals(itemName)) {
@@ -330,14 +331,17 @@ public class Main {
       }
     }
     if (!itemFound) {
-      System.out.println("No such item to take.");
+      Print.printString("No such item to take.\n", false);
     }
   }
-  
+
   /**
    * Processes a player turning a certain direction.
-   * @param player - current player
-   * @param direction - selected direction
+   * 
+   * @param player
+   *          - current player
+   * @param direction
+   *          - selected direction
    * @throws Exception
    * 
    */
@@ -356,7 +360,7 @@ public class Main {
         break;
       }
       default: {
-        System.out.println("Action cannot be made.");
+        Print.printString("Action cannot be made.\n", false);
         break;
       }
     }

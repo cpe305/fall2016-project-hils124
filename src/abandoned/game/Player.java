@@ -79,15 +79,16 @@ public class Player {
   
   /**
    * Displays everything in the player's inventory.
+   * @throws InterruptedException - for scroll text
    */
-  public void displayInventory() {
+  public void displayInventory() throws InterruptedException {
     if (inventory.isEmpty()) {
-      System.out.println("Your inventory is empty.");
+      Print.printString("Your inventory is empty.\n", false);
     } else {
       for (Item i : inventory) {
-        System.out.println("> \u001B[36m" + i.getName() + "\u001B[0m");
+        Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m\n", false);
       }
-      System.out.println();
+      Print.printString("\n", false);
     }
   }
   

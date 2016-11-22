@@ -1,6 +1,6 @@
 package abandoned.house;
 
-import abandoned.game.Main;
+import abandoned.game.Print;
 
 /**
  * Class to model a room.
@@ -94,7 +94,7 @@ public class Room {
     } else {
       newWall = this.southWall;
     }
-    Main.scrollText("\nYou have entered the " + this.name + ".\n");
+    Print.printString("\nYou have entered the " + this.name + ".\n", true);
     return newWall;
   }
 }

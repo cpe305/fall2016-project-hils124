@@ -1,13 +1,13 @@
 package abandoned.house;
 
 import abandoned.entities.Item;
-import abandoned.game.Main;
+import abandoned.game.Print;
 
 import java.util.ArrayList;
 
-
 /**
  * Class to model a container that may hold items.
+ * 
  * @author hils124
  */
 public class Container {
@@ -24,9 +24,13 @@ public class Container {
 
   /**
    * Public constructor.
-   * @param name - container's name
-   * @param description - container's description
-   * @param items - list of items in the container
+   * 
+   * @param name
+   *          - container's name
+   * @param description
+   *          - container's description
+   * @param items
+   *          - list of items in the container
    */
   public Container(String name, String description, ArrayList<Item> items) {
     this.name = name;
@@ -38,19 +42,19 @@ public class Container {
   public String getName() {
     return this.name;
   }
-  
+
   public String getDescription() {
     return this.description;
   }
-  
+
   public void setDescription(String description) {
     this.description = description;
   }
-  
+
   public boolean getInspected() {
     return this.inspected;
   }
-  
+
   public ArrayList<Item> getItems() {
     return this.items;
   }
@@ -62,20 +66,21 @@ public class Container {
   public void removeItem(Item item) {
     items.remove(item);
   }
-  
+
   public boolean hasItems() {
     return !items.isEmpty();
   }
-  
+
   /**
    * Inspecting a container to display its items' descriptions.
+   * 
    * @throws Exception
    * 
    */
   public void inspect() throws Exception {
     inspected = true;
-    for (Item i: items) {
-      Main.scrollText(i.getDescription());
+    for (Item i : items) {
+      Print.printString(i.getDescription(), true);
     }
     System.out.println("\n");
   }
