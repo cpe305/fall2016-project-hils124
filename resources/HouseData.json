@@ -68,7 +68,7 @@
 						"items": [
 							{
 								"name": "handle",
-								"description": "After looking all around, you see a 	cupboard \u001B[36mhandle\u001B[0m underneath the bed.",
+								"description": "After looking all around, you see a cupboard \u001B[36mhandle\u001B[0m underneath the bed.",
 								"useType": "HANDLE",
 								"isTakeable": true
 							}

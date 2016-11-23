@@ -39,7 +39,7 @@ public class Player {
   public boolean useItem(Item item) {
     boolean success = item.use(this, item, Main.house, currentRoom, currentWall);
     if (success) {
-      inventory.remove(item);
+      removeItem(item);
     }
     return success;
   }
@@ -51,6 +51,14 @@ public class Player {
    */
   public void addItem(Item item) {
     inventory.add(item);
+  }
+  
+  /**
+   * Removing item from player's inventory.
+   * @param item - item to remove
+   */
+  public void removeItem(Item item) {
+    inventory.remove(item);
   }
 
   public List<Item> getInventory() {
