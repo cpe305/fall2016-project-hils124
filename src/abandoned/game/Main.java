@@ -118,7 +118,7 @@ public class Main {
    * @throws Exception
    * 
    */
-  public static boolean optionParser(String option, Player player) throws Exception {
+  public static boolean optionParser(String option, Player player) {
     boolean done = false;
     Scanner lineScanner = new Scanner(option);
     String command = lineScanner.next();
