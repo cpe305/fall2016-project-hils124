@@ -25,6 +25,14 @@ public class House {
     return this.rooms;
   }
   
+  public void addRoom(Room room) {
+    this.rooms.add(room);
+  }
+  
+  public void removeRoom(Room room) {
+    this.rooms.remove(room);
+  }
+  
   /**
    * Gets the specified room in the house
    * @param name - name of the requested room

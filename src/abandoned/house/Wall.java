@@ -72,6 +72,14 @@ public class Wall {
     }
     return container;
   }
+  
+  public void addContainer(Container container) {
+    this.containers.add(container);
+  }
+  
+  public void removeContainer(Container container) {
+    this.containers.remove(container);
+  }
 
   public List<Item> getItems() {
     return this.items;
@@ -87,6 +95,10 @@ public class Wall {
 
   public Portal getPortal() {
     return this.portal;
+  }
+  
+  public void setPortal(Portal portal) {
+    this.portal = portal;
   }
 
   /**
