@@ -7,7 +7,7 @@ import abandoned.house.Room;
 import abandoned.house.Wall;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 /**
  * Class to model a player in the game.
@@ -24,7 +24,7 @@ public class Player {
    * @param house - main house
    */
   public Player(House house) {
-    inventory = new ArrayList<Item>();
+    inventory = new ArrayList<>();
     this.currentRoom = house.getRoom("bedroom");
     this.currentWall = this.currentRoom.getNorthWall();
     this.canSee = false;
@@ -45,11 +45,16 @@ public class Player {
     return success;
   }
 
+  
+  /**
+   * Adding item to player's inventory.
+   * @param item - item to add
+   */
   public void addItem(Item item) {
     inventory.add(item);
   }
 
-  public ArrayList<Item> getInventory() {
+  public List<Item> getInventory() {
     return inventory;
   }
   
@@ -86,9 +91,9 @@ public class Player {
       Print.printString("Your inventory is empty.\n", false);
     } else {
       for (Item i : inventory) {
-        Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m\n", false);
+        Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m", false);
       }
-      Print.printString("\n", false);
+      Print.printString("", false);
     }
   }
   

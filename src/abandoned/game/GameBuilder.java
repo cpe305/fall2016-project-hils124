@@ -17,6 +17,10 @@ import java.util.logging.Logger;
  */
 public class GameBuilder {
   
+  private GameBuilder() {
+    throw new IllegalAccessError("Builder class");
+  }
+  
   /**
    * Builds the house from file data.
    * @return initial house state
@@ -25,15 +29,12 @@ public class GameBuilder {
     Logger logger = Logger.getLogger("HouseBuilder");
     try {
       ObjectMapper mapper = new ObjectMapper();
-      House house = mapper.readValue(new File("resources/HouseData.json"), House.class);
-      return house;
+      return mapper.readValue(new File("resources/HouseData.json"), House.class);
       
-    } catch (JsonGenerationException ex) {
+    } catch (JsonGenerationException | JsonMappingException ex) {
       logger.log(Level.SEVERE, "Uncaught exception", ex); 
-    } catch (JsonMappingException ex) {
-      logger.log(Level.SEVERE, "Uncaught exception", ex);  
     } catch (IOException ex) {
-      logger.log(Level.SEVERE, "Uncaught exception", ex); 
+      logger.log(Level.SEVERE, "IO Exception", ex); 
     }
     return null;
   }

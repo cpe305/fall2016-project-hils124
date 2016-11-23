@@ -3,7 +3,7 @@ package abandoned.house;
 import abandoned.entities.Item;
 import abandoned.game.Print;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class to model a container that may hold items.
@@ -14,25 +14,23 @@ public class Container {
   private String name;
   private String description;
   private boolean inspected;
-  private ArrayList<Item> items;
+  private List<Item> items;
 
   /**
    * Empty constructor for JSON serializing.
    */
   public Container() {
+    //empty for JSON serializing
   }
 
   /**
    * Public constructor.
    * 
-   * @param name
-   *          - container's name
-   * @param description
-   *          - container's description
-   * @param items
-   *          - list of items in the container
+   * @param name - container's name
+   * @param description - container's description
+   * @param items - list of items in the container
    */
-  public Container(String name, String description, ArrayList<Item> items) {
+  public Container(String name, String description, List<Item> items) {
     this.name = name;
     this.description = description;
     this.inspected = false;
@@ -55,18 +53,30 @@ public class Container {
     return this.inspected;
   }
 
-  public ArrayList<Item> getItems() {
+  public List<Item> getItems() {
     return this.items;
   }
 
+  /**
+   * Adding item to container's item list.
+   * @param item - item to add
+   */
   public void addItem(Item item) {
     items.add(item);
   }
 
+  /**
+   * Removing item from container's item list.
+   * @param item - item to add
+   */
   public void removeItem(Item item) {
     items.remove(item);
   }
 
+  /**
+   * Adding item to player's inventory.
+   * @return boolean - true if container has items
+   */
   public boolean hasItems() {
     return !items.isEmpty();
   }
@@ -82,6 +92,6 @@ public class Container {
     for (Item i : items) {
       Print.printString(i.getDescription(), true);
     }
-    System.out.println("\n");
+    Print.printString("\n", false);
   }
 }

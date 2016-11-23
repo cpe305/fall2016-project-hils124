@@ -7,7 +7,14 @@ import abandoned.house.House;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
+
+/**
+ * Class to model a handle's action when used.
+ * 
+ * @author hils124
+ */
 public class HandleAction implements EntityAction {
+  @Override
   public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
       throws Exception {
     if ("KITCHEN - EAST".equals(curWall.getName())) {
@@ -16,7 +23,7 @@ public class HandleAction implements EntityAction {
       Container cupboard = curWall.getContainer("cupboard");
       cupboard.setDescription("You see a dusty \u001B[32mcupboard\u001B[0m with an open drawer.");
       cupboard.addItem(new Item("key",
-          "There is a rusty, small \u001B[36mkey\u001B[0m inside the cupboard",
+          "There is a rusty, small \u001B[36mkey\u001B[0m inside the cupboard.",
           EntityUseType.KEY, true));
       return true;
     }

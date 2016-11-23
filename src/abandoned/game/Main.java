@@ -1,15 +1,15 @@
 package abandoned.game;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.Scanner;
-
 import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
 import abandoned.house.Container;
 import abandoned.house.House;
 import abandoned.house.Portal;
 import abandoned.house.Wall;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Scanner;
 
 /**
  * Class to run the game.
@@ -18,23 +18,26 @@ import abandoned.house.Wall;
  */
 public class Main {
   public static final House house = GameBuilder.initGame();
+  
+  private Main() {
+    throw new IllegalAccessError("Main class");
+  }
 
   /**
    * Main driver method.
    * 
-   * @param args
-   *          - given arguments
+   * @param args - given arguments
    * @throws Exception
    * 
    */
   public static void main(String[] args) throws Exception {
     // clears terminal window
-    System.out.print("\033[H\033[2J");
+    Print.printString("\033[H\033[2J", false);
     System.out.flush();
     try (BufferedReader br = new BufferedReader(new FileReader("resources/title.txt"))) {
       String line = null;
       while ((line = br.readLine()) != null) {
-        Print.printString(line + "\n", false);
+        Print.printString(line, false);
       }
     }
     Player player = new Player(house);
@@ -53,7 +56,6 @@ public class Main {
         }
         case "no": {
           validResponse = true;
-          quitGame();
           break;
         }
         default: {
@@ -81,7 +83,7 @@ public class Main {
         "You are surrounded by darkness as you realize you have no idea where you are or "
             + "how you got there.\n",
         true);
-    Print.printString("Type HELP to view commands.\n\n", false);
+    Print.printString("Type HELP to view commands.\n", false);
     Scanner scanner = new Scanner(System.in);
     boolean done = false;
     while (!done && scanner.hasNextLine()) {
@@ -89,10 +91,6 @@ public class Main {
       done = optionParser(option.toLowerCase(), player);
     }
     scanner.close();
-  }
-
-  public static void quitGame() {
-
   }
 
   /**
@@ -132,10 +130,10 @@ public class Main {
           if (!lineScanner.hasNext()) {
             processEnterPortal(player, command2);
           } else {
-            Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]\n", false);
+            Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]", false);
           }
         } else {
-          Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]\n", false);
+          Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]", false);
         }
         break;
       }
@@ -149,10 +147,10 @@ public class Main {
           if (!lineScanner.hasNext()) {
             processInspectElement(player, command2);
           } else {
-            Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]\n", false);
+            Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]", false);
           }
         } else {
-          Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]\n", false);
+          Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]", false);
         }
         break;
       }
@@ -162,15 +160,15 @@ public class Main {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
             if (!player.getCanSee()) {
-              Print.printString("It is too dark. Action cannot be made.\n", false);
+              Print.printString("It is too dark. Action cannot be made.", false);
             } else {
               processTakeItem(player, command2);
             }
           } else {
-            Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]\n", false);
+            Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]", false);
           }
         } else {
-          Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]\n", false);
+          Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]", false);
         }
         break;
       }
@@ -179,15 +177,15 @@ public class Main {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
             if (!player.getCanSee()) {
-              Print.printString("It is too dark. Action cannot be made.\n", false);
+              Print.printString("It is too dark. Action cannot be made.", false);
             } else {
               processTurnPlayer(player, command2);
             }
           } else {
-            Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]\n", false);
+            Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]", false);
           }
         } else {
-          Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]\n", false);
+          Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]", false);
         }
         break;
       }
@@ -197,10 +195,10 @@ public class Main {
           if (!lineScanner.hasNext()) {
             processItemAction(player, command2);
           } else {
-            Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]\n", false);
+            Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]", false);
           }
         } else {
-          Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]\n", false);
+          Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]", false);
         }
         break;
       }
@@ -210,10 +208,10 @@ public class Main {
           if ("inventory".equals(command2) && !lineScanner.hasNext()) {
             player.displayInventory();
           } else {
-            Print.printString("Usage: VIEW INVENTORY\n", false);
+            Print.printString("Usage: VIEW INVENTORY", false);
           }
         } else {
-          Print.printString("Usage: VIEW INVENTORY\n", false);
+          Print.printString("Usage: VIEW INVENTORY", false);
         }
         break;
       }
@@ -224,9 +222,9 @@ public class Main {
       }
       default: {
         if (!player.getCanSee()) {
-          Print.printString("It is too dark. Action cannot be made.\n", false);
+          Print.printString("It is too dark. Action cannot be made.", false);
         } else {
-          Print.printString("Action cannot be made.\n", false);
+          Print.printString("Action cannot be made.", false);
         }
         break;
       }
@@ -268,7 +266,7 @@ public class Main {
         if (c.hasItems()) {
           c.inspect();
         } else {
-          Print.printString("Nothing to inspect.\n", false);
+          Print.printString("Nothing to inspect.", false);
         }
       }
     }
@@ -294,10 +292,10 @@ public class Main {
     if (itemFound) {
       boolean success = player.useItem(chosenItem);
       if (!success) {
-        Print.printString("Cannot use item here.\n", false);
+        Print.printString("Cannot use item here.", false);
       }
     } else {
-      Print.printString("No such item to use.\n", false);
+      Print.printString("No such item to use.", false);
     }
   }
 
@@ -331,7 +329,7 @@ public class Main {
       }
     }
     if (!itemFound) {
-      Print.printString("No such item to take.\n", false);
+      Print.printString("No such item to take.", false);
     }
   }
 
@@ -360,7 +358,7 @@ public class Main {
         break;
       }
       default: {
-        Print.printString("Action cannot be made.\n", false);
+        Print.printString("Action cannot be made.", false);
         break;
       }
     }

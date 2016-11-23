@@ -3,7 +3,7 @@ package abandoned.house;
 import abandoned.entities.Item;
 import abandoned.game.Print;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class to model a wall.
@@ -13,31 +13,27 @@ import java.util.ArrayList;
 public class Wall {
   private String name;
   private String direction;
-  private ArrayList<Container> containers;
-  private ArrayList<Item> items;
+  private List<Container> containers;
+  private List<Item> items;
   private Portal portal;
 
   /**
    * Empty constructor for JSON serializing.
    */
   public Wall() {
+    //empty for JSON serializing
   }
 
   /**
    * Public constructor.
    * 
-   * @param name
-   *          - wall name
-   * @param direction
-   *          - wall direction according to its room
-   * @param containers
-   *          - list of containers on the wall
-   * @param items
-   *          - list of items on the wall
-   * @param portal
-   *          - portal on the wall. Null if there isn't one
+   * @param name - wall name
+   * @param direction - wall direction according to its room
+   * @param containers - list of containers on the wall
+   * @param items - list of items on the wall
+   * @param portal - portal on the wall. Null if there isn't one
    */
-  public Wall(String name, String direction, ArrayList<Container> containers, ArrayList<Item> items,
+  public Wall(String name, String direction, List<Container> containers, List<Item> items,
       Portal portal) {
     this.name = name;
     this.direction = direction;
@@ -58,10 +54,15 @@ public class Wall {
     this.direction = direction;
   }
 
-  public ArrayList<Container> getContainers() {
+  public List<Container> getContainers() {
     return this.containers;
   }
 
+  /**
+   * Searches for a container on the wall
+   * @param name - name of container to find
+   * @return Container - container if it was found. Null otherwise
+   */
   public Container getContainer(String name) {
     Container container = null;
     for (Container c : containers) {
@@ -72,10 +73,14 @@ public class Wall {
     return container;
   }
 
-  public ArrayList<Item> getItems() {
+  public List<Item> getItems() {
     return this.items;
   }
 
+  /**
+   * Checks to see if the wall has a portal.
+   * @return boolean - true if there is a portal
+   */
   public boolean hasPortal() {
     return this.portal != null;
   }
@@ -84,10 +89,18 @@ public class Wall {
     return this.portal;
   }
 
+  /**
+   * Adding item to wall.
+   * @param item - item to add
+   */
   public void addItem(Item item) {
     this.items.add(item);
   }
 
+  /**
+   * Removing item from wall.
+   * @param item - item to remove
+   */
   public void removeItem(Item item) {
     this.items.remove(item);
   }
@@ -99,7 +112,7 @@ public class Wall {
    * 
    */
   public void describe() throws Exception {
-    System.out.println("\n" + getName());
+    Print.printString("\n" + getName(), false);
     for (Container c : containers) {
       Print.printString(c.getDescription(), true);
     }
@@ -109,6 +122,6 @@ public class Wall {
     if (portal != null) {
       Print.printString(portal.getDescription(), true);
     }
-    System.out.println("\n");
+    Print.printString("\n", false);
   }
 }

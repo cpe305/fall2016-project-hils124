@@ -1,26 +1,27 @@
 package abandoned.house;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class to model a house.
  * @author hils124
  */
 public class House {
-  private ArrayList<Room> rooms;
+  private List<Room> rooms;
 
   public House() {
+    //empty constructor for JSON serializing
   }
 
   /**
    * Public constructor.
    * @param rooms - list of rooms in the house
    */
-  public House(ArrayList<Room> rooms) {
+  public House(List<Room> rooms) {
     this.rooms = rooms;
   }
 
-  public ArrayList<Room> getRooms() {
+  public List<Room> getRooms() {
     return this.rooms;
   }
   

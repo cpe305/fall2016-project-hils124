@@ -18,6 +18,7 @@ public class Room {
    * Empty constructor for JSON serializing.
    */
   public Room() {
+    //empty for JSON serializing
   }
 
   /**

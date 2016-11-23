@@ -15,7 +15,7 @@ public class Portal {
    * Empty constructor for JSON serializing.
    */
   public Portal() {
-    
+    //empty for JSON serializing
   }
   
   /**

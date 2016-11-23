@@ -21,6 +21,7 @@ public class Item {
    * Empty constructor for JSON serializing.
    */
   public Item() {
+    //for JSON serializing
   }
 
   /**

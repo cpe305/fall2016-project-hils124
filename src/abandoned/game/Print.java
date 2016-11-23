@@ -1,6 +1,15 @@
 package abandoned.game;
 
+/**
+ * Class for printing strings.
+ * @author hils124
+ */
 public class Print {
+  
+  private Print() {
+    throw new IllegalAccessError("Print class");
+  }
+  
   /**
    * Prints a string.
    * @param str - message to print
