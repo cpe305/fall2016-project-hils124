@@ -73,10 +73,18 @@ public class Wall {
     return container;
   }
   
+  /**
+   * Adding container to wall.
+   * @param container - container to add
+   */
   public void addContainer(Container container) {
     this.containers.add(container);
   }
   
+  /**
+   * Removing container from wall.
+   * @param container - container to remove
+   */
   public void removeContainer(Container container) {
     this.containers.remove(container);
   }

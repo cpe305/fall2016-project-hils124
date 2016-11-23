@@ -22,7 +22,14 @@ public class WallTest {
   @Test
   public void testCreateWall() {
     Assert.assertEquals(wall.getName(), "BEDROOM - WEST");
+  }
+  
+  @Test
+  public void testDirection() {
     Assert.assertEquals(wall.getDirection(), "w");
+    wall.setDirection("s");
+    Assert.assertNotEquals(wall.getDirection(), "w");
+    Assert.assertEquals(wall.getDirection(), "s");
   }
   
   @Test

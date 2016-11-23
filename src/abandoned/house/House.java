@@ -25,10 +25,18 @@ public class House {
     return this.rooms;
   }
   
+  /**
+   * Adding room to house.
+   * @param room - room to add
+   */
   public void addRoom(Room room) {
     this.rooms.add(room);
   }
   
+  /**
+   * Removing room to wall.
+   * @param room - room to remove
+   */
   public void removeRoom(Room room) {
     this.rooms.remove(room);
   }
