@@ -9,6 +9,7 @@ import abandoned.house.Wall;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -30,7 +31,7 @@ public class Main {
    * @throws Exception
    * 
    */
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) throws IOException {
     // clears terminal window
     Print.printString("\033[H\033[2J", false);
     System.out.flush();
@@ -70,12 +71,10 @@ public class Main {
   /**
    * Initiates game state.
    * 
-   * @param player
-   *          - current player
-   * @throws Exception
+   * @param player - current player
    * 
    */
-  public static void startGame(Player player) throws Exception {
+  public static void startGame(Player player) {
     Print.printString(
         "\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\n",
         true);
@@ -115,7 +114,6 @@ public class Main {
    * @param option - player's chosen action
    * @param player - current player
    * @return if player is done
-   * @throws Exception
    * 
    */
   public static boolean optionParser(String option, Player player) {
