@@ -141,26 +141,15 @@ public class Player {
    * 
    */
   public void turnRight() {
-    switch (currentWall.getDirection()) {
-      case "n": {
-        currentWall = currentRoom.getEastWall();
-        break;
-      }
-      case "e": {
-        currentWall = currentRoom.getSouthWall();
-        break;
-      }
-      case "s": {
-        currentWall = currentRoom.getWestWall();
-        break;
-      }
-      case "w": {
-        currentWall = currentRoom.getNorthWall();
-        break;
-      }
-      default: {
-        break;
-      }
+    String direction = currentWall.getDirection();
+    if (direction.equals("n")) {
+      currentWall = currentRoom.getEastWall();
+    } else if (direction.equals("e")) {
+      currentWall = currentRoom.getSouthWall();
+    } else if (direction.equals("s")) {
+      currentWall = currentRoom.getWestWall();
+    } else {
+      currentWall = currentRoom.getNorthWall();
     }
     currentWall.describe();
   }
