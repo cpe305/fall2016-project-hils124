@@ -13,8 +13,7 @@ import abandoned.house.Wall;
  */
 public class MatchAction implements EntityAction {
   @Override
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
-      throws Exception {
+  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
     player.setCanSee(true);
     Print.printString("\nYou strike a match and squint as a room slowly lights up around you.\n",
         true);

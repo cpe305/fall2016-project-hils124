@@ -20,9 +20,7 @@ public interface EntityAction {
    * @param curRoom - current room the player is in
    * @param curWall - current wall the player is facing
    * @return item use success
-   * @throws Exception
    * 
    */
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
-      throws Exception;
+  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall);
 }

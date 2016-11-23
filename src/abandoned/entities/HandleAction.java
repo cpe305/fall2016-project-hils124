@@ -15,8 +15,7 @@ import abandoned.house.Wall;
  */
 public class HandleAction implements EntityAction {
   @Override
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
-      throws Exception {
+  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
     if ("KITCHEN - EAST".equals(curWall.getName())) {
       Print.printString(
           "The handle fits into the \u001B[32mcupboard\u001B[0m and you slowly open it.\n", true);

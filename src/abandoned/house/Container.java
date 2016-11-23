@@ -84,10 +84,8 @@ public class Container {
   /**
    * Inspecting a container to display its items' descriptions.
    * 
-   * @throws Exception
-   * 
    */
-  public void inspect() throws Exception {
+  public void inspect() {
     inspected = true;
     for (Item i : items) {
       Print.printString(i.getDescription(), true);

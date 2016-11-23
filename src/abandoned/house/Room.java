@@ -81,10 +81,9 @@ public class Room {
    * Processes a portal being entered.
    * @param wallName - name of the new wall
    * @return new wall that the player is now facing
-   * @throws Exception
    * 
    */
-  public Wall enter(String wallName) throws Exception {
+  public Wall enter(String wallName) {
     Wall newWall;
     if ("westWall".equals(wallName)) {
       newWall = this.westWall;

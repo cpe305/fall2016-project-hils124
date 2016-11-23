@@ -108,10 +108,8 @@ public class Wall {
   /**
    * Prints all wall's container and item descriptions.
    * 
-   * @throws Exception
-   * 
    */
-  public void describe() throws Exception {
+  public void describe() {
     Print.printString("\n" + getName(), false);
     for (Container c : containers) {
       Print.printString(c.getDescription(), true);

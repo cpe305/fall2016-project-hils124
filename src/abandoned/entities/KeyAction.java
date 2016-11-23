@@ -12,8 +12,7 @@ import abandoned.house.Wall;
  */
 public class KeyAction implements EntityAction {
   @Override
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
-      throws Exception {
+  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
     return true;
   }
 }

@@ -69,8 +69,7 @@ public class Item {
    * @throws Exception
    * 
    */
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall)
-      throws Exception {
+  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
     if (this.useType != null) {
       return this.useType.getAction().use(player, item, house, curRoom, curWall);  
     }

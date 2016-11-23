@@ -97,7 +97,7 @@ public class Main {
    * Displays help menu.
    * @throws InterruptedException - for scroll text
    */
-  public static void viewHelpMenu() throws InterruptedException {
+  public static void viewHelpMenu() {
     Print.printString("\nCommands\n"
         + "ENTER [\u001B[33mPORTAL\u001B[0m]\n" 
         + "INSPECT [\u001B[32mELEMENT\u001B[0m]\n" 
@@ -238,10 +238,9 @@ public class Main {
    * 
    * @param player - current player
    * @param portalName - selected portal's name
-   * @throws Exception
    * 
    */
-  public static void processEnterPortal(Player player, String portalName) throws Exception {
+  public static void processEnterPortal(Player player, String portalName) {
     Wall curWal = player.getCurrentWall();
     if (curWal.hasPortal()) {
       Portal portal = curWal.getPortal();
@@ -256,10 +255,9 @@ public class Main {
    * 
    * @param player - current player
    * @param elementName - selected element's name
-   * @throws Exception
    * 
    */
-  public static void processInspectElement(Player player, String elementName) throws Exception {
+  public static void processInspectElement(Player player, String elementName) {
     Wall curWal = player.getCurrentWall();
     for (Container c : curWal.getContainers()) {
       if (c.getName().equals(elementName)) {
@@ -277,10 +275,9 @@ public class Main {
    * 
    * @param player - current player
    * @param itemName - selected item's name
-   * @throws Exception
    * 
    */
-  public static void processItemAction(Player player, String itemName) throws Exception {
+  public static void processItemAction(Player player, String itemName) {
     boolean itemFound = false;
     Item chosenItem = null;
     for (Item item : player.getInventory()) {
@@ -304,9 +301,8 @@ public class Main {
    * 
    * @param player - current player
    * @param itemName - selected item's name
-   * @throws InterruptedException - for scroll text
    */
-  public static void processTakeItem(Player player, String itemName) throws InterruptedException {
+  public static void processTakeItem(Player player, String itemName) {
     boolean itemFound = false;
     for (Item item : player.getCurrentWall().getItems()) {
       if (item.getName().equals(itemName)) {
@@ -336,14 +332,11 @@ public class Main {
   /**
    * Processes a player turning a certain direction.
    * 
-   * @param player
-   *          - current player
-   * @param direction
-   *          - selected direction
-   * @throws Exception
+   * @param player - current player
+   * @param direction - selected direction
    * 
    */
-  public static void processTurnPlayer(Player player, String direction) throws Exception {
+  public static void processTurnPlayer(Player player, String direction) {
     switch (direction) {
       case "left": {
         player.turnLeft();

@@ -34,10 +34,9 @@ public class Player {
    * Using an item.
    * @param item - chosen item
    * @return true on success
-   * @throws Exception
    * 
    */
-  public boolean useItem(Item item) throws Exception {
+  public boolean useItem(Item item) {
     boolean success = item.use(this, item, Main.house, currentRoom, currentWall);
     if (success) {
       inventory.remove(item);
@@ -84,9 +83,8 @@ public class Player {
   
   /**
    * Displays everything in the player's inventory.
-   * @throws InterruptedException - for scroll text
    */
-  public void displayInventory() throws InterruptedException {
+  public void displayInventory() {
     if (inventory.isEmpty()) {
       Print.printString("Your inventory is empty.\n", false);
     } else {
@@ -101,10 +99,9 @@ public class Player {
    * Processes a player entering a portal.
    * @param portal - chosen portal
    * @param house - main house
-   * @throws Exception
    * 
    */
-  public void enter(Portal portal, House house) throws Exception {
+  public void enter(Portal portal, House house) {
     currentRoom = house.getRoom(portal.getRoomName());
     currentWall = currentRoom.enter(portal.getWallName());
     currentWall.describe();
@@ -112,10 +109,9 @@ public class Player {
   
   /**
    * Processes a player turning left.
-   * @throws Exception
    * 
    */
-  public void turnLeft() throws Exception {
+  public void turnLeft() {
     switch (currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getWestWall();
@@ -142,10 +138,9 @@ public class Player {
   
   /**
    * Processes a player turning right.
-   * @throws Exception
    * 
    */
-  public void turnRight() throws Exception {
+  public void turnRight() {
     switch (currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getEastWall();
@@ -172,10 +167,9 @@ public class Player {
   
   /**
    * Processes a player turning around.
-   * @throws Exception
    * 
    */
-  public void turnAround() throws Exception {
+  public void turnAround() {
     switch (currentWall.getDirection()) {
       case "n": {
         currentWall = currentRoom.getSouthWall();
