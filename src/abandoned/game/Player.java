@@ -112,26 +112,15 @@ public class Player {
    * 
    */
   public void turnLeft() {
-    switch (currentWall.getDirection()) {
-      case "n": {
-        currentWall = currentRoom.getWestWall();
-        break;
-      }
-      case "e": {
-        currentWall = currentRoom.getNorthWall();
-        break;
-      }
-      case "s": {
-        currentWall = currentRoom.getEastWall();
-        break;
-      }
-      case "w": {
-        currentWall = currentRoom.getSouthWall();
-        break;
-      }
-      default: {
-        break;
-      }
+    String direction = currentWall.getDirection();
+    if ("n".equals(direction)) {
+      currentWall = currentRoom.getWestWall();
+    } else if ("e".equals(direction)) {
+      currentWall = currentRoom.getNorthWall();
+    } else if ("s".equals(direction)) {
+      currentWall = currentRoom.getEastWall();
+    } else {
+      currentWall = currentRoom.getSouthWall();
     }
     currentWall.describe();
   }
@@ -142,11 +131,11 @@ public class Player {
    */
   public void turnRight() {
     String direction = currentWall.getDirection();
-    if (direction.equals("n")) {
+    if ("n".equals(direction)) {
       currentWall = currentRoom.getEastWall();
-    } else if (direction.equals("e")) {
+    } else if ("e".equals(direction)) {
       currentWall = currentRoom.getSouthWall();
-    } else if (direction.equals("s")) {
+    } else if ("s".equals(direction)) {
       currentWall = currentRoom.getWestWall();
     } else {
       currentWall = currentRoom.getNorthWall();
@@ -159,26 +148,15 @@ public class Player {
    * 
    */
   public void turnAround() {
-    switch (currentWall.getDirection()) {
-      case "n": {
-        currentWall = currentRoom.getSouthWall();
-        break;
-      }
-      case "e": {
-        currentWall = currentRoom.getWestWall();
-        break;
-      }
-      case "s": {
-        currentWall = currentRoom.getNorthWall();
-        break;
-      }
-      case "w": {
-        currentWall = currentRoom.getEastWall();
-        break;
-      }
-      default: {
-        break;
-      }
+    String direction = currentWall.getDirection();
+    if ("n".equals(direction)) {
+      currentWall = currentRoom.getSouthWall();
+    } else if ("e".equals(direction)) {
+      currentWall = currentRoom.getWestWall();
+    } else if ("s".equals(direction)) {
+      currentWall = currentRoom.getNorthWall();
+    } else {
+      currentWall = currentRoom.getEastWall();
     }
     currentWall.describe();
   }
