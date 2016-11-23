@@ -335,23 +335,14 @@ public class Main {
    * 
    */
   public static void processTurnPlayer(Player player, String direction) {
-    switch (direction) {
-      case "left": {
-        player.turnLeft();
-        break;
-      }
-      case "right": {
-        player.turnRight();
-        break;
-      }
-      case "around": {
-        player.turnAround();
-        break;
-      }
-      default: {
-        Print.printString("Action cannot be made.", false);
-        break;
-      }
+    if ("left".equals(direction)) {
+      player.turnLeft();
+    } else if ("right".equals(direction)) {
+      player.turnRight();
+    } else if ("around".equals(direction)) {
+      player.turnAround();
+    } else {
+      Print.printString("Action cannot be made.", false);
     }
   }
 }
