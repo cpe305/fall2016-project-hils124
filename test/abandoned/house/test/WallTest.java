@@ -51,8 +51,8 @@ public class WallTest {
     wall.removeContainer(container);
     Assert.assertTrue(wall.getContainers().size() == 0);
     ArrayList<Item> items = new ArrayList<Item>();
-    Container c1 = new Container("bookcase", "You see a bookcase", items);
-    Container c2 = new Container("desk", "You see a desk", items);
+    Container c1 = new Container("bookcase", "You see a bookcase", items, "");
+    Container c2 = new Container("desk", "You see a desk", items, "");
     wall.addContainer(c1);
     wall.addContainer(c2);
     Assert.assertEquals(wall.getContainer("desk"), c2);

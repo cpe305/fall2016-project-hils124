@@ -10,14 +10,8 @@
 						"name": "desk",
 						"description": "You see a rotting wooden \u001B[32mdesk\u001B[0m propped against the wall.",
 						"inspected": false,
-						"items": [
-							{
-								"name": "letter",
-								"description": "",
-								"useType": null,
-								"isTakeable": true
-							}
-						]
+						"inspectDescript": "You pull hard on a desk drawer and find it is locked. As you do so, you hear something rattle inside. Maybe there is something around to pick the lock with. ",
+						"items": []
 					}
 				],
 				"items": [],
@@ -33,7 +27,7 @@
 					"type": "door",
 					"roomName": "kitchen",
 					"wallName": "eastWall",
-					"description": "You see a discolored white \u001B[33mdoor\u001B[0m."
+					"description": "You see a \u001B[33mdoor\u001B[0m with peeling white paint."
 				}
 			},
 			"northWall": {
@@ -44,17 +38,18 @@
 						"name": "painting",
 						"description": "You see a \u001B[32mpainting\u001B[0m crookedly hanging on a wall.",
 						"inspected": false,
-						"items": []
+						"inspectDescript": "The painting shows a garden with an apple tree. ",
+						"items": [
+							{
+								"name": "nail",
+								"description": "You see a spare \u001B[36mnail\u001B[0m lying on the painting's frame.",
+								"useType": null,
+								"isTakeable": true
+							}
+						]
 					}
 				],
-				"items": [
-					{
-						"name": "lamp",
-						"description": "",
-						"useType": null,
-						"isTakeable": false
-					}
-				],
+				"items": [],
 				"portal": null
 			},
 			"southWall": {
@@ -63,13 +58,14 @@
 				"containers": [
 					{
 						"name": "bed",
-						"description": "There is an old dusty \u001B[32mbed\u001B[0m.",
+						"description": "There is an old \u001B[32mbed\u001B[0m covered in dust and cobwebs.",
 						"inspected": false,
+						"inspectDescript": "Upon closer inspection, you oddly notice piles of dust next to the bed, as if the bed has been moved recently. ",
 						"items": [
 							{
-								"name": "handle",
-								"description": "After looking all around, you see a cupboard \u001B[36mhandle\u001B[0m underneath the bed.",
-								"useType": "HANDLE",
+								"name": "shovel",
+								"description": "After taking a quick peek underneath the bed, you see a small hand \u001B[36mshovel\u001B[0m.",
+								"useType": null,
 								"isTakeable": true
 							}
 						]
@@ -91,7 +87,7 @@
 					"type": "door",
 					"roomName": "bedroom",
 					"wallName": "westWall",
-					"description": "You see a discolored white \u001B[33mdoor\u001B[0m."
+					"description": "You see a \u001B[33mdoor\u001B[0m with peeling white paint that leads back to the bedroom."
 				}
 			},
 			"eastWall": {
@@ -102,6 +98,7 @@
 						"name": "cupboard",
 						"description": "You see a dusty \u001B[32mcupboard\u001B[0m with a handle missing.",
 						"inspected": false,
+						"inspectDescript": "",
 						"items": [
 							{
 								"name": "knife",
@@ -119,22 +116,27 @@
 				"name": "KITCHEN - NORTH",
 				"direction": "n",
 				"containers": [],
-				"items": [
-					{
-						"name": "scissors",
-						"description": "There is a pair of red \u001B[36mscissors\u001B[0m on the floor to your left.",
-						"useType": null,
-						"isTakeable": true
-					}
-				],
-				"portal": null
+				"items": [],
+				"portal": {
+					"name": "gardenDoor",
+					"type": "door",
+					"roomName": "garden",
+					"wallName": "northWall",
+					"description": "You see a wide glass \u001B[33mdoor\u001B[0m. You can just make out some trees through the smudged panes."
+				}
 			},
 			"southWall": {
 				"name": "KITCHEN - SOUTH",
 				"direction": "s",
 				"containers": [],
 				"items": [],
-				"portal": null
+				"portal": {
+					"name": "libraryDoor",
+					"type": "door",
+					"roomName": "library",
+					"wallName": "southWall",
+					"description": "You see a grand mahogony \u001B[33mdoor\u001B[0m with an intricate brass doorknob."
+				}
 			}
 		},
 		{
@@ -145,9 +147,17 @@
 				"containers": [
 					{
 						"name": "bookshelf",
-						"description": "",
+						"description": "You see a massive \u001B[32mbookshelf\u001B[0m filled with thousands of books on every shelf.",
 						"inspected": false,
-						"items": []
+						"inspectDescript": "",
+						"items": [
+							{
+								"name": "pin",
+								"description": "All the books look dusty except for a red one on the third shelf. You pick it up and find a bobby \u001B[36mpin\u001B[0m wedged through the pages.",
+								"useType": null,
+								"isTakeable": true
+							}
+						]
 					}
 				],
 				"items": [],
@@ -165,7 +175,13 @@
 				"direction": "n",
 				"containers": [],
 				"items": [],
-				"portal": null
+				"portal": {
+					"name": "kitchenDoor",
+					"type": "door",
+					"roomName": "kitchen",
+					"wallName": "northWall",
+					"description": "You see a grand mahogony \u001B[33mdoor\u001B[0m that leads back to the kitchen."
+				}
 			},
 			"southWall": {
 				"name": "LIBRARY - SOUTH",
@@ -218,7 +234,15 @@
 			"eastWall": {
 				"name": "GARDEN - EAST",
 				"direction": "e",
-				"containers": [],
+				"containers": [
+					{
+						"name": "snake",
+						"description": "You try not to jump as you spot a \u001B[32msnake\u001B[0m coiled up on the ground, eyeing you threateningly. ",
+						"inspected": false,
+						"inspectDescript": "The snake hisses at you as you notice it lying on top of a suspicious mound of dirt. If only there were a way to get the snake to move. ",
+						"items": []
+					}
+				],
 				"items": [],
 				"portal": null
 			},
@@ -232,9 +256,23 @@
 			"southWall": {
 				"name": "GARDEN - SOUTH",
 				"direction": "s",
-				"containers": [],
+				"containers": [
+					{
+						"name": "chimes",
+						"description": "Hanging on the side of the house, you notice metal wind \u001B[32mchimes\u001B[0m eerily clanking in the wind. ",
+						"inspected": false,
+						"inspectDescript": "The chimes are made up of scraps of metal tied to string. Tied to one string, you notice a tiny, little key. You try to take it but the string won't allow it.",
+						"items": []
+					}	
+				],
 				"items": [],
-				"portal": null
+				"portal": {
+					"name": "kitchenDoor",
+					"type": "door",
+					"roomName": "kitchen",
+					"wallName": "southWall",
+					"description": "You see a wide glass \u001B[33mdoor\u001B[0m that leads back into the kitchen. "
+				}
 			}
 		},
 		{

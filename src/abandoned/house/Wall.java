@@ -131,14 +131,14 @@ public class Wall {
    */
   public void describe() {
     Print.printString("\n" + getName(), false);
+    if (portal != null) {
+      Print.printString(portal.getDescription(), true);
+    }
     for (Container c : containers) {
       Print.printString(c.getDescription(), true);
     }
     for (Item i : items) {
       Print.printString(i.getDescription(), true);
-    }
-    if (portal != null) {
-      Print.printString(portal.getDescription(), true);
     }
     Print.printString("\n", false);
   }

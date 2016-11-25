@@ -28,7 +28,7 @@ public class Main {
    * Main driver method.
    * 
    * @param args - given arguments
-   * @throws Exception
+   * @throws IOException
    * 
    */
   public static void main(String[] args) throws IOException {
@@ -259,7 +259,7 @@ public class Main {
     Wall curWal = player.getCurrentWall();
     for (Container c : curWal.getContainers()) {
       if (c.getName().equals(elementName)) {
-        if (c.hasItems()) {
+        if (c.hasItems() || c.getInspectDescript().length() != 0) {
           c.inspect();
         } else {
           Print.printString("Nothing to inspect.", false);
@@ -313,7 +313,7 @@ public class Main {
     for (Container c : player.getCurrentWall().getContainers()) {
       if (c.getInspected()) {
         for (Item item : c.getItems()) {
-          if (item.getName().equals(itemName)) {
+          if (item.getName().equals(itemName) && item.getIsTakeable()) {
             itemFound = true;
             player.addItem(item);
             c.removeItem(item);

@@ -14,7 +14,7 @@ public class ContainerTest {
   
   static {
     List<Item> items = new ArrayList<Item>();
-    container = new Container("bookcase", "You see a bookcase", items);
+    container = new Container("bookcase", "You see a bookcase", items, "");
   }
   
   @Test

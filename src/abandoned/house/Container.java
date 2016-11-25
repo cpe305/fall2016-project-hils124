@@ -14,6 +14,7 @@ public class Container {
   private String name;
   private String description;
   private boolean inspected;
+  private String inspectDescript;
   private List<Item> items;
 
   /**
@@ -29,12 +30,14 @@ public class Container {
    * @param name - container's name
    * @param description - container's description
    * @param items - list of items in the container
+   * @param inspectDescript - extra description when container is inspected
    */
-  public Container(String name, String description, List<Item> items) {
+  public Container(String name, String description, List<Item> items, String inspectDescript) {
     this.name = name;
     this.description = description;
     this.inspected = false;
     this.items = items;
+    this.inspectDescript = inspectDescript;
   }
 
   public String getName() {
@@ -51,6 +54,14 @@ public class Container {
 
   public boolean getInspected() {
     return this.inspected;
+  }
+  
+  public String getInspectDescript() {
+    return this.inspectDescript;
+  }
+  
+  public void setInspectDescript(String descript) {
+    this.inspectDescript = descript;
   }
 
   public List<Item> getItems() {
@@ -87,6 +98,7 @@ public class Container {
    */
   public void inspect() {
     inspected = true;
+    Print.printString(this.inspectDescript, true);
     for (Item i : items) {
       Print.printString(i.getDescription(), true);
     }
