@@ -10,7 +10,9 @@ public enum EntityUseType {
 
   MATCH(new MatchAction()),
   HANDLE(new HandleAction()),
-  KEY(new KeyAction());
+  KEY(new KeyAction()),
+  SCISSORS(new MatchAction()),
+  PIN(new PinAction());
   
   private EntityAction action;
   

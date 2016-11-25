@@ -153,8 +153,8 @@
 						"items": [
 							{
 								"name": "pin",
-								"description": "All the books look dusty except for a red one on the third shelf. You pick it up and find a bobby \u001B[36mpin\u001B[0m wedged through the pages.",
-								"useType": null,
+								"description": "All the books look dusty except for a red one on the third shelf. You pick it up and find a bobby \u001B[36mpin\u001B[0m wedged in between the pages.",
+								"useType": "PIN",
 								"isTakeable": true
 							}
 						]
