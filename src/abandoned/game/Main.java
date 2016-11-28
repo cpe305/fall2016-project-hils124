@@ -42,7 +42,6 @@ public class Main {
       }
     }
     Player player = new Player(house);
-    player.addItem(new Item("matches", "", EntityUseType.MATCH, true));
     Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
     Print.printString("Welcome to Abandoned.\n", true);
@@ -75,14 +74,9 @@ public class Main {
    * 
    */
   public static void startGame(Player player) {
-    Print.printString(
-        "\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\n",
-        true);
-    Print.printString(
-        "You are surrounded by darkness as you realize you have no idea where you are or "
-            + "how you got there.\n",
-        true);
-    Print.printString("Type HELP to view commands.\n", false);
+    Print.printString(player.getCurrentRoom().getDescription(), true);
+    player.getCurrentWall().describe();
+    Print.printString("(Type HELP to view commands)\n", false);
     Scanner scanner = new Scanner(System.in);
     boolean done = false;
     while (!done && scanner.hasNextLine()) {
@@ -98,13 +92,13 @@ public class Main {
    */
   public static void viewHelpMenu() {
     Print.printString("\nCommands\n"
-        + "ENTER [\u001B[33mPORTAL\u001B[0m]\n" 
-        + "INSPECT [\u001B[32mELEMENT\u001B[0m]\n"
-        + "TAKE [\u001B[36mITEM\u001B[0m]\n"
-        + "TURN [LEFT, RIGHT, AROUND]\n"
-        + "USE [\u001B[36mITEM\u001B[0m]\n" 
-        + "VIEW INVENTORY\n"
-        + "QUIT\n", false);
+        + "enter [\u001B[33mPORTAL\u001B[0m]\n" 
+        + "inspect [\u001B[32mELEMENT\u001B[0m]\n"
+        + "take [\u001B[36mITEM\u001B[0m]\n"
+        + "turn [LEFT, RIGHT, AROUND]\n"
+        + "use [\u001B[36mITEM\u001B[0m]\n" 
+        + "view inventory\n"
+        + "quit\n", false);
   }
 
   /**
@@ -156,11 +150,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            if (!player.getCanSee()) {
-              Print.printString("It is too dark. Action cannot be made.", false);
-            } else {
-              processTakeItem(player, command2);
-            }
+            processTakeItem(player, command2);
           } else {
             Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]", false);
           }
@@ -173,11 +163,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            if (!player.getCanSee()) {
-              Print.printString("It is too dark. Action cannot be made.", false);
-            } else {
-              processTurnPlayer(player, command2);
-            }
+            processTurnPlayer(player, command2);
           } else {
             Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]", false);
           }
@@ -218,11 +204,7 @@ public class Main {
         break;
       }
       default: {
-        if (!player.getCanSee()) {
-          Print.printString("It is too dark. Action cannot be made.", false);
-        } else {
-          Print.printString("Action cannot be made.", false);
-        }
+        Print.printString("Action cannot be made.", false);
         break;
       }
     }

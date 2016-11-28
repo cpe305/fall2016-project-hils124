@@ -2,7 +2,7 @@
 	"rooms": [
 		{
 			"name": "bedroom",
-			"description": "",
+			"description": "\n\nYou slowly open your eyes as you notice a dull pain in the side of your head.\nYou find you are lying on a cold, wooden floor and as you stand up and take in your surroundings, you worry as you realize you have no idea where you are or how you got there.\n\nYou seem to be standing in a cramped, drafty bedroom covered in dust. Maybe by looking around a bit more, you can figure out where you are. \n\nYou inspect the wall in front of you.\n\n",
 			"westWall": {
 				"name": "BEDROOM - WEST",
 				"direction": "w",

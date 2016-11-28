@@ -7,7 +7,7 @@ Players find themselves trapped in a house and have to collect and use items in 
 
 ### Setup
 
-Clone source code to your machine on your terminal <br>
+Clone source code to your machine on your terminal. <br>
 &nbsp;&nbsp;Run: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;```mvn clean install```<br>
 &nbsp;&nbsp;To Play Game: <br>
@@ -56,12 +56,10 @@ Package that stores items and specific actions for each one.
 ###### Item Actions
 Item actions are handled with Java enums found in *EntityUseType.java*. Each item has a parameter *useType* which holds an enum to indicate the item's action.
 <ul>
-  <li> keys -> *new KeyAction()*</li>
-  <li> scissors -> *new ScissorsAction()*</li>
+  <li> keys -> <em>new KeyAction()</em></li>
+  <li> scissors -> <em>new ScissorsAction()</em></li>
 </ul>
 
 Each action class has a *use()* method that is specific to that item. This method is called by item's *use()* method.
 
 <hr>
-
-### Software Design

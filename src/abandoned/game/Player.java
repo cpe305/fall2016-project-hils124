@@ -17,7 +17,6 @@ public class Player {
   private ArrayList<Item> inventory;
   private Room currentRoom;
   private Wall currentWall;
-  private boolean canSee;
 
   /**
    * Public constructor.
@@ -27,7 +26,6 @@ public class Player {
     inventory = new ArrayList<>();
     this.currentRoom = house.getRoom("bedroom");
     this.currentWall = this.currentRoom.getNorthWall();
-    this.canSee = false;
   }
 
   /**
@@ -79,14 +77,6 @@ public class Player {
   
   public Wall getCurrentWall() {
     return this.currentWall;
-  }
-  
-  public void setCanSee(boolean value) {
-    this.canSee = value;
-  }
-  
-  public boolean getCanSee() {
-    return this.canSee;
   }
   
   /**

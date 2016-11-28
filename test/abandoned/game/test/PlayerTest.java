@@ -19,14 +19,7 @@ public class PlayerTest {
     house = GameBuilder.initGame();
     player = new Player(house);
   }
-  
-  @Test
-  public void testCanSee() {
-    Assert.assertFalse(player.getCanSee());
-    player.setCanSee(true);
-    Assert.assertTrue(player.getCanSee()); 
-  }
-  
+
   @Test
   public void testCurWall() {
     Assert.assertEquals("BEDROOM - NORTH", player.getCurrentWall().getName());
