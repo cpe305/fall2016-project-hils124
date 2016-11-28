@@ -99,8 +99,7 @@ public class Main {
   public static void viewHelpMenu() {
     Print.printString("\nCommands\n"
         + "ENTER [\u001B[33mPORTAL\u001B[0m]\n" 
-        + "INSPECT [\u001B[32mELEMENT\u001B[0m]\n" 
-        + "INTERACT [\u001B[32mELEMENT\u001B[0m]\n" 
+        + "INSPECT [\u001B[32mELEMENT\u001B[0m]\n"
         + "TAKE [\u001B[36mITEM\u001B[0m]\n"
         + "TURN [LEFT, RIGHT, AROUND]\n"
         + "USE [\u001B[36mITEM\u001B[0m]\n" 

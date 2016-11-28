@@ -35,8 +35,8 @@ public class HouseTest {
   @Test
   public void testGetRoom() {
     Wall wall = new Wall();
-    Room room1 = new Room("bedroom", wall, wall, wall, wall);
-    Room room2 = new Room("kitchen", wall, wall, wall, wall);
+    Room room1 = new Room("bedroom", "", wall, wall, wall, wall);
+    Room room2 = new Room("kitchen", "", wall, wall, wall, wall);
     house.addRoom(room1);
     house.addRoom(room2);
     Assert.assertEquals(house.getRoom("kitchen"), room2);

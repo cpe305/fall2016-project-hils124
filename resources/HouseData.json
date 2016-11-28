@@ -2,6 +2,7 @@
 	"rooms": [
 		{
 			"name": "bedroom",
+			"description": "",
 			"westWall": {
 				"name": "BEDROOM - WEST",
 				"direction": "w",
@@ -77,6 +78,7 @@
 		},
 		{
 			"name": "kitchen",
+			"description": "\nYou cautiously peer into a barren kitchen with white washed walls and a cracked tiled floor. It looks as though no one has been here in years...\n",
 			"westWall": {
 				"name": "KITCHEN - WEST",
 				"direction": "w",
@@ -141,6 +143,7 @@
 		},
 		{
 			"name": "library",
+			"description": "\nThe wooden floorboard creeks violently as you step into a high ceilinged library.\n",
 			"westWall": {
 				"name": "LIBRARY - WEST",
 				"direction": "w",
@@ -193,6 +196,7 @@
 		},
 		{
 			"name": "attic",
+			"description": "",
 			"westWall": {
 				"name": "ATTIC - WEST",
 				"direction": "w",
@@ -224,10 +228,19 @@
 		},
 		{
 			"name": "garden",
+			"description": "\nYou walk outside into what looks to be an abandoned garden. There are gnarled, barren trees everywhere and leaves clutter the dirt ground. Your hopes of escape fade, however, as you notice the garden is enclosed by a chain linked cage.\n",
 			"westWall": {
 				"name": "GARDEN - WEST",
 				"direction": "w",
-				"containers": [],
+				"containers": [
+					{
+						"name": "pond",
+						"description": "You notice a deep, murky \u001B[32mpond\u001B[0m filled with fallen leaves and wilted flowers. ",
+						"inspected": false,
+						"inspectDescript": "You peer into the water and can just make out something shiny in the depths below. With the water this high though, there's no way you could possibly reach to get it.",
+						"items": []
+					}
+				],
 				"items": [],
 				"portal": null
 			},
@@ -277,6 +290,7 @@
 		},
 		{
 			"name": "basement",
+			"description": "",
 			"westWall": {
 				"name": "BASEMENT - WEST",
 				"direction": "w",
@@ -315,6 +329,7 @@
 		},
 		{
 			"name": "secretRoom",
+			"description": "",
 			"westWall": {
 				"name": "SECRET ROOM - WEST",
 				"direction": "w",

@@ -9,6 +9,8 @@ import abandoned.game.Print;
 public class Room {
 
   private String name;
+  private String description;
+  private boolean seen;
   private Wall westWall;
   private Wall eastWall;
   private Wall northWall;
@@ -24,13 +26,17 @@ public class Room {
   /**
    * Public constructor.
    * @param name - room name
+   * @param descript - room description
    * @param westWall - room's west wall
    * @param eastWall - room's east wall
    * @param northWall - room's north wall
    * @param southWall - room's south wall
    */
-  public Room(String name, Wall westWall, Wall eastWall, Wall northWall, Wall southWall) {
+  public Room(String name, String descript, Wall westWall, Wall eastWall, Wall northWall,
+      Wall southWall) {
     this.name = name;
+    this.description = descript;
+    this.seen = false;
     this.westWall = westWall;
     this.eastWall = eastWall;
     this.northWall = northWall;
@@ -43,6 +49,14 @@ public class Room {
 
   public String getName() { 
     return this.name;
+  }
+  
+  public String getDescription() {
+    return this.description;
+  }
+  
+  public void setDescription(String descript) {
+    this.description = descript;
   }
 
   public void setWestWall(Wall wall) {
@@ -94,7 +108,12 @@ public class Room {
     } else {
       newWall = this.southWall;
     }
-    Print.printString("\nYou have entered the " + this.name + ".\n", true);
+    if (!seen) {
+      Print.printString(this.description, true);
+      seen = true;
+    } else {
+      Print.printString("\nYou have entered the " + this.name + ".\n", true);
+    }
     return newWall;
   }
 }

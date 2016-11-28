@@ -23,7 +23,7 @@ public class RoomTest {
     Wall wall3 = new Wall("BEDROOM - NORTH", "n", containers, items, null);
     Wall wall4 = new Wall("BEDROOM - SOUTH", "s", containers, items, null);
     newWall = new Wall("KITCHEN - EAST", "e", containers, items, null);
-    room = new Room("bedroom", wall1, wall2, wall3, wall4);
+    room = new Room("bedroom", "", wall1, wall2, wall3, wall4);
   }
   
   @Test
