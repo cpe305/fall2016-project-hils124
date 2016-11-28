@@ -8,10 +8,10 @@ Players find themselves trapped in a house and have to collect and use items in 
 ### Setup
 
 Clone source code to your machine on your terminal <br>
-Then type <br>
-&nbsp;&nbsp;```mvn clean install```<br>
-To run the actual game, type <br>
-&nbsp;&nbsp;```mvn exec:java```
+&nbsp;&nbsp;Run: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;```mvn clean install```<br>
+&nbsp;&nbsp;To play game: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;```mvn exec:java```
 <hr>
 ### How to Play
 This game is a terminal application and is completely text-based. Players move around, inspect objects and collect items by typing commands into the terminal.
@@ -40,7 +40,7 @@ Package that stores all the classes that form the house:
 </ul>
 
 #### abandoned.game
-Package that stores all the game logic and the initial creation of the house itself
+Package that stores all the game logic and the initial creation of the house itself.
 
 ###### JSON Serialization
 The house is built from a JSON file called *HouseData.json* which holds all the data for each room in the house. *HouseBuilder.java* reads this file in and serializes the information into a java object which it then returns.
@@ -56,8 +56,8 @@ Package that stores items and specific actions for each one.
 ###### Item Actions
 Item actions are handled with Java enums found in *EntityUseType.java*. Each item has a parameter *useType* which holds an enum to indicate the item's action.
 <ul>
-  <li> keys -> *new KeyAction()*
-  <li> scissors -> *new ScissorsAction()*
+  <li> keys -> *new KeyAction()*</li>
+  <li> scissors -> *new ScissorsAction()*</li>
 </ul>
 
 Each action class has a *use()* method that is specific to that item. This method is called by item's *use()* method.
