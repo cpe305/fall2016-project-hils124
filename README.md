@@ -10,7 +10,7 @@ Players find themselves trapped in a house and have to collect and use items in 
 Clone source code to your machine on your terminal <br>
 &nbsp;&nbsp;Run: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;```mvn clean install```<br>
-&nbsp;&nbsp;To play game: <br>
+&nbsp;&nbsp;To Play Game: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;```mvn exec:java```
 <hr>
 ### How to Play
