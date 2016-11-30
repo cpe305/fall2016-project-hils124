@@ -5,7 +5,7 @@ Players find themselves trapped in a house and have to collect and use items in 
 *Hilary Schulz*
 <hr>
 ![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay1Abandoned.png)
-### Setup
+## Setup
 
 Clone source code to your machine on your terminal. <br>
 &nbsp;&nbsp;Run: <br>
@@ -13,10 +13,10 @@ Clone source code to your machine on your terminal. <br>
 &nbsp;&nbsp;To Play Game: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;```mvn exec:java```
 <hr>
-### How to Play
+## How to Play
 This game is a terminal application and is completely text-based. Players move around, inspect objects and collect items by typing commands into the terminal.
 
-###### Player Commands
+### Player Commands
 <ul>
   <li>enter [PORTAL]</li>
   <li>inspect [ELEMENT]</li>
@@ -30,17 +30,17 @@ This game is a terminal application and is completely text-based. Players move a
 
 <hr>
 
-### Design Layout
+## Design Layout
 
-#### Floor Plan
+### Floor Plan
 ![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/FloorPlanAbandoned.png)
 
-#### Class Diagram
+### Class Diagram
 ![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/ClassDiagramAbandoned.png)
 
 
-### Source Code Documentation
-#### abandoned.house
+## Source Code Documentation
+### abandoned.house
 Package that stores all the classes that form the house:
 <ul>
   <li>Rooms</li>
@@ -49,10 +49,10 @@ Package that stores all the classes that form the house:
   <li>Containers</li>
 </ul>
 
-#### abandoned.game
+### abandoned.game
 Package that stores all the game logic and the initial creation of the house itself.
 
-###### JSON Serialization
+#### JSON Serialization
 The house is built from a JSON file called *HouseData.json* which holds all the data for each room in the house. *HouseBuilder.java* reads this file in and serializes the information into a java object which it then returns.
 
 ```java
@@ -61,9 +61,9 @@ House house = mapper.readValue(new File("resources/HouseData.json"), House.class
 
 This house contains rooms, walls, portals, and containers that the player can now interact with.
 
-#### abandoned.entities
+### abandoned.entities
 Package that stores items and specific actions for each one.
-###### Item Actions
+#### Item Actions
 Item actions are handled with Java enums found in *EntityUseType.java*. Each item has a parameter *useType* which holds an enum to indicate the item's action.
 <ul>
   <li> keys -> <em>new KeyAction()</em></li>
