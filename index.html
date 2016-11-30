@@ -42,8 +42,8 @@
 
 <p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay1Abandoned.png" alt=""></p>
 
-<h3>
-<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h3>
+<h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h2>
 
 <p>Clone source code to your machine on your terminal. <br>
   Run: <br>
@@ -53,13 +53,13 @@
 
 <hr>
 
-<h3>
-<a id="how-to-play" class="anchor" href="#how-to-play" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Play</h3>
+<h2>
+<a id="how-to-play" class="anchor" href="#how-to-play" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Play</h2>
 
 <p>This game is a terminal application and is completely text-based. Players move around, inspect objects and collect items by typing commands into the terminal.</p>
 
-<h6>
-<a id="player-commands" class="anchor" href="#player-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Player Commands</h6>
+<h3>
+<a id="player-commands" class="anchor" href="#player-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Player Commands</h3>
 
 <ul>
   <li>enter [PORTAL]</li>
@@ -75,24 +75,24 @@
 
 <hr>
 
-<h3>
-<a id="design-layout" class="anchor" href="#design-layout" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design Layout</h3>
+<h2>
+<a id="design-layout" class="anchor" href="#design-layout" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design Layout</h2>
 
-<h4>
-<a id="floor-plan" class="anchor" href="#floor-plan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Floor Plan</h4>
+<h3>
+<a id="floor-plan" class="anchor" href="#floor-plan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Floor Plan</h3>
 
 <p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/FloorPlanAbandoned.png" alt=""></p>
 
-<h4>
-<a id="class-diagram" class="anchor" href="#class-diagram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Class Diagram</h4>
+<h3>
+<a id="class-diagram" class="anchor" href="#class-diagram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Class Diagram</h3>
 
 <p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/ClassDiagramAbandoned.png" alt=""></p>
 
-<h3>
-<a id="source-code-documentation" class="anchor" href="#source-code-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Source Code Documentation</h3>
+<h2>
+<a id="source-code-documentation" class="anchor" href="#source-code-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Source Code Documentation</h2>
 
-<h4>
-<a id="abandonedhouse" class="anchor" href="#abandonedhouse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.house</h4>
+<h3>
+<a id="abandonedhouse" class="anchor" href="#abandonedhouse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.house</h3>
 
 <p>Package that stores all the classes that form the house:</p>
 
@@ -103,13 +103,13 @@
   <li>Containers</li>
 </ul>
 
-<h4>
-<a id="abandonedgame" class="anchor" href="#abandonedgame" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.game</h4>
+<h3>
+<a id="abandonedgame" class="anchor" href="#abandonedgame" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.game</h3>
 
 <p>Package that stores all the game logic and the initial creation of the house itself.</p>
 
-<h6>
-<a id="json-serialization" class="anchor" href="#json-serialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JSON Serialization</h6>
+<h4>
+<a id="json-serialization" class="anchor" href="#json-serialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JSON Serialization</h4>
 
 <p>The house is built from a JSON file called <em>HouseData.json</em> which holds all the data for each room in the house. <em>HouseBuilder.java</em> reads this file in and serializes the information into a java object which it then returns.</p>
 
@@ -117,13 +117,13 @@
 
 <p>This house contains rooms, walls, portals, and containers that the player can now interact with.</p>
 
-<h4>
-<a id="abandonedentities" class="anchor" href="#abandonedentities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.entities</h4>
+<h3>
+<a id="abandonedentities" class="anchor" href="#abandonedentities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.entities</h3>
 
 <p>Package that stores items and specific actions for each one.</p>
 
-<h6>
-<a id="item-actions" class="anchor" href="#item-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Item Actions</h6>
+<h4>
+<a id="item-actions" class="anchor" href="#item-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Item Actions</h4>
 
 <p>Item actions are handled with Java enums found in <em>EntityUseType.java</em>. Each item has a parameter <em>useType</em> which holds an enum to indicate the item's action.</p>
 
