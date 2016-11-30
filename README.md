@@ -4,7 +4,7 @@ Players find themselves trapped in a house and have to collect and use items in 
 
 *Hilary Schulz*
 <hr>
-
+![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay1Abandoned.png)
 ### Setup
 
 Clone source code to your machine on your terminal. <br>
@@ -26,8 +26,18 @@ This game is a terminal application and is completely text-based. Players move a
   <li>view inventory</li>
   <li>quit</li>
 </ul>
+![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay2Abandoned.png)
 
 <hr>
+
+### Design Layout
+
+#### Floor Plan
+![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/FloorPlanAbandoned.png)
+
+#### Class Diagram
+![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/ClassDiagramAbandoned.png)
+
 
 ### Source Code Documentation
 #### abandoned.house
