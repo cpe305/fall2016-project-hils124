@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Fall2016-project-hils124 by cpe305</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Fall2016-project-hils124</h1>
+        <h2>fall2016-project-hils124 created by GitHub Classroom</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/cpe305/fall2016-project-hils124/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/cpe305/fall2016-project-hils124/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/cpe305/fall2016-project-hils124" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="abandoned" class="anchor" href="#abandoned" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Abandoned</h1>
+
+<h4>
+<a id="a-text-based-mystery-game" class="anchor" href="#a-text-based-mystery-game" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A text-based mystery game</h4>
+
+<p>Players find themselves trapped in a house and have to collect and use items in order to find a way out.</p>
+
+<p><em>Hilary Schulz</em></p>
+
+<hr>
+
+<h3>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h3>
+
+<p>Clone source code to your machine on your terminal. <br>
+  Run: <br>
+    <code>mvn clean install</code><br>
+  To Play Game: <br>
+    <code>mvn exec:java</code></p>
+
+<hr>
+
+<h3>
+<a id="how-to-play" class="anchor" href="#how-to-play" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Play</h3>
+
+<p>This game is a terminal application and is completely text-based. Players move around, inspect objects and collect items by typing commands into the terminal.</p>
+
+<h6>
+<a id="player-commands" class="anchor" href="#player-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Player Commands</h6>
+
+<ul>
+  <li>enter [PORTAL]</li>
+  <li>inspect [ELEMENT]</li>
+  <li>take [ITEM]</li>
+  <li>turn [LEFT, RIGHT, AROUND]</li>
+  <li>use [ITEM]</li>
+  <li>view inventory</li>
+  <li>quit</li>
+</ul>
+
+<hr>
+
+<h3>
+<a id="source-code-documentation" class="anchor" href="#source-code-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Source Code Documentation</h3>
+
+<h4>
+<a id="abandonedhouse" class="anchor" href="#abandonedhouse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.house</h4>
+
+<p>Package that stores all the classes that form the house:</p>
+
+<ul>
+  <li>Rooms</li>
+  <li>Walls</li>
+  <li>Portals</li>
+  <li>Containers</li>
+</ul>
+
+<h4>
+<a id="abandonedgame" class="anchor" href="#abandonedgame" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.game</h4>
+
+<p>Package that stores all the game logic and the initial creation of the house itself.</p>
+
+<h6>
+<a id="json-serialization" class="anchor" href="#json-serialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JSON Serialization</h6>
+
+<p>The house is built from a JSON file called <em>HouseData.json</em> which holds all the data for each room in the house. <em>HouseBuilder.java</em> reads this file in and serializes the information into a java object which it then returns.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">House</span> house <span class="pl-k">=</span> mapper<span class="pl-k">.</span>readValue(<span class="pl-k">new</span> <span class="pl-smi">File</span>(<span class="pl-s"><span class="pl-pds">"</span>resources/HouseData.json<span class="pl-pds">"</span></span>), <span class="pl-smi">House</span><span class="pl-k">.</span>class);</pre></div>
+
+<p>This house contains rooms, walls, portals, and containers that the player can now interact with.</p>
+
+<h4>
+<a id="abandonedentities" class="anchor" href="#abandonedentities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.entities</h4>
+
+<p>Package that stores items and specific actions for each one.</p>
+
+<h6>
+<a id="item-actions" class="anchor" href="#item-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Item Actions</h6>
+
+<p>Item actions are handled with Java enums found in <em>EntityUseType.java</em>. Each item has a parameter <em>useType</em> which holds an enum to indicate the item's action.</p>
+
+<ul>
+  <li> keys -&gt; <em>new KeyAction()</em>
+</li>
+  <li> scissors -&gt; <em>new ScissorsAction()</em>
+</li>
+</ul>
+
+<p>Each action class has a <em>use()</em> method that is specific to that item. This method is called by item's <em>use()</em> method.</p>
+
+<hr>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
