@@ -5,6 +5,7 @@ Players find themselves trapped in a house and have to collect and use items in 
 *Hilary Schulz*
 <hr>
 ![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay1Abandoned.png)
+<hr>
 ## Setup
 
 Clone source code to your machine on your terminal. <br>
