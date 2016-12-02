@@ -83,6 +83,21 @@ public class Container {
   public void removeItem(Item item) {
     items.remove(item);
   }
+  
+  /**
+   * Searches for a item in the container
+   * @param name - name of item to find
+   * @return Item - item if it was found. Null otherwise
+   */
+  public Item getItem(String name) {
+    Item item = null;
+    for (Item i : items) {
+      if (name.equals(i.getName())) {
+        item = i;
+      }
+    }
+    return item;
+  }
 
   /**
    * Adding item to player's inventory.

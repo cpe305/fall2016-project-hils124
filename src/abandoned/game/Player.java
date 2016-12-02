@@ -158,4 +158,18 @@ public class Player {
     }
     currentWall.describe();
   }
+  
+  /**
+   * Gets the specified item in the inventory
+   * @param name - name of the requested item
+   * @return requested item if it is in the inventory. Else returns null.
+   */
+  public Item getItem(String name) {
+    for (Item i: this.inventory) {
+      if (i.getName().equals(name)) {
+        return i;
+      }
+    }
+    return null;
+  }
 }

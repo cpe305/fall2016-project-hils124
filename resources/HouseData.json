@@ -137,7 +137,7 @@
 					"type": "door",
 					"roomName": "library",
 					"wallName": "southWall",
-					"description": "You see a grand mahogony \u001B[33mdoor\u001B[0m with an intricate brass doorknob."
+					"description": "You see a large mahogony \u001B[33mdoor\u001B[0m with an intricate brass doorknob."
 				}
 			}
 		},
@@ -171,8 +171,8 @@
 				"direction": "e",
 				"containers": [
 					{
-						"name": "chair",
-						"description": "\u001B[32mchair\u001B[0m",
+						"name": "piano",
+						"description": "You notice a black, grand \u001B[32mpiano\u001B[0m.",
 						"inspected": false,
 						"inspectDescript": "",
 						"items": []
@@ -191,7 +191,7 @@
 					"type": "door",
 					"roomName": "kitchen",
 					"wallName": "northWall",
-					"description": "You see a grand mahogony \u001B[33mdoor\u001B[0m that leads back to the kitchen."
+					"description": "You see a large mahogony \u001B[33mdoor\u001B[0m that leads back to the kitchen."
 				}
 			},
 			"southWall": {
@@ -199,11 +199,6 @@
 				"direction": "s",
 				"containers": [
 					{
-						"name": "piano",
-						"description": "\u001B[32mpiano\u001B[0m",
-						"inspected": false,
-						"inspectDescript": "",
-						"items": []
 					}
 				],
 				"items": [],
@@ -280,10 +275,10 @@
 				"direction": "n",
 				"containers": [
 					{
-						"name": "hole",
-						"description": "You see a small \u001B[32mhole\u001B[0m in the chain linked cage.",
+						"name": "gap",
+						"description": "You see a small \u001B[32mgap\u001B[0m in the chain linked cage.",
 						"inspected": false,
-						"inspectDescript": "You peer into the hole and see many trees and hills in the distance. To the left, you suddenly notice what looks to be a trapdoor hiding underneath the tall grass. Hmmm, maybe if you can find the other end of that door, you will have found a way out!",
+						"inspectDescript": "You peer through the gap and see many trees and hills in the distance. To the left, you suddenly notice what looks to be a trapdoor hiding underneath the tall grass. Hmmm, maybe if you can find the other end of that door, you will have found a way out!",
 						"items": []
 					}
 				],

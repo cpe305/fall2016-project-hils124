@@ -8,11 +8,11 @@ package abandoned.entities;
 
 public enum EntityUseType {
 
-  MATCH(new MatchAction()),
   HANDLE(new HandleAction()),
   KEY(new KeyAction()),
   SCISSORS(new ScissorsAction()),
-  PIN(new PinAction());
+  PIN(new PinAction()),
+  FLASHLIGHT(new FlashlightAction());
   
   private EntityAction action;
   
