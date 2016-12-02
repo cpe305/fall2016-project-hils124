@@ -22,9 +22,9 @@ public class ScissorsAction implements EntityAction {
           true);
       Container chimes = curWall.getContainer("chimes");
       chimes.setInspectDescript("");
-      curWall.addItem(new Item("key",
-          "Hidden in the grass below the wind chimes is a \u001B[36mkey\u001B[0m.",
-          EntityUseType.KEY, true));
+      curWall.addItem(
+          new Item("key", "Hidden in the grass below the wind chimes is a \u001B[36mkey\u001B[0m.",
+              EntityUseType.KEY, true));
       return true;
     }
     return false;

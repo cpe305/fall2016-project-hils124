@@ -1,11 +1,6 @@
 package abandoned.game;
 
-import abandoned.entities.EntityUseType;
-import abandoned.entities.Item;
-import abandoned.house.Container;
 import abandoned.house.House;
-import abandoned.house.Portal;
-import abandoned.house.Wall;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

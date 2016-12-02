@@ -6,12 +6,23 @@ import abandoned.house.House;
 import abandoned.house.Portal;
 import abandoned.house.Wall;
 
+/**
+ * Class to handle game logic with player actions.
+ * 
+ * @author hils124
+ */
 public class PlayerActions {
+  
+  private PlayerActions() {
+    throw new IllegalAccessError("Player Actions class");
+  }
+
   /**
    * Processes a player entering a portal.
    * 
    * @param player - current player
    * @param portalName - selected portal's name
+   * @param house - the main house
    * 
    */
   public static void enterPortal(Player player, String portalName, House house) {
