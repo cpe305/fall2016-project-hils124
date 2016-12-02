@@ -119,7 +119,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            processEnterPortal(player, command2);
+            PlayerActions.enterPortal(player, command2, house);
           } else {
             Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]", false);
           }
@@ -136,7 +136,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            processInspectElement(player, command2);
+            PlayerActions.inspectElement(player, command2);
           } else {
             Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]", false);
           }
@@ -150,7 +150,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            processTakeItem(player, command2);
+            PlayerActions.takeItem(player, command2);
           } else {
             Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]", false);
           }
@@ -163,7 +163,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            processTurnPlayer(player, command2);
+            PlayerActions.turnPlayer(player, command2);
           } else {
             Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]", false);
           }
@@ -176,7 +176,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            processItemAction(player, command2);
+            PlayerActions.itemAction(player, command2);
           } else {
             Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]", false);
           }
@@ -210,120 +210,5 @@ public class Main {
     }
     lineScanner.close();
     return done;
-  }
-
-  /**
-   * Processes a player entering a portal.
-   * 
-   * @param player - current player
-   * @param portalName - selected portal's name
-   * 
-   */
-  public static void processEnterPortal(Player player, String portalName) {
-    Wall curWal = player.getCurrentWall();
-    if (curWal.hasPortal()) {
-      Portal portal = curWal.getPortal();
-      if (portal.getType().equals(portalName)) {
-        player.enter(portal, house);
-      }
-    }
-  }
-
-  /**
-   * Processes a player inspecting an element.
-   * 
-   * @param player - current player
-   * @param elementName - selected element's name
-   * 
-   */
-  public static void processInspectElement(Player player, String elementName) {
-    Wall curWal = player.getCurrentWall();
-    for (Container c : curWal.getContainers()) {
-      if (c.getName().equals(elementName)) {
-        if (c.hasItems() || c.getInspectDescript().length() != 0) {
-          c.inspect();
-        } else {
-          Print.printString("Nothing to inspect.", false);
-        }
-      }
-    }
-  }
-
-  /**
-   * Processes a player using an item.
-   * 
-   * @param player - current player
-   * @param itemName - selected item's name
-   * 
-   */
-  public static void processItemAction(Player player, String itemName) {
-    boolean itemFound = false;
-    Item chosenItem = null;
-    for (Item item : player.getInventory()) {
-      if (item.getName().equals(itemName)) {
-        itemFound = true;
-        chosenItem = item;
-      }
-    }
-    if (itemFound) {
-      boolean success = player.useItem(chosenItem);
-      if (!success) {
-        Print.printString("Cannot use item here.", false);
-      }
-    } else {
-      Print.printString("No such item to use.", false);
-    }
-  }
-
-  /**
-   * Processes a player taking an item.
-   * 
-   * @param player - current player
-   * @param itemName - selected item's name
-   */
-  public static void processTakeItem(Player player, String itemName) {
-    boolean itemFound = false;
-    for (Item item : player.getCurrentWall().getItems()) {
-      if (item.getName().equals(itemName)) {
-        itemFound = true;
-        player.addItem(item);
-        player.getCurrentWall().removeItem(item);
-        break;
-      }
-    }
-    for (Container c : player.getCurrentWall().getContainers()) {
-      if (c.getInspected()) {
-        for (Item item : c.getItems()) {
-          if (item.getName().equals(itemName) && item.getIsTakeable()) {
-            itemFound = true;
-            player.addItem(item);
-            c.removeItem(item);
-            break;
-          }
-        }
-      }
-    }
-    if (!itemFound) {
-      Print.printString("No such item to take.", false);
-    }
-  }
-
-  /**
-   * Processes a player turning a certain direction.
-   * 
-   * @param player - current player
-   * @param direction - selected direction
-   * 
-   */
-  public static void processTurnPlayer(Player player, String direction) {
-    if ("left".equals(direction)) {
-      player.turnLeft();
-    } else if ("right".equals(direction)) {
-      player.turnRight();
-    } else if ("around".equals(direction)) {
-      player.turnAround();
-    } else {
-      Print.printString("Action cannot be made.", false);
-    }
   }
 }
