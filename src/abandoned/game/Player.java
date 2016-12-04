@@ -35,7 +35,7 @@ public class Player {
    * 
    */
   public boolean useItem(Item item) {
-    boolean success = item.use(this, item, Main.house, currentRoom, currentWall);
+    boolean success = item.use(this, Main.house, currentRoom, currentWall);
     if (success) {
       removeItem(item);
     }

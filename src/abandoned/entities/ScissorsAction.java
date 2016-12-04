@@ -16,9 +16,10 @@ import abandoned.house.Wall;
 public class ScissorsAction implements EntityAction {
   @Override
   public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
-    if ("GARDEN - SOUTH".equals(curWall.getName())) {
+    if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
-          "You use the scissors to snip a string on the wind chime and watch as a \u001B[36mkey\u001B[0m falls to the floor.\n",
+          "You use the scissors to snip a string on the wind chime and watch as a "
+          + "\u001B[36mkey\u001B[0m falls to the floor.\n",
           true);
       Container chimes = curWall.getContainer("chimes");
       chimes.setInspectDescript("");

@@ -61,7 +61,6 @@ public class Item {
   /**
    * Called when player uses an item.
    * @param player - current player
-   * @param item - item being used
    * @param house - main house
    * @param curRoom - current room the player is in
    * @param curWall - current wall the player is facing
@@ -69,9 +68,9 @@ public class Item {
    * @throws Exception
    * 
    */
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
+  public boolean use(Player player, House house, Room curRoom, Wall curWall) {
     if (this.useType != null) {
-      return this.useType.getAction().use(player, item, house, curRoom, curWall);  
+      return this.useType.getAction().use(player, this, house, curRoom, curWall);  
     }
     return false;
   }

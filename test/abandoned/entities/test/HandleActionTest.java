@@ -51,8 +51,8 @@ public class HandleActionTest {
     player.setCurrentWall(curWall);
     player.useItem(handle);
     Assert.assertNull(player.getItem("handle"));
-    Container cupboard = curWall.getContainer("cupboard");
-    Assert.assertNotNull(cupboard.getItem("flashlight"));
+    Container cabinet = curWall.getContainer("cabinet");
+    Assert.assertNotNull(cabinet.getItem("knife"));
     player.addItem(handle);
   }
 }
