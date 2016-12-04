@@ -59,6 +59,7 @@ public class PlayerActions {
    * 
    * @param player - current player
    * @param itemName - selected item's name
+   * @param house - the main house
    * 
    */
   public static void itemAction(Player player, String itemName, House house) {

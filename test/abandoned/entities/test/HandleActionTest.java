@@ -2,7 +2,7 @@ package abandoned.entities.test;
 
 import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
-import abandoned.game.GameLoader;
+import abandoned.game.GameBuilder;
 import abandoned.game.Player;
 import abandoned.house.Container;
 import abandoned.house.House;
@@ -10,8 +10,9 @@ import abandoned.house.Room;
 import abandoned.house.Wall;
 
 import org.junit.Assert;
-import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Test;
+
 
 @Ignore public class HandleActionTest {
   private static House house;
@@ -19,7 +20,7 @@ import org.junit.Ignore;
   private static Item handle;
   
   static {
-    house = GameLoader.loadHouse();
+    house = GameBuilder.newHouse();
     player = new Player(house);
     handle = new Item("handle", "You see a handle.", EntityUseType.HANDLE,
         true);

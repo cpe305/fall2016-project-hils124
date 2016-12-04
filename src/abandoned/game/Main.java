@@ -56,6 +56,7 @@ public class Main {
   
   /**
    * Start process of creating a new game.
+   * @param oldGame - true if there is an existing saved game
    * @throws IOException 
    * 
    */
@@ -135,6 +136,8 @@ public class Main {
    * Initiates game state.
    * 
    * @param player - current player
+   * @param house - the main house
+   * @param newGame - true if player is starting new game
    * 
    */
   public static void startGame(Player player, House house, boolean newGame) {
@@ -154,6 +157,7 @@ public class Main {
    * Ends game state.
    * 
    * @param player - current player
+   * @param house - the main house
    * 
    */
   public static void quitGame(Player player, House house) {
@@ -184,6 +188,7 @@ public class Main {
    * Saves game state.
    * 
    * @param player - current player
+   * @param house - the main house
    * 
    */
   public static void saveGame(Player player, House house) {

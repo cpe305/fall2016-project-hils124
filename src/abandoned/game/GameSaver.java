@@ -23,6 +23,8 @@ public class GameSaver {
   
   /**
    * Saves the house to file data.
+   * @param player - the current player
+   * @param house - the main house
    * @return initial house state
    */
   public static boolean saveGame(Player player, House house) {

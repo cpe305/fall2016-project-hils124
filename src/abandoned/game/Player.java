@@ -38,6 +38,7 @@ public class Player {
   /**
    * Using an item.
    * @param item - chosen item
+   * @param house - the main house
    * @return true on success
    * 
    */

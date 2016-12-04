@@ -2,7 +2,7 @@ package abandoned.entities.test;
 
 import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
-import abandoned.game.GameLoader;
+import abandoned.game.GameBuilder;
 import abandoned.game.Player;
 import abandoned.house.Container;
 import abandoned.house.House;
@@ -19,7 +19,7 @@ import org.junit.Test;
   private static Item pin;
   
   static {
-    house = GameLoader.loadHouse();
+    house = GameBuilder.newHouse();
     player = new Player(house);
     pin = new Item("pin", "You see a pin.", EntityUseType.PIN,
         true);

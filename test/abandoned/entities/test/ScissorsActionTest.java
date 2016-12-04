@@ -2,8 +2,7 @@ package abandoned.entities.test;
 
 import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
-import abandoned.game.GameLoader;
-import abandoned.game.GameLoader;
+import abandoned.game.GameBuilder;
 import abandoned.game.Player;
 import abandoned.house.Container;
 import abandoned.house.House;
@@ -20,7 +19,7 @@ import org.junit.Test;
   private static Item scissors;
   
   static {
-    house = GameLoader.loadHouse();
+    house = GameBuilder.newHouse();
     player = new Player(house);
     scissors = new Item("scissors", "You see scissors.", EntityUseType.SCISSORS,
         true);

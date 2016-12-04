@@ -1,7 +1,7 @@
 package abandoned.game.test;
 
 import abandoned.entities.Item;
-import abandoned.game.GameLoader;
+import abandoned.game.GameBuilder;
 import abandoned.game.Player;
 import abandoned.house.House;
 import abandoned.house.Portal;
@@ -17,7 +17,7 @@ import org.junit.Test;
   private static Player player;
   
   static {
-    house = GameLoader.loadHouse();
+    house = GameBuilder.newHouse();
     player = new Player(house);
   }
 

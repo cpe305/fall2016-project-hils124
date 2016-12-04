@@ -27,6 +27,7 @@ public class Room {
    * Public constructor.
    * @param name - room name
    * @param descript - room description
+   * @param seen - true if room has been visited before
    * @param westWall - room's west wall
    * @param eastWall - room's east wall
    * @param northWall - room's north wall
