@@ -31,7 +31,7 @@ import org.junit.Test;
     Room curRoom = house.getRoom("garden");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
-    player.useItem(pin);
+    player.useItem(pin, house);
     Assert.assertNotNull(player.getItem("pin"));
   }
   
@@ -41,7 +41,7 @@ import org.junit.Test;
     Wall curWall = curRoom.getNorthWall();
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curWall);
-    player.useItem(pin);
+    player.useItem(pin, house);
     Assert.assertNotNull(player.getItem("pin"));
   }
   
@@ -51,7 +51,7 @@ import org.junit.Test;
     Wall curWall = curRoom.getWestWall();
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curWall);
-    player.useItem(pin);
+    player.useItem(pin, house);
     Assert.assertNull(player.getItem("pin"));
     Container desk = curWall.getContainer("desk");
     Assert.assertNotNull(desk.getItem("scissors"));

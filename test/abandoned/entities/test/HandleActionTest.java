@@ -31,7 +31,7 @@ import org.junit.Ignore;
     Room curRoom = house.getRoom("library");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
-    player.useItem(handle);
+    player.useItem(handle, house);
     Assert.assertNotNull(player.getItem("handle"));
   }
   
@@ -40,7 +40,7 @@ import org.junit.Ignore;
     Room curRoom = house.getRoom("kitchen");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getWestWall());
-    player.useItem(handle);
+    player.useItem(handle, house);
     Assert.assertNotNull(player.getItem("handle"));
   }
   
@@ -50,7 +50,7 @@ import org.junit.Ignore;
     Wall curWall = curRoom.getEastWall();
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curWall);
-    player.useItem(handle);
+    player.useItem(handle, house);
     Assert.assertNull(player.getItem("handle"));
     Container cabinet = curWall.getContainer("cabinet");
     Assert.assertNotNull(cabinet.getItem("knife"));
