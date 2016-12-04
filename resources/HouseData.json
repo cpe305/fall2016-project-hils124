@@ -9,7 +9,7 @@
 				"containers": [
 					{
 						"name": "desk",
-						"description": "You see a rotting wooden \u001B[32mdesk\u001B[0m propped against the wall.",
+						"description": "You see a rotting wooden \u001B[32mdesk\u001B[0m propped against the wall. ",
 						"inspected": false,
 						"inspectDescript": "You pull hard on a desk drawer and find it is locked. As you do so, you hear something rattle inside. Maybe there is something around to pick the lock with. ",
 						"items": []
@@ -39,7 +39,7 @@
 						"name": "painting",
 						"description": "You see a \u001B[32mpainting\u001B[0m crookedly hanging on a wall.",
 						"inspected": false,
-						"inspectDescript": "The painting shows a faded garden with craggly trees and a small pond. It is hanging crookedly so you move to straighten the painting and in doing so, you hear something slide underneath the frame. Hmm that's odd, maybe if you can find something to break the frame open, you can see what's inside.",
+						"inspectDescript": "The painting shows a faded garden with craggly trees and a small pond. It is hanging crookedly so you move to straighten it and in doing so, you hear something slide within the frame. Hmm that's odd, maybe if you find something to break open the frame, you can see what's inside.",
 						"items": []
 					}
 				],
@@ -91,17 +91,10 @@
 				"containers": [
 					{
 						"name": "cabinet",
-						"description": "You see a dusty \u001B[32mcabinet\u001B[0m with a handle missing.",
+						"description": "You see a dusty \u001B[32mcabinet\u001B[0m in the left hand corner.",
 						"inspected": false,
-						"inspectDescript": "",
-						"items": [
-							{
-								"name": "knife",
-								"description": "There is a large carving \u001B[36mknife\u001B[0m lying on top of the cabinet.",
-								"useType": null,
-								"isTakeable": true
-							}
-						]
+						"inspectDescript": "That's strange. The cabinet seems to be missing a handle and therefore, you can't open it.",
+						"items": []
 					}
 				],
 				"items": [],
@@ -244,7 +237,7 @@
 		},
 		{
 			"name": "garden",
-			"description": "\nYou walk outside into what looks to be an abandoned garden. There are gnarled, barren trees everywhere and leaves clutter the dirt ground. Your hopes of escape fade, however, as you notice the garden is enclosed by a chain linked cage.\n",
+			"description": "\nYou walk outside into what looks to be an abandoned garden. There are gnarled trees everywhere and leaves clutter the dirt ground. Your hopes of escape fade, however, as you notice the garden is enclosed by a large fence.\n",
 			"westWall": {
 				"name": "GARDEN - WEST",
 				"direction": "w",
@@ -280,17 +273,17 @@
 				"direction": "n",
 				"containers": [
 					{
-						"name": "gap",
-						"description": "You see a small \u001B[32mgap\u001B[0m in the chain linked cage.",
+						"name": "fence",
+						"description": "You see a \u001B[32mfence\u001B[0m in front of you. ",
 						"inspected": false,
-						"inspectDescript": "You peer through the gap and see many trees and hills in the distance. To the left, you suddenly notice what looks to be a trapdoor hiding underneath the tall grass. Hmmm, maybe if you can find the other end of that door, you will have found a way out!",
+						"inspectDescript": "Unfortunately, the fence is too high to climb. You peer through it, thinking you're only going to see trees when you suddenly notice what looks to be a trapdoor hiding underneath the tall grass. Hmmm, maybe if you can find the other end of that door, you will have found a way out! ",
 						"items": []
 					},
 					{
 						"name": "tree",
 						"description": "There is a tall, craggly oak \u001B[32mtree\u001B[0m to your right.",
 						"inspected": false,
-						"inspectDescript": "You walk to the trunk of the tree and see something golden and shiny in the branches a few feet above you. If only there were a way to reach up there to knock it down.",
+						"inspectDescript": "You walk to the trunk of the tree and see a golden object in the branches a few feet above you. If only there were a way to reach up there to knock it down.",
 						"items": []
 					}
 				],

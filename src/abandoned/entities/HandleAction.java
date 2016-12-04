@@ -22,7 +22,7 @@ public class HandleAction implements EntityAction {
       Container cabinet = curWall.getContainer("cabinet");
       cabinet.setDescription("You see a dusty \u001B[32mcabinet\u001B[0m with an open drawer.");
       cabinet.addItem(new Item("bucket",
-          "There is a \u001B[36mbucket\u001B[0m on the bottom shelf.",
+          "There is a \u001B[36mbucket\u001B[0m on the bottom shelf. ",
           EntityUseType.BUCKET, true));
       cabinet.addItem(new Item("knife",
           "You can just make out a \u001B[36mknife\u001B[0m lying on the top shelf.",

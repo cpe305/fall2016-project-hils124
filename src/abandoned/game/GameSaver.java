@@ -12,30 +12,35 @@ import java.util.logging.Logger;
 
 
 /**
- * Class to build the game from file data.
+ * Class to save the game to file data.
  * @author hils124
  */
-public class GameBuilder {
+public class GameSaver {
   
-  private GameBuilder() {
+  private GameSaver() {
     throw new IllegalAccessError("Builder class");
   }
   
   /**
-   * Builds the house from new file data.
+   * Saves the house to file data.
    * @return initial house state
    */
-  public static House newHouse() {
-    Logger logger = Logger.getLogger("HouseBuilder");
+  public static boolean saveGame(Player player) {
+    ObjectMapper mapper = new ObjectMapper();
+    House house = Main.house;
+    Logger logger = Logger.getLogger("HouseSaver");
     try {
-      ObjectMapper mapper = new ObjectMapper();
-      return mapper.readValue(new File("resources/HouseData.json"), House.class);
+      // Convert object to JSON string and save into a file directly
+      mapper.writeValue(new File("resources/saveHouse.json"), house);
+      mapper.writeValue(new File("resources/savePlayer.json"), player);
+      return true;
       
     } catch (JsonGenerationException | JsonMappingException ex) {
       logger.log(Level.SEVERE, "Uncaught exception", ex); 
+      return false;
     } catch (IOException ex) {
       logger.log(Level.SEVERE, "IO Exception", ex); 
+      return false;
     }
-    return null;
   }
 }

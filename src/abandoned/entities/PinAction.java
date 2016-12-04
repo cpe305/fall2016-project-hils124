@@ -19,7 +19,7 @@ public class PinAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
           "You jiggle the desk drawer with the bobby pin and after a few tries, "
-          + "it satisfyingly clicks unlocked.\n",
+          + "it satisfyingly clicks open.\n\n",
           true);
       Container desk = curWall.getContainer("desk");
       desk.setInspectDescript("");

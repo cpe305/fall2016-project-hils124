@@ -27,14 +27,14 @@ public class MatchAction implements EntityAction {
               + "peer into the passageway. All of a sudden, you hear a floorboard creak behind you "
               + "and, startled, you drop the match. The whole fireplace goes up into flames as you "
               + "step back quickly. Oh no, you're never getting into that passageway unless you "
-              + "put out that fire!", true);
+              + "put out that fire!\n", true);
       Container fireplace = curWall.getContainer("fireplace");
       fireplace.setInspectDescript("Through the crackling flames in the fireplace, you can see "
           + "the passageway.");
       fireplace.addItem(new Item("fire", "", null, false));
       Wall northWall = curRoom.getNorthWall();
-      northWall.addItem(new Item("flashlight", "You notice a \u001B[36mflashlight\u001B[0m propped "
-          + "against the door. A shiver creeps up your spine...has that always been there?", 
+      northWall.addItem(new Item("flashlight", " You notice a \u001B[36mflashlight\u001B[0m propped"
+          + " against the door. A shiver creeps down your spine...has that always been there?", 
           EntityUseType.FLASHLIGHT, true));
       return true;
     }

@@ -19,6 +19,13 @@ public class Player {
   private Wall currentWall;
 
   /**
+   * Empty constructor for JSON serializing.
+   */
+  public Player() {
+    //empty for JSON serializing
+  }
+  
+  /**
    * Public constructor.
    * @param house - main house
    */

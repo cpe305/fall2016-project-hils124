@@ -33,10 +33,10 @@ public class Room {
    * @param southWall - room's south wall
    */
   public Room(String name, String descript, Wall westWall, Wall eastWall, Wall northWall,
-      Wall southWall) {
+      Wall southWall, boolean seen) {
     this.name = name;
     this.description = descript;
-    this.seen = false;
+    this.seen = seen;
     this.westWall = westWall;
     this.eastWall = eastWall;
     this.northWall = northWall;
@@ -91,6 +91,14 @@ public class Room {
     return this.southWall;
   }
   
+  public boolean getSeen() {
+    return this.seen;
+  }
+  
+  public void setSeen(boolean seen) {
+    this.seen = seen;
+  }
+  
   /**
    * Processes a portal being entered.
    * @param wallName - name of the new wall
@@ -108,12 +116,12 @@ public class Room {
     } else {
       newWall = this.southWall;
     }
-    if (!seen) {
+    if (!this.seen) {
       Print.printString(this.description, true);
-      seen = true;
-    } else {
-      Print.printString("\nYou have entered the " + this.name + ".\n", true);
-    }
+      this.seen = true;
+      this.description = "";
+    } 
+    Print.printString("\nYou have entered the " + this.name + ".\n", true);
     return newWall;
   }
 }

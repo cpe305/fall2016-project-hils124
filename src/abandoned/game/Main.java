@@ -3,6 +3,7 @@ package abandoned.game;
 import abandoned.house.House;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -13,7 +14,8 @@ import java.util.Scanner;
  * @author hils124
  */
 public class Main {
-  public static final House house = GameBuilder.initGame();
+  public static House house;
+  public static final Scanner scanner = new Scanner(System.in);
   
   private Main() {
     throw new IllegalAccessError("Main class");
@@ -36,17 +38,44 @@ public class Main {
         Print.printString(line, false);
       }
     }
-    Player player = new Player(house);
+    processGameState();
+  }
+
+  /**
+   * Initiates game state.
+   * 
+   */
+  public static void processGameState() {
+    Print.printString("Welcome to Abandoned.\n", true);
+    if (new File("resources/saveHouse.json").isFile()) {
+      processLoadGame();
+    } else {
+      processNewGame(false);
+    }
+  }
+  
+  /**
+   * Start process of creating a new game.
+   * 
+   */
+  public static void processNewGame(boolean oldGame) {
     Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
-    Print.printString("Welcome to Abandoned.\n", true);
-    while (!validResponse) {
-      Print.printString("Would you like to start a new game (yes/no)?\n", true);
+    while (!validResponse ) {
+      Print.printString("Would you like to start a new game? (yes/no): ", false);
       String answer = scanner.next();
       switch (answer) {
         case "yes": {
           validResponse = true;
-          startGame(player);
+          if (oldGame) {
+            File houseFile = new File("resources/saveHouse.json");
+            File playerFile = new File("resources/saveHouse.json");
+            houseFile.delete();
+            playerFile.delete();
+          }
+          house = GameBuilder.newHouse();
+          Player player = new Player(house);
+          startGame(player, true);
           break;
         }
         case "no": {
@@ -54,32 +83,112 @@ public class Main {
           break;
         }
         default: {
-          Print.printString("Invalid response.\n", true);
+          Print.printString("Invalid response.\n", false);
           break;
         }
       }
     }
     scanner.close();
   }
-
+  
+  
+  /**
+   * Starts process of loading a previous game.
+   * 
+   */
+  public static void processLoadGame() {
+    Scanner scanner = new Scanner(System.in);
+    boolean validResponse = false;
+    while (!validResponse ) {
+      Print.printString("Would you like to load your previous game? (yes/no): ", false);
+      String answer = scanner.next();
+      switch (answer) {
+        case "yes": {
+          validResponse = true;
+          house = GameLoader.loadHouse();
+          Player player = GameLoader.loadPlayer();
+          startGame(player, false);
+          break;
+        }
+        case "no": {
+          validResponse = true;
+          processNewGame(true);
+          break;
+        }
+        default: {
+          Print.printString("Invalid response.\n", false);
+          break;
+        }
+      }
+    }
+    scanner.close();
+  }
+  
+  
+  
   /**
    * Initiates game state.
    * 
    * @param player - current player
    * 
    */
-  public static void startGame(Player player) {
-    Print.printString(player.getCurrentRoom().getDescription(), true);
+  public static void startGame(Player player, boolean newGame) {
+    if (newGame) {
+      Print.printString(player.getCurrentRoom().getDescription(), true);
+    }
     player.getCurrentWall().describe();
     Print.printString("(Type HELP to view commands)\n", false);
-    Scanner scanner = new Scanner(System.in);
     boolean done = false;
     while (!done && scanner.hasNextLine()) {
       String option = scanner.nextLine();
       done = optionParser(option.toLowerCase(), player);
     }
-    scanner.close();
   }
+  
+  /**
+   * Ends game state.
+   * 
+   * @param player - current player
+   * 
+   */
+  public static void quitGame(Player player) {
+    boolean validResponse = false;
+    while (!validResponse) {
+      Print.printString("Save game? (yes/no): ", false);
+      String answer = scanner.next();
+      switch (answer) {
+        case "yes": {
+          validResponse = true;
+          saveGame(player);
+          break;
+        }
+        case "no": {
+          validResponse = true;
+          break;
+        }
+        default: {
+          Print.printString("Invalid response.\n", false);
+          break;
+        }
+      }
+    }
+    Print.printString("Quitting...\n", false);
+  }
+    
+  /**
+   * Saves game state.
+   * 
+   * @param player - current player
+   * 
+   */
+  public static void saveGame(Player player) {
+    boolean result = GameSaver.saveGame(player);
+    if (result) {
+      Print.printString("Game saved", false);
+    }
+  }
+    
+    
 
   /**
    * Displays help menu.
@@ -140,6 +249,11 @@ public class Main {
         }
         break;
       }
+      case "save": {
+        saveGame(player);
+        break;
+        
+      }
   
       case "take": {
         if (lineScanner.hasNext()) {
@@ -194,7 +308,7 @@ public class Main {
         break;
       }
       case "quit": {
-        Print.printString("Quitting...\n", false);
+        quitGame(player);
         done = true;
         break;
       }
