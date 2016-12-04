@@ -61,10 +61,10 @@ public class PlayerActions {
    * @param itemName - selected item's name
    * 
    */
-  public static void itemAction(Player player, String itemName) {
+  public static void itemAction(Player player, String itemName, House house) {
     Item chosenItem = player.getItem(itemName);
     if (chosenItem != null) {
-      boolean success = player.useItem(chosenItem);
+      boolean success = player.useItem(chosenItem, house);
       if (!success) {
         Print.printString("Cannot use item here.", false);
       }

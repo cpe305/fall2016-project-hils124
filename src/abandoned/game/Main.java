@@ -14,7 +14,6 @@ import java.util.Scanner;
  * @author hils124
  */
 public class Main {
-  public static House house;
   public static final Scanner scanner = new Scanner(System.in);
   
   private Main() {
@@ -43,9 +42,10 @@ public class Main {
 
   /**
    * Initiates game state.
+   * @throws IOException 
    * 
    */
-  public static void processGameState() {
+  public static void processGameState() throws IOException {
     Print.printString("Welcome to Abandoned.\n", true);
     if (new File("resources/saveHouse.json").isFile()) {
       processLoadGame();
@@ -56,9 +56,10 @@ public class Main {
   
   /**
    * Start process of creating a new game.
+   * @throws IOException 
    * 
    */
-  public static void processNewGame(boolean oldGame) {
+  public static void processNewGame(boolean oldGame) throws IOException {
     Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
     while (!validResponse ) {
@@ -70,12 +71,15 @@ public class Main {
           if (oldGame) {
             File houseFile = new File("resources/saveHouse.json");
             File playerFile = new File("resources/saveHouse.json");
-            houseFile.delete();
-            playerFile.delete();
+            boolean success1 = houseFile.delete();
+            boolean success2 = playerFile.delete();
+            if (!success1 || !success2) {
+              throw new IOException();
+            }
           }
-          house = GameBuilder.newHouse();
+          House house = GameBuilder.newHouse();
           Player player = new Player(house);
-          startGame(player, true);
+          startGame(player, house, true);
           break;
         }
         case "no": {
@@ -94,9 +98,10 @@ public class Main {
   
   /**
    * Starts process of loading a previous game.
+   * @throws IOException 
    * 
    */
-  public static void processLoadGame() {
+  public static void processLoadGame() throws IOException {
     Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
     while (!validResponse ) {
@@ -105,9 +110,9 @@ public class Main {
       switch (answer) {
         case "yes": {
           validResponse = true;
-          house = GameLoader.loadHouse();
+          House house = GameLoader.loadHouse();
           Player player = GameLoader.loadPlayer();
-          startGame(player, false);
+          startGame(player, house, false);
           break;
         }
         case "no": {
@@ -132,7 +137,7 @@ public class Main {
    * @param player - current player
    * 
    */
-  public static void startGame(Player player, boolean newGame) {
+  public static void startGame(Player player, House house, boolean newGame) {
     if (newGame) {
       Print.printString(player.getCurrentRoom().getDescription(), true);
     }
@@ -141,7 +146,7 @@ public class Main {
     boolean done = false;
     while (!done && scanner.hasNextLine()) {
       String option = scanner.nextLine();
-      done = optionParser(option.toLowerCase(), player);
+      done = optionParser(option.toLowerCase(), player, house);
     }
   }
   
@@ -151,7 +156,7 @@ public class Main {
    * @param player - current player
    * 
    */
-  public static void quitGame(Player player) {
+  public static void quitGame(Player player, House house) {
     boolean validResponse = false;
     while (!validResponse) {
       Print.printString("Save game? (yes/no): ", false);
@@ -159,7 +164,7 @@ public class Main {
       switch (answer) {
         case "yes": {
           validResponse = true;
-          saveGame(player);
+          saveGame(player, house);
           break;
         }
         case "no": {
@@ -181,8 +186,8 @@ public class Main {
    * @param player - current player
    * 
    */
-  public static void saveGame(Player player) {
-    boolean result = GameSaver.saveGame(player);
+  public static void saveGame(Player player, House house) {
+    boolean result = GameSaver.saveGame(player, house);
     if (result) {
       Print.printString("Game saved", false);
     }
@@ -210,10 +215,11 @@ public class Main {
    * 
    * @param option - player's chosen action
    * @param player - current player
+   * @param house - the main house
    * @return if player is done
    * 
    */
-  public static boolean optionParser(String option, Player player) {
+  public static boolean optionParser(String option, Player player, House house) {
     boolean done = false;
     Scanner lineScanner = new Scanner(option);
     String command = lineScanner.next();
@@ -250,7 +256,7 @@ public class Main {
         break;
       }
       case "save": {
-        saveGame(player);
+        saveGame(player, house);
         break;
         
       }
@@ -285,7 +291,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            PlayerActions.itemAction(player, command2);
+            PlayerActions.itemAction(player, command2, house);
           } else {
             Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]", false);
           }
@@ -308,7 +314,7 @@ public class Main {
         break;
       }
       case "quit": {
-        quitGame(player);
+        quitGame(player, house);
         done = true;
         break;
       }

@@ -25,9 +25,8 @@ public class GameSaver {
    * Saves the house to file data.
    * @return initial house state
    */
-  public static boolean saveGame(Player player) {
+  public static boolean saveGame(Player player, House house) {
     ObjectMapper mapper = new ObjectMapper();
-    House house = Main.house;
     Logger logger = Logger.getLogger("HouseSaver");
     try {
       // Convert object to JSON string and save into a file directly

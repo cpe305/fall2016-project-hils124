@@ -41,8 +41,8 @@ public class Player {
    * @return true on success
    * 
    */
-  public boolean useItem(Item item) {
-    boolean success = item.use(this, Main.house, currentRoom, currentWall);
+  public boolean useItem(Item item, House house) {
+    boolean success = item.use(this, house, currentRoom, currentWall);
     if (success) {
       removeItem(item);
     }
