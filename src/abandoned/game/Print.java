@@ -6,7 +6,7 @@ package abandoned.game;
  */
 public class Print {
   
-  public static boolean printToConsole = true;
+  private static boolean printToConsole = true;
   
   private Print() {
     throw new IllegalAccessError("Print class");
@@ -34,4 +34,13 @@ public class Print {
       }
     }
   }
+  
+  /**
+   * Sets whether to print String to console or not.
+   * @param isConsolePrint - true if String should print to the console
+   */
+  public static void setPrintToConsole(boolean isConsolePrint) {
+    printToConsole = isConsolePrint;
+  }
+  
 }

@@ -12,7 +12,7 @@ import abandoned.house.Wall;
  * 
  * @author hils124
  */
-public class KeyAction extends EntityAction {
+public class KeyAction implements EntityAction {
   
   @Override
   public boolean use(Item item, Room curRoom, Wall curWall) {

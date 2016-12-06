@@ -8,7 +8,6 @@ import abandoned.house.Room;
 import abandoned.house.Wall;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class PinActionTest extends AbandonedTest {

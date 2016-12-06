@@ -10,7 +10,7 @@ import abandoned.house.Wall;
  * 
  * @author hils124
  */
-public class ArtifactAction extends EntityAction {
+public class ArtifactAction implements EntityAction {
   
   @Override
   public boolean use(Item item, Room curRoom, Wall curWall) {

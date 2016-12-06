@@ -5,7 +5,6 @@ import abandoned.house.Container;
 import abandoned.house.Room;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class PlayerActionsTest extends AbandonedTest {

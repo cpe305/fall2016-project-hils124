@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * 
  * @author hils124
  */
-public class KnifeAction extends EntityAction {
+public class KnifeAction implements EntityAction {
   
   @Override
   public boolean use(Item item, Room curRoom, Wall curWall) {

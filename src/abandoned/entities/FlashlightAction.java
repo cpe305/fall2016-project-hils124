@@ -11,7 +11,7 @@ import abandoned.house.Wall;
  * 
  * @author hils124
  */
-public class FlashlightAction extends EntityAction {
+public class FlashlightAction implements EntityAction {
   
   @Override
   public boolean use(Item item, Room curRoom, Wall curWall) {

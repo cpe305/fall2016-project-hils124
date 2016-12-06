@@ -1,7 +1,5 @@
 package abandoned.entities;
 
-import abandoned.game.Player;
-import abandoned.house.House;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 

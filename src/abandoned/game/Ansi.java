@@ -1,6 +1,15 @@
 package abandoned.game;
 
+/**
+ * Class of ANSI constants for console colors.
+ * @author hils124
+ *
+ */
 public class Ansi {
+  
+  private Ansi() {
+    throw new IllegalAccessError("Ansi class");
+  }
  
   /**
    * item color.

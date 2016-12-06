@@ -2,7 +2,6 @@ package abandoned.game;
 
 import abandoned.entities.Item;
 import abandoned.house.Container;
-import abandoned.house.House;
 import abandoned.house.Portal;
 import abandoned.house.Wall;
 
