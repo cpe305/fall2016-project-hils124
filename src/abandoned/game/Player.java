@@ -103,7 +103,7 @@ public class Player {
       Print.printString("Your inventory is empty.\n", false);
     } else {
       for (Item i : inventory) {
-        if (i.getName().equals("artifacts")) {
+        if ("artifacts".equals(i.getName())) {
           Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m ("
               + this.getArtifactCount() + ")", false);
         } else {
