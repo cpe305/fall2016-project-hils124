@@ -12,9 +12,6 @@ import org.junit.Test;
 
 
 public class HandleActionTest extends AbandonedTest {
-  public HandleActionTest() {
-    super();
-  }
   
   private static Item handle;
   

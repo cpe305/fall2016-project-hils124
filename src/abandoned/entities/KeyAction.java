@@ -1,5 +1,6 @@
 package abandoned.entities;
 
+import abandoned.game.Ansi;
 import abandoned.game.GlobalHouse;
 import abandoned.game.Print;
 import abandoned.house.Container;
@@ -27,8 +28,8 @@ public class KeyAction implements EntityAction {
       Wall southWall = bedroom.getSouthWall();
       southWall.setPortal(new Portal("basementDoor", "trapdoor", "basement", "southWall", 
           "Your heart races as you see that the wooden floor has shifted to reveal a "
-          + "small \u001B[33mtrapdoor\u001B[0m. That must have happened when you pulled the lever "
-          + "in the attic!"));
+          + "small " + Ansi.PORTAL + "trapdoor" + Ansi.RESET + ". That must have happened "
+              + "when you pulled the lever in the attic!"));
       return true;
     }
     return false;

@@ -6,29 +6,35 @@ package abandoned.game;
  *
  */
 public class Ansi {
-  
-  private Ansi() {
-    throw new IllegalAccessError("Ansi class");
-  }
  
   /**
    * item color.
    */
-  public static final String ITEM = "";
+  public static final String ITEM = "\u001B[36m";
   
   /**
    * container color.
    */
-  public static final String BINS = "";
+  public static final String BIN = "\u001B[32m";
   
   /**
    * portal color.
    */
-  public static final String PORTAL = "";
+  public static final String PORTAL = "\u001B[33m";
   
   /**
    * reset color.
    */
-  public static final String RESET = "";
+  public static final String RESET = "\u001B[0m";
+  
+  /**
+   * clear terminal window.
+   */
+  public static final String CLEAR = "\033[H\033[2J";
+  
+  private Ansi() {
+    throw new IllegalAccessError("Ansi class");
+  }
+  
         
 }

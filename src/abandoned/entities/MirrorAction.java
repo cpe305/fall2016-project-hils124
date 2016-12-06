@@ -1,5 +1,6 @@
 package abandoned.entities;
 
+import abandoned.game.Ansi;
 import abandoned.game.Print;
 import abandoned.house.Container;
 import abandoned.house.Room;
@@ -23,7 +24,7 @@ public class MirrorAction implements EntityAction {
       mound.setName("mound");
       mound.setInspectDescript("It looks as though something has been buried in there. Maybe "
               + "you have something to dig it up with.");
-      mound.setDescription("You see a \u001B[32mmound\u001B[0m of dirt."); 
+      mound.setDescription("You see a " + Ansi.BIN + "mound" + Ansi.RESET + " of dirt."); 
       return true;
     }
     return false;

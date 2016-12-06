@@ -14,7 +14,7 @@ public enum EntityUseType {
   LETTER(new LetterAction(), "LIBRARY - SOUTH"),
   MATCHES(new MatchAction(), "LIBRARY - EAST"),
   NOTE(new NoteAction(), "ATTIC - NORTH"),
-  SHOVEL(new ShovelAction(), ""),
+  SHOVEL(new ShovelAction(), "GARDEN - EAST"),
   MIRROR(new MirrorAction(), "GARDEN - EAST"),
   ARTIFACT(new ArtifactAction(), ""),
   FLASHLIGHT(new FlashlightAction(), "LIBRARY - EAST"),

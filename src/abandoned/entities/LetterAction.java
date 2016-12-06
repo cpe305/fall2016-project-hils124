@@ -1,5 +1,6 @@
 package abandoned.entities;
 
+import abandoned.game.Ansi;
 import abandoned.game.Print;
 import abandoned.house.Container;
 import abandoned.house.Room;
@@ -21,8 +22,8 @@ public class LetterAction implements EntityAction {
           + "starts to move.\n", true);
       Wall eastWall = curRoom.getEastWall();
       Container fireplace = eastWall.getContainer("fireplace");
-      fireplace.setDescription("You see a \u001B[32mfireplace\u001B[0m with a gray brick border. "
-          + "The back wall of the fireplace seems to have moved.");
+      fireplace.setDescription("You see a " + Ansi.BIN + "fireplace" + Ansi.RESET + " with a gray "
+          + "brick border. The back wall of the fireplace seems to have moved.");
       fireplace.setInspectDescript("You peer into the fireplace and notice a dark passageway "
           + "where the wall used to be. If it wasn't so dark in there, you might be able to "
           + "explore it.");

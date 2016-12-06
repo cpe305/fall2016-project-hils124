@@ -29,7 +29,7 @@ public class Main {
    */
   public static void main(String[] args) throws IOException {
     // clears terminal window
-    Print.printString("\033[H\033[2J", false);
+    Print.printString(Ansi.CLEAR, false);
     System.out.flush();
     try (BufferedReader br = new BufferedReader(new FileReader("resources/title.txt"))) {
       String line = null;

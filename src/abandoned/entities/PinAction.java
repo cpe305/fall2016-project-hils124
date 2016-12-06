@@ -1,5 +1,6 @@
 package abandoned.entities;
 
+import abandoned.game.Ansi;
 import abandoned.game.Print;
 import abandoned.house.Container;
 import abandoned.house.Room;
@@ -23,11 +24,11 @@ public class PinAction implements EntityAction {
       Container desk = curWall.getContainer("desk");
       desk.setInspectDescript("");
       desk.addItem(new Item("matches",
-          "There is a small box of \u001B[36mmatches\u001B[0m inside the unlocked desk drawer.",
-          EntityUseType.MATCHES, true));
+          "There is a small box of " + Ansi.ITEM + "matches" + Ansi.RESET + " inside "
+              + "the unlocked desk drawer.", EntityUseType.MATCHES, true));
       desk.addItem(new Item("scissors",
           "You reach your hand to the back of the desk drawer and find a pair of "
-          + "\u001B[36mscissors\u001B[0m.", EntityUseType.SCISSORS, true));
+          + "" + Ansi.ITEM + "scissors" + Ansi.RESET + ".", EntityUseType.SCISSORS, true));
       return true;
     }
     return false;
