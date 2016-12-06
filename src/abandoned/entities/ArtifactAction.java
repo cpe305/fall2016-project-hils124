@@ -5,20 +5,21 @@ import abandoned.game.Print;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
-
 /**
- * Class to model a bucket's action when used.
+ * Class to model a artifact's action when used.
  * 
  * @author hils124
  */
-public class BucketAction extends EntityAction {
+public class ArtifactAction extends EntityAction {
   
   @Override
   public boolean use(Item item, Room curRoom, Wall curWall) {
     if (item.getUseType().getWall().equals(curWall.getName())) {
-      Print.printString("You bend down over the pond and gently scoop water into the "
-          + "bucket.\n\n", true);
-      GlobalPlayer.get().addItem(new Item("water", "", EntityUseType.WATER, true));
+      if (GlobalPlayer.get().getArtifactCount() < 4) {
+        Print.printString("You need more artifacts", false);
+        return false;
+      }
+      Print.printString("", true);
       return true;
     }
     return false;

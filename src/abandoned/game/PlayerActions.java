@@ -20,17 +20,15 @@ public class PlayerActions {
   /**
    * Processes a player entering a portal.
    * 
-   * @param player - current player
    * @param portalName - selected portal's name
-   * @param house - the main house
    * 
    */
-  public static void enterPortal(Player player, String portalName, House house) {
-    Wall curWal = player.getCurrentWall();
+  public static void enterPortal(String portalName) {
+    Wall curWal = GlobalPlayer.get().getCurrentWall();
     if (curWal.hasPortal()) {
       Portal portal = curWal.getPortal();
       if (portal.getType().equals(portalName)) {
-        player.enter(portal, house);
+        GlobalPlayer.get().enter(portal);
       }
     }
   }
@@ -38,12 +36,11 @@ public class PlayerActions {
   /**
    * Processes a player inspecting an element.
    * 
-   * @param player - current player
    * @param elementName - selected element's name
    * 
    */
-  public static void inspectElement(Player player, String elementName) {
-    Wall curWall = player.getCurrentWall();
+  public static void inspectElement(String elementName) {
+    Wall curWall = GlobalPlayer.get().getCurrentWall();
     Container container = curWall.getContainer(elementName);
     if (container != null) {
       if (container.hasItems() || container.getInspectDescript().length() != 0) {
@@ -57,15 +54,13 @@ public class PlayerActions {
   /**
    * Processes a player using an item.
    * 
-   * @param player - current player
    * @param itemName - selected item's name
-   * @param house - the main house
    * 
    */
-  public static void itemAction(Player player, String itemName, House house) {
-    Item chosenItem = player.getItem(itemName);
+  public static void itemAction(String itemName) {
+    Item chosenItem = GlobalPlayer.get().getItem(itemName);
     if (chosenItem != null) {
-      boolean success = player.useItem(chosenItem, house);
+      boolean success = GlobalPlayer.get().useItem(chosenItem);
       if (!success) {
         Print.printString("Cannot use item here.", false);
       }
@@ -76,27 +71,42 @@ public class PlayerActions {
   
   /**
    * Processes a player taking an item.
-   * 
-   * @param player - current player
+
    * @param itemName - selected item's name
    */
-  public static void takeItem(Player player, String itemName) {
+  public static void takeItem(String itemName) {
     boolean itemFound = false;
-    Wall curWall = player.getCurrentWall();
+    boolean isArtifact = false;
+    if (GlobalPlayer.get().getArtifactCount() > 0) {
+      isArtifact = true;
+    }
+    Wall curWall = GlobalPlayer.get().getCurrentWall();
     Item item = curWall.getItem(itemName);
     if (item != null) {
       itemFound = true;
-      player.addItem(item);
-      curWall.removeItem(item);
+      if (isArtifact) {
+        GlobalPlayer.get().incrementArtifactCount();
+        Item artifact = GlobalPlayer.get().getItem("artifact");
+        artifact.setName("artifact (" + GlobalPlayer.get().getArtifactCount() + ")");
+      } else {
+        GlobalPlayer.get().addItem(item);
+        curWall.removeItem(item);
+      }
     } else {
       for (Container c : curWall.getContainers()) {
         if (c.getInspected()) {
           item = c.getItem(itemName);
           if (item != null && item.getIsTakeable()) {
             itemFound = true;
-            player.addItem(item);
-            c.removeItem(item);
-            break;
+            if (isArtifact) {
+              GlobalPlayer.get().incrementArtifactCount();
+              Item artifact = GlobalPlayer.get().getItem("artifact");
+              artifact.setName("artifacts");
+            } else {
+              GlobalPlayer.get().addItem(item);
+              c.removeItem(item);
+              break;
+            }
           }
         }
       }
@@ -109,17 +119,16 @@ public class PlayerActions {
   /**
    * Processes a player turning a certain direction.
    * 
-   * @param player - current player
    * @param direction - selected direction
    * 
    */
-  public static void turnPlayer(Player player, String direction) {
+  public static void turnPlayer(String direction) {
     if ("left".equals(direction)) {
-      player.turnLeft();
+      GlobalPlayer.get().turnLeft();
     } else if ("right".equals(direction)) {
-      player.turnRight();
+      GlobalPlayer.get().turnRight();
     } else if ("around".equals(direction)) {
-      player.turnAround();
+      GlobalPlayer.get().turnAround();
     } else {
       Print.printString("Action cannot be made.", false);
     }

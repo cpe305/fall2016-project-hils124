@@ -1,9 +1,7 @@
 package abandoned.entities;
 
-import abandoned.game.Player;
 import abandoned.game.Print;
 import abandoned.house.Container;
-import abandoned.house.House;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
@@ -13,9 +11,10 @@ import abandoned.house.Wall;
  * 
  * @author hils124
  */
-public class MatchAction implements EntityAction {
+public class MatchAction extends EntityAction {
+  
   @Override
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
+  public boolean use(Item item, Room curRoom, Wall curWall) {
     Item passage = curWall.getContainer("fireplace").getItem("passage");
     if (passage == null) {
       Print.printString("Lighting the fireplace right now wouldn't be a good idea.\n", true);

@@ -6,6 +6,8 @@ package abandoned.game;
  */
 public class Print {
   
+  public static boolean printToConsole = true;
+  
   private Print() {
     throw new IllegalAccessError("Print class");
   }
@@ -17,17 +19,19 @@ public class Print {
    * 
    */
   public static void printString(String str, boolean scroll) {
-    if (scroll) {
-      for (int i = 0; i < str.length(); i++) {
-        try {
-          System.out.print(str.charAt(i));
-          Thread.sleep(50);
-        } catch (InterruptedException ex) {
-          Thread.currentThread().interrupt();
+    if (printToConsole) {
+      if (scroll) {
+        for (int i = 0; i < str.length(); i++) {
+          try {
+            System.out.print(str.charAt(i));
+            Thread.sleep(50);
+          } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+          }
         }
+      } else {
+        System.out.println(str);
       }
-    } else {
-      System.out.println(str);
     }
   }
 }

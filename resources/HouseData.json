@@ -11,7 +11,7 @@
 						"name": "desk",
 						"description": "You see a rotting wooden \u001B[32mdesk\u001B[0m propped against the wall. ",
 						"inspected": false,
-						"inspectDescript": "You pull hard on a desk drawer and find it is locked. As you do so, you hear something rattle inside. Maybe there is something around to pick the lock with. ",
+						"inspectDescript": "You pull hard on a desk drawer and find it is locked. You hear something rattle inside. If only you had something to pick the lock with. ",
 						"items": []
 					}
 				],
@@ -39,7 +39,7 @@
 						"name": "painting",
 						"description": "You see a \u001B[32mpainting\u001B[0m crookedly hanging on a wall.",
 						"inspected": false,
-						"inspectDescript": "The painting shows a faded garden with craggly trees and a small pond. It is hanging crookedly so you move to straighten it and in doing so, you hear something slide within the frame. Hmm that's odd, maybe if you find something to break open the frame, you can see what's inside.",
+						"inspectDescript": "You move to straighten the crooked painting and in doing so, you hear something slide within the frame. Hmm that's odd, maybe there is something around to break it open with to see what's inside.",
 						"items": []
 					}
 				],
@@ -54,12 +54,12 @@
 						"name": "bed",
 						"description": "There is an old \u001B[32mbed\u001B[0m covered in dust and cobwebs.",
 						"inspected": false,
-						"inspectDescript": "Upon closer inspection, you oddly notice piles of dust next to the bed, as if the bed has been moved recently. ",
+						"inspectDescript": "",
 						"items": [
 							{
 								"name": "shovel",
 								"description": "After taking a quick peek underneath the bed, you see a small hand \u001B[36mshovel\u001B[0m.",
-								"useType": null,
+								"useType": "SHOVEL",
 								"isTakeable": true
 							}
 						]
@@ -93,7 +93,7 @@
 						"name": "cabinet",
 						"description": "You see a dusty \u001B[32mcabinet\u001B[0m in the left hand corner.",
 						"inspected": false,
-						"inspectDescript": "That's strange. The cabinet seems to be missing a handle and therefore, you can't open it.",
+						"inspectDescript": "That's strange. The cabinet seems to be missing a handle. Without it, you won't be able to open it.",
 						"items": []
 					}
 				],
@@ -211,26 +211,56 @@
 				"direction": "w",
 				"containers": [],
 				"items": [],
-				"portal": null
+				"portal": {
+					"name": "libraryDoor",
+					"type": "passageway",
+					"roomName": "library",
+					"wallName": "westWall",
+					"description": "You see stairs that lead down a \u001B[33mpassageway\u001B[0m back to the library."
+				}
 			},
 			"eastWall": {
 				"name": "ATTIC - EAST",
 				"direction": "e",
-				"containers": [],
+				"containers": [
+					{
+						"name": "clock",
+						"description": "You notice a tall, broken grandfather \u001B[32mclock\u001B[0m towering over you.",
+						"inspected": false,
+						"inspectDescript": "",
+						"items": []
+					}
+				],
 				"items": [],
 				"portal": null
 			},
 			"northWall": {
 				"name": "ATTIC - NORTH",
 				"direction": "n",
-				"containers": [],
+				"containers": [
+					{
+						"name": "trunk",
+						"description": "You notice a brass, bound \u001B[32mtrunk\u001B[0m propped against the wall.",
+						"inspected": false,
+						"inspectDescript": "You notice a combination lock on the trunk. If you want to open it, you're going to need to know the combination.",
+						"items": []
+					}
+				],
 				"items": [],
 				"portal": null
 			},
 			"southWall": {
 				"name": "ATTIC - SOUTH",
 				"direction": "s",
-				"containers": [],
+				"containers": [
+					{
+						"name": "box",
+						"description": "You notice an electric \u001B[32mbox\u001B[0m attached to the left of the wall.",
+						"inspected": false,
+						"inspectDescript": "You see a keyhole just as you try to open the electric box. Just as you feared, its locked.",
+						"items": []
+					}
+				],
 				"items": [],
 				"portal": null
 			}
@@ -314,7 +344,7 @@
 		},
 		{
 			"name": "basement",
-			"description": "",
+			"description": "You slowly climb down a ladder into the trapdoor and find yourself in an old basement. Several spiders hang from the corners of the room and ",
 			"westWall": {
 				"name": "BASEMENT - WEST",
 				"direction": "w",
@@ -325,14 +355,23 @@
 			"eastWall": {
 				"name": "BASEMENT - EAST",
 				"direction": "e",
-				"containers": [],
-				"items": [
+				"containers": [
 					{
-						"name": "shovel",
-						"description": "",
-						"useType": null,
-						"isTakeable": true
+						"name": "bench",
+						"description": "You see a cluttered \u001B[32mworkbench\u001B[0m.",
+						"inspected": false,
+						"inspectDescript": "",
+						"items": [
+							{
+								"name": "note",
+								"description": "After sifting through all the clutter, you stop as you notice a \u001B[36mnote\u001B[0m lying underneath an empty jar. Scribbled on it are the number '4, 11, 24'.",
+								"useType": "NOTE",
+								"isTakeable": true
+							}
+						]
 					}
+				],
+				"items": [
 				],
 				"portal": null
 			},
@@ -341,7 +380,13 @@
 				"direction": "n",
 				"containers": [],
 				"items": [],
-				"portal": null
+				"portal": {
+					"name": "bedroomDoor",
+					"type": "trapdoor",
+					"roomName": "bedroom",
+					"wallName": "northWall",
+					"description": "You see a ladder that leads to a \u001B[33mtrapdoor\u001B[0m back to the bedroom."
+				}
 			},
 			"southWall": {
 				"name": "BASEMENT - SOUTH",

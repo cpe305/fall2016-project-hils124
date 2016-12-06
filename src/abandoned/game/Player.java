@@ -15,35 +15,32 @@ import java.util.List;
  */
 public class Player {
   private ArrayList<Item> inventory;
+  private int artifactCount;
   private Room currentRoom;
   private Wall currentWall;
 
   /**
    * Empty constructor for JSON serializing.
    */
-  public Player() {
-    //empty for JSON serializing
-  }
   
   /**
    * Public constructor.
-   * @param house - main house
    */
-  public Player(House house) {
+  public Player() {
     inventory = new ArrayList<>();
-    this.currentRoom = house.getRoom("bedroom");
+    this.artifactCount = 0;
+    this.currentRoom = GlobalHouse.get().getRoom("bedroom");
     this.currentWall = this.currentRoom.getNorthWall();
   }
 
   /**
    * Using an item.
    * @param item - chosen item
-   * @param house - the main house
    * @return true on success
    * 
    */
-  public boolean useItem(Item item, House house) {
-    boolean success = item.use(this, house, currentRoom, currentWall);
+  public boolean useItem(Item item) {
+    boolean success = item.use(currentRoom, currentWall);
     if (success) {
       removeItem(item);
     }
@@ -79,6 +76,18 @@ public class Player {
     return this.currentRoom;
   }
   
+  public void setArtifactCount(int count) {
+    this.artifactCount = count;
+  }
+  
+  public int getArtifactCount() {
+    return this.artifactCount;
+  }
+  
+  public void incrementArtifactCount() {
+    this.artifactCount = this.artifactCount + 1;
+  }
+  
   public void setCurrentWall(Wall wall) {
     this.currentWall = wall;
   }
@@ -95,7 +104,12 @@ public class Player {
       Print.printString("Your inventory is empty.\n", false);
     } else {
       for (Item i : inventory) {
-        Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m", false);
+        if (i.getName().equals("artifacts")) {
+          Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m ("
+              + this.getArtifactCount() + ")", false);
+        } else {
+          Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m", false);
+        }
       }
       Print.printString("", false);
     }
@@ -104,11 +118,10 @@ public class Player {
   /**
    * Processes a player entering a portal.
    * @param portal - chosen portal
-   * @param house - main house
    * 
    */
-  public void enter(Portal portal, House house) {
-    currentRoom = house.getRoom(portal.getRoomName());
+  public void enter(Portal portal) {
+    currentRoom = GlobalHouse.get().getRoom(portal.getRoomName());
     currentWall = currentRoom.enter(portal.getWallName());
     currentWall.describe();
   }

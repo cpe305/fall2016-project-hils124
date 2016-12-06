@@ -2,10 +2,8 @@ package abandoned.entities.test;
 
 import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
-import abandoned.game.GameBuilder;
-import abandoned.game.Player;
+import abandoned.game.test.AbandonedTest;
 import abandoned.house.Container;
-import abandoned.house.House;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
@@ -13,14 +11,11 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@Ignore public class ScissorsActionTest {
-  private static House house;
-  private static Player player;
+public class ScissorsActionTest extends AbandonedTest {
+  
   private static Item scissors;
   
   static {
-    house = GameBuilder.newHouse();
-    player = new Player(house);
     scissors = new Item("scissors", "You see scissors.", EntityUseType.SCISSORS,
         true);
     player.addItem(scissors);
@@ -31,7 +26,7 @@ import org.junit.Test;
     Room curRoom = house.getRoom("kitchen");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
-    player.useItem(scissors, house);
+    player.useItem(scissors);
     Assert.assertNotNull(player.getItem("scissors"));
   }
   
@@ -40,7 +35,7 @@ import org.junit.Test;
     Room curRoom = house.getRoom("garden");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
-    player.useItem(scissors, house);
+    player.useItem(scissors);
     Assert.assertNotNull(player.getItem("scissors"));
   }
   
@@ -50,7 +45,7 @@ import org.junit.Test;
     Wall curWall = curRoom.getSouthWall();
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curWall);
-    player.useItem(scissors, house);
+    player.useItem(scissors);
     Assert.assertNull(player.getItem("scissors"));
     Assert.assertNotNull(curWall.getItem("key"));
     Container chimes = curWall.getContainer("chimes");

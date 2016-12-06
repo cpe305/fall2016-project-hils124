@@ -1,12 +1,13 @@
 package abandoned.game;
 
-import abandoned.house.House;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  * Class to run the game.
@@ -14,7 +15,6 @@ import java.util.Scanner;
  * @author hils124
  */
 public class Main {
-  public static final Scanner scanner = new Scanner(System.in);
   
   private Main() {
     throw new IllegalAccessError("Main class");
@@ -37,7 +37,12 @@ public class Main {
         Print.printString(line, false);
       }
     }
-    processGameState();
+    try {
+      processGameState();
+    } catch (Exception ex) {
+      Logger logger = Logger.getLogger("GameState");
+      logger.log(Level.SEVERE, "Problem starting the game.", ex); 
+    }
   }
 
   /**
@@ -60,7 +65,7 @@ public class Main {
    * @throws IOException 
    * 
    */
-  public static void processNewGame(boolean oldGame) throws IOException {
+  public static void processNewGame(boolean oldGame) throws IOException { 
     Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
     while (!validResponse ) {
@@ -71,16 +76,16 @@ public class Main {
           validResponse = true;
           if (oldGame) {
             File houseFile = new File("resources/saveHouse.json");
-            File playerFile = new File("resources/saveHouse.json");
+            File playerFile = new File("resources/savePlayer.json");
             boolean success1 = houseFile.delete();
             boolean success2 = playerFile.delete();
             if (!success1 || !success2) {
               throw new IOException();
             }
           }
-          House house = GameBuilder.newHouse();
-          Player player = new Player(house);
-          startGame(player, house, true);
+          GlobalHouse.initializeHouse(true);
+          GlobalPlayer.initializePlayer(true);
+          startGame(true);
           break;
         }
         case "no": {
@@ -99,7 +104,7 @@ public class Main {
   
   /**
    * Starts process of loading a previous game.
-   * @throws IOException 
+   * @throws Exception 
    * 
    */
   public static void processLoadGame() throws IOException {
@@ -111,9 +116,9 @@ public class Main {
       switch (answer) {
         case "yes": {
           validResponse = true;
-          House house = GameLoader.loadHouse();
-          Player player = GameLoader.loadPlayer();
-          startGame(player, house, false);
+          GlobalHouse.initializeHouse(false);
+          GlobalPlayer.initializePlayer(false);
+          startGame(false);
           break;
         }
         case "no": {
@@ -135,32 +140,31 @@ public class Main {
   /**
    * Initiates game state.
    * 
-   * @param player - current player
-   * @param house - the main house
    * @param newGame - true if player is starting new game
+   * @throws Exception 
    * 
    */
-  public static void startGame(Player player, House house, boolean newGame) {
+  public static void startGame(boolean newGame) {
     if (newGame) {
-      Print.printString(player.getCurrentRoom().getDescription(), true);
+      Print.printString(GlobalPlayer.get().getCurrentRoom().getDescription(), true);
+      GlobalPlayer.get().getCurrentRoom().setDescription("");
     }
-    player.getCurrentWall().describe();
+    GlobalPlayer.get().getCurrentWall().describe();
     Print.printString("(Type HELP to view commands)\n", false);
     boolean done = false;
-    while (!done && scanner.hasNextLine()) {
+    Scanner scanner = new Scanner(System.in);
+    while (!done && scanner .hasNextLine()) {
       String option = scanner.nextLine();
-      done = optionParser(option.toLowerCase(), player, house);
+      done = optionParser(option.toLowerCase());
     }
+    scanner.close();
   }
   
   /**
    * Ends game state.
-   * 
-   * @param player - current player
-   * @param house - the main house
-   * 
    */
-  public static void quitGame(Player player, House house) {
+  public static void quitGame() {
+    Scanner scanner = new Scanner(System.in);
     boolean validResponse = false;
     while (!validResponse) {
       Print.printString("Save game? (yes/no): ", false);
@@ -168,7 +172,7 @@ public class Main {
       switch (answer) {
         case "yes": {
           validResponse = true;
-          saveGame(player, house);
+          saveGame();
           break;
         }
         case "no": {
@@ -181,18 +185,16 @@ public class Main {
         }
       }
     }
+    scanner.close();
     Print.printString("Quitting...\n", false);
   }
     
   /**
    * Saves game state.
    * 
-   * @param player - current player
-   * @param house - the main house
-   * 
    */
-  public static void saveGame(Player player, House house) {
-    boolean result = GameSaver.saveGame(player, house);
+  public static void saveGame() {
+    boolean result = GameSaver.saveGame();
     if (result) {
       Print.printString("Game saved", false);
     }
@@ -219,12 +221,10 @@ public class Main {
    * Processes player commands.
    * 
    * @param option - player's chosen action
-   * @param player - current player
-   * @param house - the main house
    * @return if player is done
    * 
    */
-  public static boolean optionParser(String option, Player player, House house) {
+  public static boolean optionParser(String option) {
     boolean done = false;
     Scanner lineScanner = new Scanner(option);
     String command = lineScanner.next();
@@ -234,7 +234,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            PlayerActions.enterPortal(player, command2, house);
+            PlayerActions.enterPortal(command2);
           } else {
             Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]", false);
           }
@@ -251,7 +251,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            PlayerActions.inspectElement(player, command2);
+            PlayerActions.inspectElement(command2);
           } else {
             Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]", false);
           }
@@ -261,7 +261,7 @@ public class Main {
         break;
       }
       case "save": {
-        saveGame(player, house);
+        saveGame();
         break;
         
       }
@@ -270,7 +270,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            PlayerActions.takeItem(player, command2);
+            PlayerActions.takeItem(command2);
           } else {
             Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]", false);
           }
@@ -283,7 +283,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            PlayerActions.turnPlayer(player, command2);
+            PlayerActions.turnPlayer(command2);
           } else {
             Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]", false);
           }
@@ -296,7 +296,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if (!lineScanner.hasNext()) {
-            PlayerActions.itemAction(player, command2, house);
+            PlayerActions.itemAction(command2);
           } else {
             Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]", false);
           }
@@ -309,7 +309,7 @@ public class Main {
         if (lineScanner.hasNext()) {
           command2 = lineScanner.next().toLowerCase();
           if ("inventory".equals(command2) && !lineScanner.hasNext()) {
-            player.displayInventory();
+            GlobalPlayer.get().displayInventory();
           } else {
             Print.printString("Usage: VIEW INVENTORY", false);
           }
@@ -319,7 +319,7 @@ public class Main {
         break;
       }
       case "quit": {
-        quitGame(player, house);
+        quitGame();
         done = true;
         break;
       }

@@ -42,6 +42,10 @@ public class Item {
     return this.name;
   }
   
+  public void setName(String name) {
+    this.name = name;
+  }
+  
   public String getDescription() {
     return this.description;
   }
@@ -60,17 +64,14 @@ public class Item {
   
   /**
    * Called when player uses an item.
-   * @param player - current player
-   * @param house - main house
    * @param curRoom - current room the player is in
    * @param curWall - current wall the player is facing
    * @return item use success
-   * @throws Exception
    * 
    */
-  public boolean use(Player player, House house, Room curRoom, Wall curWall) {
+  public boolean use(Room curRoom, Wall curWall) {
     if (this.useType != null) {
-      return this.useType.getAction().use(player, this, house, curRoom, curWall);  
+      return this.useType.getAction().use(this, curRoom, curWall);  
     }
     return false;
   }

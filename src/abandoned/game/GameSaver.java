@@ -1,14 +1,13 @@
 package abandoned.game;
 
-import abandoned.house.House;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 
 
 /**
@@ -23,17 +22,15 @@ public class GameSaver {
   
   /**
    * Saves the house to file data.
-   * @param player - the current player
-   * @param house - the main house
    * @return initial house state
    */
-  public static boolean saveGame(Player player, House house) {
+  public static boolean saveGame() {
     ObjectMapper mapper = new ObjectMapper();
     Logger logger = Logger.getLogger("HouseSaver");
     try {
       // Convert object to JSON string and save into a file directly
-      mapper.writeValue(new File("resources/saveHouse.json"), house);
-      mapper.writeValue(new File("resources/savePlayer.json"), player);
+      mapper.writeValue(new File("resources/saveHouse.json"), GlobalHouse.get());
+      mapper.writeValue(new File("resources/savePlayer.json"), GlobalPlayer.get());
       return true;
       
     } catch (JsonGenerationException | JsonMappingException ex) {
@@ -41,6 +38,9 @@ public class GameSaver {
       return false;
     } catch (IOException ex) {
       logger.log(Level.SEVERE, "IO Exception", ex); 
+      return false;
+    } catch (Exception ex) {
+      logger.log(Level.SEVERE, "Game didn't save", ex); 
       return false;
     }
   }

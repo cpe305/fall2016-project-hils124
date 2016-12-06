@@ -1,12 +1,13 @@
 package abandoned.entities.test;
 
-import abandoned.entities.EntityUseType;
-import abandoned.entities.Item;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ItemTest {
+import abandoned.entities.EntityUseType;
+import abandoned.entities.Item;
+import abandoned.game.test.AbandonedTest;
+
+public class ItemTest extends AbandonedTest {
   private static Item item;
   
   static {

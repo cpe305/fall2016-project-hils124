@@ -1,9 +1,7 @@
 package abandoned.entities;
 
-import abandoned.game.Player;
 import abandoned.game.Print;
 import abandoned.house.Container;
-import abandoned.house.House;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
@@ -13,9 +11,10 @@ import abandoned.house.Wall;
  * 
  * @author hils124
  */
-public class PinAction implements EntityAction {
+public class PinAction extends EntityAction {
+  
   @Override
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
+  public boolean use(Item item, Room curRoom, Wall curWall) {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
           "You jiggle the desk drawer with the bobby pin and after a few tries, "

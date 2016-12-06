@@ -1,9 +1,7 @@
 package abandoned.entities;
 
-import abandoned.game.Player;
 import abandoned.game.Print;
 import abandoned.house.Container;
-import abandoned.house.House;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
@@ -13,9 +11,10 @@ import abandoned.house.Wall;
  * 
  * @author hils124
  */
-public class ScissorsAction implements EntityAction {
+public class ScissorsAction extends EntityAction {
+  
   @Override
-  public boolean use(Player player, Item item, House house, Room curRoom, Wall curWall) {
+  public boolean use(Item item, Room curRoom, Wall curWall) {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
           "You use the scissors to snip a string on the wind chime and watch as a "
