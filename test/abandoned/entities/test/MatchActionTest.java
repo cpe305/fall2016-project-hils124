@@ -45,7 +45,6 @@ public class MatchActionTest extends AbandonedTest {
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curWall);
     player.useItem(matches);
-    Assert.assertNull(player.getItem("matches"));
     Container fireplace = curWall.getContainer("fireplace");
     Assert.assertNotNull(fireplace.getItem("fire"));
     curWall = curRoom.getNorthWall();

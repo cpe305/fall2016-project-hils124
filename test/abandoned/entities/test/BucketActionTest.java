@@ -43,7 +43,6 @@ public class BucketActionTest extends AbandonedTest {
     Wall curWall = curRoom.getWestWall();
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curWall);
-    Assert.assertNull(player.getItem("water"));
     player.useItem(bucket);
     Assert.assertNull(player.getItem("bucket"));
     Assert.assertNotNull(player.getItem("water"));
