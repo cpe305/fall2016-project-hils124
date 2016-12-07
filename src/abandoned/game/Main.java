@@ -22,6 +22,8 @@ public class Main {
   private Main() {
     throw new IllegalAccessError("Main class");
   }
+  
+  private static boolean gameEnded = false;
 
   /**
    * Main driver method.
@@ -154,12 +156,27 @@ public class Main {
     Print.printString("(Type HELP to view commands)\n", false);
     boolean done = false;
     Scanner scanner = new Scanner(System.in);
-    while (!done && scanner .hasNextLine()) {
+    while (gameEnded && !done && scanner.hasNextLine()) {
       String option = scanner.nextLine();
       done = optionParser(option.toLowerCase());
     }
     scanner.close();
   }  
+  
+  /**
+   * Ends game state.
+   * @throws IOException - if file not found
+   */
+  public static void endGame() throws IOException {
+    File houseFile = new File("resources/saveHouse.json");
+    File playerFile = new File("resources/savePlayer.json");
+    boolean success1 = houseFile.delete();
+    boolean success2 = playerFile.delete();
+    if (!success1 || !success2) {
+      throw new IOException();
+    }
+    gameEnded = true;
+  }
 
   /**
    * Processes player commands.

@@ -8,20 +8,22 @@ package abandoned.entities;
 
 public enum EntityUseType {
 
-  HANDLE(new HandleAction(), "KITCHEN - EAST"),
+  ARTIFACT(new ArtifactAction(), "BASEMENT- WEST"),
+  BAR(new BarAction(), "BASEMENT - SOUTH"),
   BROOM(new BroomAction(), "GARDEN - NORTH"),
   BUCKET(new BucketAction(), "GARDEN - WEST"),
+  FLASHLIGHT(new FlashlightAction(), "LIBRARY - EAST"),
+  HAMMER(new HammerAction(), "ATTIC - EAST"),
+  HANDLE(new HandleAction(), "KITCHEN - EAST"),
+  KEY(new KeyAction(), "ATTIC - SOUTH"),
+  KNIFE(new KnifeAction(), "BEDROOM - NORTH"),
   LETTER(new LetterAction(), "LIBRARY - SOUTH"),
   MATCHES(new MatchAction(), "LIBRARY - EAST"),
-  NOTE(new NoteAction(), "ATTIC - NORTH"),
-  SHOVEL(new ShovelAction(), "GARDEN - EAST"),
   MIRROR(new MirrorAction(), "GARDEN - EAST"),
-  ARTIFACT(new ArtifactAction(), ""),
-  FLASHLIGHT(new FlashlightAction(), "LIBRARY - EAST"),
-  KEY(new KeyAction(), "ATTIC - SOUTH"),
-  SCISSORS(new ScissorsAction(), "GARDEN - SOUTH"),
+  NOTE(new NoteAction(), "ATTIC - NORTH"),
   PIN(new PinAction(), "BEDROOM - WEST"),
-  KNIFE(new KnifeAction(), "BEDROOM - NORTH"),
+  SCISSORS(new ScissorsAction(), "GARDEN - SOUTH"),
+  SHOVEL(new ShovelAction(), "GARDEN - EAST"),
   WATER(new WaterAction(), "LIBRARY - EAST");
   
   private EntityAction action;

@@ -4,7 +4,6 @@ import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
 import abandoned.game.test.AbandonedTest;
 import abandoned.house.Room;
-import abandoned.house.Wall;
 
 import org.junit.Assert;
 import org.junit.Test;

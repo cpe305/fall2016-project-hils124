@@ -129,7 +129,7 @@
 		},
 		{
 			"name": "library",
-			"description": "\nThe wooden floorboard creeks violently as you step into a high ceilinged library.\n",
+			"description": "\nThe wooden floorboard creeks violently as you step into a high ceilinged library. Books line the walls and the floor and papers are scattered everywhere.\n",
 			"westWall": {
 				"name": "LIBRARY - WEST",
 				"direction": "w",
@@ -205,7 +205,7 @@
 		},
 		{
 			"name": "attic",
-			"description": "",
+			"description": "You cough as dust fills your lungs. Light creeps through a small crack in the ceiling and allows you to see boxes of broken items and old furniture all around you.",
 			"westWall": {
 				"name": "ATTIC - WEST",
 				"direction": "w",
@@ -227,7 +227,7 @@
 						"name": "clock",
 						"description": "You notice a tall, broken grandfather \u001B[32mclock\u001B[0m towering over you.",
 						"inspected": false,
-						"inspectDescript": "",
+						"inspectDescript": "You look through the smudged glass of the clockface. There seems to be something odd about the triangular hour hand. Maybe you could smash the glass somehow.",
 						"items": []
 					}
 				],
@@ -344,11 +344,19 @@
 		},
 		{
 			"name": "basement",
-			"description": "You slowly climb down a ladder into the trapdoor and find yourself in an old basement. Several spiders hang from the corners of the room and ",
+			"description": "You slowly climb down a ladder into the trapdoor and find yourself in an old basement. Several spiders hang from the corners of the room and you duck under multiple cobwebs as you peer at your surroundings.",
 			"westWall": {
 				"name": "BASEMENT - WEST",
 				"direction": "w",
-				"containers": [],
+				"containers": [
+					{
+						"name": "diamond",
+						"description": "You see an indentation of a \u001B[32mdiamond\u001B[0m in the wall in front of you.",
+						"inspected": false,
+						"inspectDescript": "The diamond is formed by four separate triangles. It looks like something can be placed in them. Could this be what the letter had talked about?",
+						"items": []
+					}
+				],
 				"items": [],
 				"portal": null
 			},
@@ -391,39 +399,29 @@
 			"southWall": {
 				"name": "BASEMENT - SOUTH",
 				"direction": "s",
-				"containers": [],
-				"items": [],
-				"portal": null
-			}
-		},
-		{
-			"name": "secretRoom",
-			"description": "",
-			"westWall": {
-				"name": "SECRET ROOM - WEST",
-				"direction": "w",
-				"containers": [],
-				"items": [],
-				"portal": null
-			},
-			"eastWall": {
-				"name": "SECRET ROOM - EAST",
-				"direction": "e",
-				"containers": [],
-				"items": [],
-				"portal": null
-			},
-			"northWall": {
-				"name": "SECRET ROOM - NORTH",
-				"direction": "n",
-				"containers": [],
-				"items": [],
-				"portal": null
-			},
-			"southWall": {
-				"name": "SECRET ROOM - SOUTH",
-				"direction": "s",
-				"containers": [],
+				"containers": [
+					{
+						"name": "tile",
+						"description": "You see a wall with a bunch of white tiles, but one \u001B[32mtile\u001B[0m in particular looks discolored.",
+						"inspected": false,
+						"inspectDescript": "You tap the tile with your knuckles and hear a hollow echo. You try to pull it off but it's stuck.",
+						"items": []
+					},
+					{
+						"name": "toolbox",
+						"description": "You see a \u001B[32mtoolbox\u001B[0m lying on its side in the left corner.",
+						"inspected": false,
+						"inspectDescript": "",
+						"items": [
+							{
+								"name": "hammer",
+								"description": "Among a bunch of rusty, bent nails, you see a \u001B[36mhammer\u001B[0m.",
+								"useType": "HAMMER",
+								"isTakeable": true
+							}
+						]
+					}
+				],
 				"items": [],
 				"portal": null
 			}
