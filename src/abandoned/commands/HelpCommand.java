@@ -7,6 +7,9 @@ package abandoned.commands;
 public class HelpCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public HelpCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

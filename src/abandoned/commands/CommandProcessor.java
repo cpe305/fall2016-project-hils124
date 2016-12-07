@@ -17,6 +17,9 @@ import java.util.Scanner;
 public class CommandProcessor {
   private String name;
     
+  /**
+   * Method to set the process name.
+   */
   public void setProcess(String name) {
     this.name = name;
   }

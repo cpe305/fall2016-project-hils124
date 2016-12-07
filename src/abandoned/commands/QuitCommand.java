@@ -7,6 +7,9 @@ package abandoned.commands;
 public class QuitCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public QuitCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

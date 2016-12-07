@@ -7,6 +7,9 @@ package abandoned.commands;
 public class EnterCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public EnterCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

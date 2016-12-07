@@ -7,6 +7,9 @@ package abandoned.commands;
 public class ViewCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public ViewCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

@@ -85,6 +85,9 @@ public class Player {
     return this.artifactCount;
   }
   
+  /**
+   * Increments artifact count by 1.
+   */
   public void incrementArtifactCount() {
     this.artifactCount = this.artifactCount + 1;
   }

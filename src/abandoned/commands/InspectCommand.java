@@ -7,6 +7,9 @@ package abandoned.commands;
 public class InspectCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public InspectCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

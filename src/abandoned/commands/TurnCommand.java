@@ -7,6 +7,9 @@ package abandoned.commands;
 public class TurnCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public TurnCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

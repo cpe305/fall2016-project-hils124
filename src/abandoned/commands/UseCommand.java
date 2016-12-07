@@ -7,6 +7,9 @@ package abandoned.commands;
 public class UseCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public UseCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

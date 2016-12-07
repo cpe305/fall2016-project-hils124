@@ -7,6 +7,9 @@ package abandoned.commands;
 public class TakeCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public TakeCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

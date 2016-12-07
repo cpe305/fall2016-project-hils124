@@ -7,6 +7,9 @@ package abandoned.commands;
 public class BadCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public BadCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

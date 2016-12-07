@@ -7,6 +7,9 @@ package abandoned.commands;
 public class SaveCommand implements Command {
   private CommandProcessor cmdProcess;
 
+  /**
+   * Public constructor.
+   */
   public SaveCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
   }

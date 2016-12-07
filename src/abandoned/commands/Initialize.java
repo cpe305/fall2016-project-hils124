@@ -5,6 +5,11 @@ package abandoned.commands;
  * @author hils124
  */
 public class Initialize {
+  
+  private Initialize() {
+    throw new IllegalAccessError("Initializer class");
+  }
+  
   public static final CommandProcessor cmdProcess = new CommandProcessor();
   public static final BadCommand badCmd = new BadCommand(cmdProcess);
   public static final EnterCommand enterCmd = new EnterCommand(cmdProcess);
