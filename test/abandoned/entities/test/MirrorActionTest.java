@@ -3,30 +3,29 @@ package abandoned.entities.test;
 import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
 import abandoned.game.test.AbandonedTest;
-import abandoned.house.Container;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ShovelActionTest extends AbandonedTest {
+public class MirrorActionTest extends AbandonedTest {
   
-  private static Item shovel;
+  private static Item mirror;
   
   static {
-    shovel = new Item("shovel", "You see a shovel.", EntityUseType.SHOVEL,
+    mirror = new Item("mirror", "You see mirror.", EntityUseType.MIRROR,
         true);
-    player.addItem(shovel); 
+    player.addItem(mirror);
   }
 
   @Test
   public void testIncorrectActionRoom() {
-    Room curRoom = house.getRoom("kitchen");
+    Room curRoom = house.getRoom("attic");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
-    player.useItem(shovel);
-    Assert.assertNotNull(player.getItem("shovel"));
+    player.useItem(mirror);
+    Assert.assertNotNull(player.getItem("mirror"));
   }
   
   @Test
@@ -34,8 +33,8 @@ public class ShovelActionTest extends AbandonedTest {
     Room curRoom = house.getRoom("garden");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getWestWall());
-    player.useItem(shovel);
-    Assert.assertNotNull(player.getItem("shovel"));
+    player.useItem(mirror);
+    Assert.assertNotNull(player.getItem("mirror"));
   }
   
   @Test
@@ -44,12 +43,10 @@ public class ShovelActionTest extends AbandonedTest {
     Wall curWall = curRoom.getEastWall();
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curWall);
-    player.useItem(shovel);
-    Assert.assertNull(player.getItem("shovel"));
-    Container mound = curWall.getContainer("mound");
-    Assert.assertEquals("", mound.getInspectDescript());
-    Assert.assertNotNull(mound.getItem("artifact"));
-    player.addItem(shovel);
+    player.useItem(mirror);
+    Assert.assertNull(player.getItem("mirror"));
+    Assert.assertNull(curWall.getContainer("snake"));
+    Assert.assertNotNull(curWall.getContainer("mound"));
+    player.addItem(mirror);
   }
-  
 }

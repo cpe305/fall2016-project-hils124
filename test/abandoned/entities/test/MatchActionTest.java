@@ -10,22 +10,23 @@ import abandoned.house.Wall;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class WaterActionTest extends AbandonedTest {
+public class MatchActionTest extends AbandonedTest {
   
-  private static Item water;
+  private static Item matches;
   
   static {
-    water = new Item("water", "", EntityUseType.WATER, true);
-    player.addItem(water);
+    matches = new Item("matches", "You see matches.", EntityUseType.MATCHES,
+        true);
+    player.addItem(matches);
   }
 
   @Test
   public void testIncorrectActionRoom() {
-    Room curRoom = house.getRoom("bedroom");
+    Room curRoom = house.getRoom("attic");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
-    player.useItem(water);
-    Assert.assertNotNull(player.getItem("water"));
+    player.useItem(matches);
+    Assert.assertNotNull(player.getItem("matches"));
   }
   
   @Test
@@ -33,8 +34,8 @@ public class WaterActionTest extends AbandonedTest {
     Room curRoom = house.getRoom("library");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getWestWall());
-    player.useItem(water);
-    Assert.assertNotNull(player.getItem("water"));
+    player.useItem(matches);
+    Assert.assertNotNull(player.getItem("matches"));
   }
   
   @Test
@@ -43,10 +44,12 @@ public class WaterActionTest extends AbandonedTest {
     Wall curWall = curRoom.getEastWall();
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curWall);
-    player.useItem(water);
+    player.useItem(matches);
+    Assert.assertNull(player.getItem("matches"));
     Container fireplace = curWall.getContainer("fireplace");
-    Assert.assertNotNull(fireplace.getItem("passage"));
-    Assert.assertNull(fireplace.getItem("fire"));
-    player.addItem(water);
+    Assert.assertNotNull(fireplace.getItem("fire"));
+    curWall = curRoom.getNorthWall();
+    Assert.assertNotNull(curWall.getItem("flashlight"));
+    player.addItem(matches);
   }
 }
