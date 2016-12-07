@@ -45,7 +45,6 @@ public class WaterActionTest extends AbandonedTest {
     player.setCurrentWall(curWall);
     player.useItem(water);
     Container fireplace = curWall.getContainer("fireplace");
-    Assert.assertNotNull(fireplace.getItem("passage"));
     Assert.assertNull(fireplace.getItem("fire"));
     player.addItem(water);
   }
