@@ -9,6 +9,7 @@ public class QuitCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public QuitCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

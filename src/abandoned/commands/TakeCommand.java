@@ -9,6 +9,7 @@ public class TakeCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public TakeCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

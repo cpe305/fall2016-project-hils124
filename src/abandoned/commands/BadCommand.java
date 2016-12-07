@@ -9,6 +9,7 @@ public class BadCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public BadCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

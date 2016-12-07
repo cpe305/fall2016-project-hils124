@@ -9,6 +9,7 @@ public class TurnCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public TurnCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

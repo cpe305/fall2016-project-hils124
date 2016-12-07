@@ -19,6 +19,7 @@ public class CommandProcessor {
     
   /**
    * Method to set the process name.
+   * @param name - name of process
    */
   public void setProcess(String name) {
     this.name = name;

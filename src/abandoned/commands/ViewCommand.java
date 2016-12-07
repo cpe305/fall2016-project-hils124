@@ -9,6 +9,7 @@ public class ViewCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public ViewCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

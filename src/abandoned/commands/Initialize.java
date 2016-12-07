@@ -6,10 +6,6 @@ package abandoned.commands;
  */
 public class Initialize {
   
-  private Initialize() {
-    throw new IllegalAccessError("Initializer class");
-  }
-  
   public static final CommandProcessor cmdProcess = new CommandProcessor();
   public static final BadCommand badCmd = new BadCommand(cmdProcess);
   public static final EnterCommand enterCmd = new EnterCommand(cmdProcess);
@@ -22,4 +18,8 @@ public class Initialize {
   public static final ViewCommand viewCmd = new ViewCommand(cmdProcess);
   public static final UseCommand useCmd = new UseCommand(cmdProcess);
   public static final Invoker invoker = new Invoker();
+  
+  private Initialize() {
+    throw new IllegalAccessError("Initializer class");
+  }
 }

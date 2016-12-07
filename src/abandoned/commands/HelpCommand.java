@@ -9,6 +9,7 @@ public class HelpCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public HelpCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

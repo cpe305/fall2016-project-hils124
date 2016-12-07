@@ -9,6 +9,7 @@ public class InspectCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public InspectCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

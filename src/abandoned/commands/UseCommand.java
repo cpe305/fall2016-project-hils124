@@ -9,6 +9,7 @@ public class UseCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public UseCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

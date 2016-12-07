@@ -9,6 +9,7 @@ public class SaveCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public SaveCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;

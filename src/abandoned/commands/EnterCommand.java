@@ -9,6 +9,7 @@ public class EnterCommand implements Command {
 
   /**
    * Public constructor.
+   * @param cmdProcess - specifies cmdProcessor
    */
   public EnterCommand(CommandProcessor cmdProcess) {
     this.cmdProcess = cmdProcess;
