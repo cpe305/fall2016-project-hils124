@@ -3,7 +3,6 @@ package abandoned.entities.test;
 import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
 import abandoned.game.test.AbandonedTest;
-import abandoned.house.Container;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
@@ -36,17 +35,5 @@ public class MatchActionTest extends AbandonedTest {
     player.setCurrentWall(curRoom.getWestWall());
     player.useItem(matches);
     Assert.assertNotNull(player.getItem("matches"));
-  }
-  
-  @Test
-  public void testCorrectActionWall() {
-    Room curRoom = house.getRoom("library");
-    Wall curWall = curRoom.getEastWall();
-    player.setCurrentRoom(curRoom);
-    player.setCurrentWall(curWall);
-    player.useItem(matches);
-    curWall = curRoom.getNorthWall();
-    Assert.assertNotNull(curWall.getItem("flashlight"));
-    player.addItem(matches);
   }
 }
