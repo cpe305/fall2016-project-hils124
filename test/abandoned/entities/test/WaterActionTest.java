@@ -1,5 +1,6 @@
 package abandoned.entities.test;
 
+import abandoned.entities.EntityUseType;
 import abandoned.entities.Item;
 import abandoned.game.test.AbandonedTest;
 import abandoned.house.Container;
@@ -14,7 +15,8 @@ public class WaterActionTest extends AbandonedTest {
   private static Item water;
   
   static {
-    water = player.getItem("water");
+    water = new Item("water", "", EntityUseType.WATER, true);
+    player.addItem(water);
   }
 
   @Test
