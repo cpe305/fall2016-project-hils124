@@ -1,6 +1,8 @@
-package abandoned.game;
+package abandoned.commands;
 
 import abandoned.entities.Item;
+import abandoned.game.GlobalHouse;
+import abandoned.game.Print;
 import abandoned.house.Portal;
 import abandoned.house.Room;
 import abandoned.house.Wall;

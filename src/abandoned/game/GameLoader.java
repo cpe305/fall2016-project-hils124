@@ -1,5 +1,6 @@
 package abandoned.game;
 
+import abandoned.commands.Player;
 import abandoned.house.House;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;

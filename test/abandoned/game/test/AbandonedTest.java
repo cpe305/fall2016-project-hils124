@@ -1,8 +1,8 @@
 package abandoned.game.test;
 
+import abandoned.commands.Player;
 import abandoned.game.GlobalHouse;
 import abandoned.game.GlobalPlayer;
-import abandoned.game.Player;
 import abandoned.game.Print;
 import abandoned.house.House;
 

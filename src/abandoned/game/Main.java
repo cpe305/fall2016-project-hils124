@@ -1,5 +1,7 @@
 package abandoned.game;
 
+import abandoned.commands.Initialize;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,7 +9,8 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Class to run the game.
@@ -104,7 +107,7 @@ public class Main {
   
   /**
    * Starts process of loading a previous game.
-   * @throws Exception 
+   * @throws IOException 
    * 
    */
   public static void processLoadGame() throws IOException {
@@ -141,8 +144,6 @@ public class Main {
    * Initiates game state.
    * 
    * @param newGame - true if player is starting new game
-   * @throws Exception 
-   * 
    */
   public static void startGame(boolean newGame) {
     if (newGame) {
@@ -158,175 +159,82 @@ public class Main {
       done = optionParser(option.toLowerCase());
     }
     scanner.close();
-  }
-  
-  /**
-   * Ends game state.
-   */
-  public static void quitGame() {
-    Scanner scanner = new Scanner(System.in);
-    boolean validResponse = false;
-    while (!validResponse) {
-      Print.printString("Save game? (yes/no): ", false);
-      String answer = scanner.next();
-      switch (answer) {
-        case "yes": {
-          validResponse = true;
-          saveGame();
-          break;
-        }
-        case "no": {
-          validResponse = true;
-          break;
-        }
-        default: {
-          Print.printString("Invalid response.\n", false);
-          break;
-        }
-      }
-    }
-    scanner.close();
-    Print.printString("Quitting...\n", false);
-  }
-    
-  /**
-   * Saves game state.
-   * 
-   */
-  public static void saveGame() {
-    boolean result = GameSaver.saveGame();
-    if (result) {
-      Print.printString("Game saved", false);
-    }
-  }
-    
-    
-
-  /**
-   * Displays help menu.
-   * @throws InterruptedException - for scroll text
-   */
-  public static void viewHelpMenu() {
-    Print.printString("\nCommands\n"
-        + "enter [\u001B[33mPORTAL\u001B[0m]\n" 
-        + "inspect [\u001B[32mELEMENT\u001B[0m]\n"
-        + "take [\u001B[36mITEM\u001B[0m]\n"
-        + "turn [LEFT, RIGHT, AROUND]\n"
-        + "use [\u001B[36mITEM\u001B[0m]\n" 
-        + "view inventory\n"
-        + "quit\n", false);
-  }
+  }  
 
   /**
    * Processes player commands.
    * 
-   * @param option - player's chosen action
+   * @param option
+   *          - player's chosen action
    * @return if player is done
    * 
    */
   public static boolean optionParser(String option) {
-    boolean done = false;
     Scanner lineScanner = new Scanner(option);
-    String command = lineScanner.next();
-    String command2;
-    switch (command) {
-      case "enter": {
-        if (lineScanner.hasNext()) {
-          command2 = lineScanner.next().toLowerCase();
-          if (!lineScanner.hasNext()) {
-            PlayerActions.enterPortal(command2);
-          } else {
-            Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]", false);
-          }
-        } else {
-          Print.printString("Usage: ENTER [\u001B[33mPORTAL\u001B[0m]", false);
+    boolean done = false;
+    Pattern twoWordPattern = Pattern.compile("^([a-zA-Z]+)\\s+([a-zA-Z]+)\\s*$");
+    Matcher twoWordMatcher = twoWordPattern.matcher(option);
+    Pattern oneWordPattern = Pattern.compile("^([a-zA-Z]+)\\s*$");
+    Matcher oneWordMatcher = oneWordPattern.matcher(option);
+    String command;
+    if (twoWordMatcher.find()) {
+      command = lineScanner.next();
+      String name = lineScanner.next();
+      Initialize.cmdProcess.setProcess(name);
+      switch (command) {
+        case "enter": {
+          Initialize.invoker.executeCommand(Initialize.enterCmd);
+          break;
         }
-        break;
-      }
-      case "help": {
-        viewHelpMenu();
-        break;
-      }
-      case "inspect": {
-        if (lineScanner.hasNext()) {
-          command2 = lineScanner.next().toLowerCase();
-          if (!lineScanner.hasNext()) {
-            PlayerActions.inspectElement(command2);
-          } else {
-            Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]", false);
-          }
-        } else {
-          Print.printString("Usage: INSPECT [\u001B[32mELEMENT\u001B[0m]", false);
+        case "inspect": {
+          Initialize.invoker.executeCommand(Initialize.inspectCmd);
+          break;
         }
-        break;
-      }
-      case "save": {
-        saveGame();
-        break;
-        
-      }
-  
-      case "take": {
-        if (lineScanner.hasNext()) {
-          command2 = lineScanner.next().toLowerCase();
-          if (!lineScanner.hasNext()) {
-            PlayerActions.takeItem(command2);
-          } else {
-            Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]", false);
-          }
-        } else {
-          Print.printString("Usage: TAKE [\u001B[36mITEM\u001B[0m]", false);
+        case "take": {
+          Initialize.invoker.executeCommand(Initialize.takeCmd);
+          break;
         }
-        break;
-      }
-      case "turn": {
-        if (lineScanner.hasNext()) {
-          command2 = lineScanner.next().toLowerCase();
-          if (!lineScanner.hasNext()) {
-            PlayerActions.turnPlayer(command2);
-          } else {
-            Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]", false);
-          }
-        } else {
-          Print.printString("Usage: TURN [LEFT, RIGHT, AROUND]", false);
+        case "turn": {
+          Initialize.invoker.executeCommand(Initialize.turnCmd);
+          break;
         }
-        break;
-      }
-      case "use": {
-        if (lineScanner.hasNext()) {
-          command2 = lineScanner.next().toLowerCase();
-          if (!lineScanner.hasNext()) {
-            PlayerActions.itemAction(command2);
-          } else {
-            Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]", false);
-          }
-        } else {
-          Print.printString("Usage: USE [\u001B[36mITEM\u001B[0m]", false);
+        case "use": {
+          Initialize.invoker.executeCommand(Initialize.useCmd);
+          break;
         }
-        break;
-      }
-      case "view": {
-        if (lineScanner.hasNext()) {
-          command2 = lineScanner.next().toLowerCase();
-          if ("inventory".equals(command2) && !lineScanner.hasNext()) {
-            GlobalPlayer.get().displayInventory();
-          } else {
-            Print.printString("Usage: VIEW INVENTORY", false);
-          }
-        } else {
-          Print.printString("Usage: VIEW INVENTORY", false);
+        case "view": {
+          Initialize.invoker.executeCommand(Initialize.viewCmd);
+          break;
         }
-        break;
+        default: {
+          Initialize.invoker.executeCommand(Initialize.badCmd);
+          break;
+        }
       }
-      case "quit": {
-        quitGame();
-        done = true;
-        break;
+    } else if (oneWordMatcher.find()) {
+      command = lineScanner.next();
+      Initialize.cmdProcess.setProcess(command);
+      switch (command) {
+        case "help": {
+          Initialize.invoker.executeCommand(Initialize.helpCmd);
+          break;
+        }
+        case "save": {
+          Initialize.invoker.executeCommand(Initialize.saveCmd);
+          break;
+        }
+        case "quit": {
+          Initialize.invoker.executeCommand(Initialize.quitCmd);
+          done = true;
+          break;
+        }
+        default: {
+          Initialize.invoker.executeCommand(Initialize.badCmd);
+          break;
+        }
       }
-      default: {
-        Print.printString("Action cannot be made.", false);
-        break;
-      }
+    } else {
+      Initialize.invoker.executeCommand(Initialize.badCmd);
     }
     lineScanner.close();
     return done;

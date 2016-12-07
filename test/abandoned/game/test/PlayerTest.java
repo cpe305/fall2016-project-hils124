@@ -1,6 +1,6 @@
 package abandoned.game.test;
 
-import abandoned.game.Player;
+import abandoned.commands.Player;
 import abandoned.house.Portal;
 import abandoned.house.Room;
 import abandoned.house.Wall;

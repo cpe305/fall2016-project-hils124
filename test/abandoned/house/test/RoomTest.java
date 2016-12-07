@@ -6,12 +6,11 @@ import abandoned.house.Room;
 import abandoned.house.Wall;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-@Ignore public class RoomTest {
+public class RoomTest {
   private static Room room;
   private static Wall newWall;
   private static Wall wall1; 

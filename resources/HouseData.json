@@ -39,7 +39,7 @@
 						"name": "painting",
 						"description": "You see a \u001B[32mpainting\u001B[0m crookedly hanging on a wall.",
 						"inspected": false,
-						"inspectDescript": "You move to straighten the crooked painting and in doing so, you hear something slide within the frame. Hmm that's odd, maybe there is something around to break it open with to see what's inside.",
+						"inspectDescript": "You move to straighten the crooked painting and in doing so, you hear something slide within the frame. Hmm that's odd, maybe there is something around to break it open with.",
 						"items": []
 					}
 				],

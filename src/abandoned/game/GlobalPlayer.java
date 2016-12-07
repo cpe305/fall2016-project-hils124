@@ -1,6 +1,6 @@
 package abandoned.game;
 
-import abandoned.game.Player;
+import abandoned.commands.Player;
 
 /**
  * Class to instantiate one instance of a player (singleton).
