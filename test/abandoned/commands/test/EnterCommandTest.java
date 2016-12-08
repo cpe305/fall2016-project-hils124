@@ -1,9 +1,7 @@
 package abandoned.commands.test;
 
-import abandoned.entities.Item;
 import abandoned.game.Main;
 import abandoned.game.test.AbandonedTest;
-import abandoned.house.Container;
 import abandoned.house.Room;
 import abandoned.house.Wall;
 
