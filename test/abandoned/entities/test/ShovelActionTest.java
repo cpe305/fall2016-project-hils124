@@ -17,29 +17,33 @@ public class ShovelActionTest extends AbandonedTest {
   static {
     shovel = new Item("shovel", "You see a shovel.", EntityUseType.SHOVEL,
         true);
-    player.addItem(shovel); 
   }
 
   @Test
   public void testIncorrectActionRoom() {
+    player.addItem(shovel); 
     Room curRoom = house.getRoom("kitchen");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
     player.useItem(shovel);
     Assert.assertNotNull(player.getItem("shovel"));
+    player.removeItem(shovel);
   }
   
   @Test
   public void testIncorrectActionWall() {
+    player.addItem(shovel);
     Room curRoom = house.getRoom("garden");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getWestWall());
     player.useItem(shovel);
     Assert.assertNotNull(player.getItem("shovel"));
+    player.removeItem(shovel);
   }
   
   @Test
   public void testCorrectActionWall() {
+    player.addItem(shovel);
     Room curRoom = house.getRoom("garden");
     Wall curWall = curRoom.getEastWall();
     player.setCurrentRoom(curRoom);
@@ -49,7 +53,6 @@ public class ShovelActionTest extends AbandonedTest {
     Container mound = curWall.getContainer("mound");
     Assert.assertEquals("", mound.getInspectDescript());
     Assert.assertNotNull(mound.getItem("artifact"));
-    player.addItem(shovel);
   }
   
 }
