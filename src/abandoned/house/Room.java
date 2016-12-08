@@ -121,8 +121,9 @@ public class Room {
       Print.printString(this.description, true);
       this.seen = true;
       this.description = "";
-    } 
-    Print.printString("\nYou have entered the " + this.name + ".\n", true);
+    }  else {
+      Print.printString("\nYou have entered the " + this.name + ".\n", true);
+    }
     return newWall;
   }
 }

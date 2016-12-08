@@ -156,7 +156,7 @@ public class Main {
     Print.printString("(Type HELP to view commands)\n", false);
     boolean done = false;
     Scanner scanner = new Scanner(System.in);
-    while (gameEnded && !done && scanner.hasNextLine()) {
+    while (!gameEnded && !done && scanner.hasNextLine()) {
       String option = scanner.nextLine();
       done = optionParser(option.toLowerCase());
     }
@@ -199,6 +199,10 @@ public class Main {
       String name = lineScanner.next();
       Initialize.cmdProcess.setProcess(name);
       switch (command) {
+        case "describe": {
+          Initialize.invoker.executeCommand(Initialize.describeCmd);
+          break;
+        }
         case "enter": {
           Initialize.invoker.executeCommand(Initialize.enterCmd);
           break;

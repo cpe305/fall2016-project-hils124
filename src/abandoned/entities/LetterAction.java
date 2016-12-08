@@ -19,7 +19,7 @@ public class LetterAction implements EntityAction {
       Print.printString(
           "You slowly plunk the notes that match the uppercase letters in the letter you read. "
           + "When you hit the last 'A' key, you hear the house groan as the wall to your left "
-          + "starts to move.\n", true);
+          + "starts to move.\n\n", true);
       Wall eastWall = curRoom.getEastWall();
       Container fireplace = eastWall.getContainer("fireplace");
       fireplace.setDescription("You see a " + Ansi.BIN + "fireplace" + Ansi.RESET + " with a gray "

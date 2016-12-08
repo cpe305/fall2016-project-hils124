@@ -19,7 +19,7 @@ public class MirrorAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString("You catch the light with the mirror and direct the shine into the "
           + "eyes of the snake. Annoyed, the snake slithers away into a bush, leaving the mound "
-          + "of dirt empty", true);
+          + "of dirt empty.\n\n", true);
       Container mound = curWall.getContainer("snake");
       mound.setName("mound");
       mound.setInspectDescript("It looks as though something has been buried in there. Maybe "

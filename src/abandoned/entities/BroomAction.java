@@ -19,7 +19,7 @@ public class BroomAction implements EntityAction {
       Print.printString(
           "You reach high into the branches with the broom and gently knock the "
           + "object down. The object appears to be a spare " + Ansi.ITEM + "handle" + Ansi.RESET
-          + "to something.\n",
+          + " to something.\n\n",
           true);
       Container tree = curWall.getContainer("tree");
       tree.setInspectDescript("");

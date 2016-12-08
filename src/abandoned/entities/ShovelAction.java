@@ -17,8 +17,7 @@ public class ShovelAction implements EntityAction {
   @Override
   public boolean use(Item item, Room curRoom, Wall curWall) {
     if (item.getUseType().getWall().equals(curWall.getName())) {
-      Print.printString("You use the shovel to scoop away the dirt. You unearth another golden,"
-          + " triangular " + Ansi.ITEM + "artifact" + Ansi.RESET + ".\n\n", true); 
+      Print.printString("You use the shovel to scoop away the dirt.\n\n", true); 
       Container mound = curWall.getContainer("mound");
       mound.setInspectDescript("");
       mound.addItem(new Item("artifact",

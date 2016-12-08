@@ -24,7 +24,7 @@ public class Print {
         for (int i = 0; i < str.length(); i++) {
           try {
             System.out.print(str.charAt(i));
-            Thread.sleep(50);
+            Thread.sleep(25);
           } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
           }

@@ -1,6 +1,7 @@
 package abandoned.commands;
 
 import abandoned.entities.Item;
+import abandoned.game.Ansi;
 import abandoned.game.GlobalHouse;
 import abandoned.game.Print;
 import abandoned.house.Portal;
@@ -109,10 +110,10 @@ public class Player {
     } else {
       for (Item i : inventory) {
         if ("artifacts".equals(i.getName())) {
-          Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m ("
+          Print.printString("> " + Ansi.ITEM + i.getName() + Ansi.RESET + " ("
               + this.getArtifactCount() + ")", false);
         } else {
-          Print.printString("> \u001B[36m" + i.getName() + "\u001B[0m", false);
+          Print.printString("> " + Ansi.ITEM + i.getName() + Ansi.RESET, false);
         }
       }
       Print.printString("", false);

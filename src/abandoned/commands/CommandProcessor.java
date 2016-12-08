@@ -33,6 +33,17 @@ public class CommandProcessor {
   }
   
   /**
+   * Processes a bad command.
+   */
+  public void describe() {
+    if ("wall".equals(name)) {
+      GlobalPlayer.get().getCurrentWall().describe();
+    } else {
+      bad();
+    }
+  }
+
+  /**
    * Processes a player entering a portal.
    */
   public void enter() {
@@ -71,10 +82,11 @@ public class CommandProcessor {
       if (container.hasItems() || container.getInspectDescript().length() != 0) {
         container.inspect();
       } else {
-        Print.printString("Nothing to inspect.", false);
+        Print.printString("Nothing to inspect.\n", false);
       }
+    } else {
+      Print.printString("No such thing to inspect.\n", false);
     }
-    Print.printString("No such thing to inspect.\n", false);
   }
   
   /**
@@ -112,7 +124,7 @@ public class CommandProcessor {
   public void save() {
     boolean result = GameSaver.saveGame();
     if (result) {
-      Print.printString("Game saved", false);
+      Print.printString("Game saved.\n", false);
     }
   }
   
@@ -121,43 +133,49 @@ public class CommandProcessor {
    */
   public void take() {
     boolean itemFound = false;
-    boolean isArtifact = false;
-    if (GlobalPlayer.get().getArtifactCount() > 0) {
-      isArtifact = true;
-    }
     Wall curWall = GlobalPlayer.get().getCurrentWall();
     Item item = curWall.getItem(name);
     if (item != null) {
       itemFound = true;
-      if (isArtifact) {
+      if ("artifact".equals(name)) {
+        if (GlobalPlayer.get().getArtifactCount() == 0) {
+          GlobalPlayer.get().addItem(item);
+        }
+        if (GlobalPlayer.get().getArtifactCount() == 1) {
+          Item artifact = GlobalPlayer.get().getItem("artifact");
+          artifact.setName("artifacts"); 
+        } 
         GlobalPlayer.get().incrementArtifactCount();
-        Item artifact = GlobalPlayer.get().getItem("artifact");
-        artifact.setName("artifact (" + GlobalPlayer.get().getArtifactCount() + ")");
       } else {
         GlobalPlayer.get().addItem(item);
-        curWall.removeItem(item);
       }
+      curWall.removeItem(item);
     } else {
       for (Container c : curWall.getContainers()) {
         if (c.getInspected()) {
           item = c.getItem(name);
           if (item != null && item.getIsTakeable()) {
             itemFound = true;
-            if (isArtifact) {
+            if ("artifact".equals(name)) {
+              if (GlobalPlayer.get().getArtifactCount() == 0) {
+                GlobalPlayer.get().addItem(item);
+              }
+              if (GlobalPlayer.get().getArtifactCount() == 1) {
+                Item artifact = GlobalPlayer.get().getItem("artifact");
+                artifact.setName("artifacts"); 
+              } 
               GlobalPlayer.get().incrementArtifactCount();
-              Item artifact = GlobalPlayer.get().getItem("artifact");
-              artifact.setName("artifacts");
             } else {
               GlobalPlayer.get().addItem(item);
-              c.removeItem(item);
-              break;
             }
+            c.removeItem(item);
+            break;
           }
         }
       }
     }
     if (!itemFound) {
-      Print.printString("No such item to take.", false);
+      Print.printString("No such item to take.\n", false);
     }
   }
 
@@ -186,10 +204,10 @@ public class CommandProcessor {
     if (chosenItem != null) {
       boolean success = GlobalPlayer.get().useItem(chosenItem);
       if (!success) {
-        Print.printString("Cannot use item here.", false);
+        Print.printString("Cannot use item here.\n", false);
       }
     } else {
-      Print.printString("No such item to use.", false);
+      Print.printString("No such item to use.\n", false);
     }
   }
   

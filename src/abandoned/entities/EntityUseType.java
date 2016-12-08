@@ -8,7 +8,7 @@ package abandoned.entities;
 
 public enum EntityUseType {
 
-  ARTIFACT(new ArtifactAction(), "BASEMENT- WEST"),
+  ARTIFACT(new ArtifactAction(), "BASEMENT - WEST"),
   BAR(new BarAction(), "BASEMENT - SOUTH"),
   BROOM(new BroomAction(), "GARDEN - NORTH"),
   BUCKET(new BucketAction(), "GARDEN - WEST"),

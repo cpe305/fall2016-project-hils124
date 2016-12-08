@@ -21,7 +21,7 @@ public class KeyAction implements EntityAction {
       Print.printString(
           "The key fits perfectly into the lock and clicks open. You notice a lever inside. "
           + "Curious, you pull it down.\n\n **METALLIC SHIFTING SOUNDS**\n\n ...What could "
-          + "that have been? Sounds like it came from either the kitchen or bedroom", true);
+          + "that have been? Sounds like it came from either the kitchen or bedroom.\n\n", true);
       Container box = curWall.getContainer("box");
       box.setInspectDescript("The electric box has a lever that has been pulled down.");
       Room bedroom = GlobalHouse.get().getRoom("bedroom");
@@ -29,7 +29,7 @@ public class KeyAction implements EntityAction {
       southWall.setPortal(new Portal("basementDoor", "trapdoor", "basement", "southWall", 
           "Your heart races as you see that the wooden floor has shifted to reveal a "
           + "small " + Ansi.PORTAL + "trapdoor" + Ansi.RESET + ". That must have happened "
-              + "when you pulled the lever in the attic!"));
+              + "when you pulled the lever in the attic! "));
       return true;
     }
     return false;

@@ -19,10 +19,11 @@ public class HandleAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
           "The handle fits into the " + Ansi.BIN + "cabinet" 
-          + Ansi.RESET + " and you slowly open it.\n", true);
+          + Ansi.RESET + " and you slowly open it.\n\n", true);
       Container cabinet = curWall.getContainer("cabinet");
-      cabinet.setDescription("You see a dusty " + Ansi.BIN + "cabinet " 
+      cabinet.setDescription("You see a dusty " + Ansi.BIN + "cabinet" 
           + Ansi.RESET + " with an open drawer.");
+      cabinet.setInspectDescript("");
       cabinet.addItem(new Item("bucket",
           "There is a " + Ansi.ITEM + "bucket" 
           + Ansi.RESET + " on the bottom shelf. ",

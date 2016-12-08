@@ -8,6 +8,7 @@ public class Initialize {
   
   public static final CommandProcessor cmdProcess = new CommandProcessor();
   public static final BadCommand badCmd = new BadCommand(cmdProcess);
+  public static final DescribeCommand describeCmd = new DescribeCommand(cmdProcess);
   public static final EnterCommand enterCmd = new EnterCommand(cmdProcess);
   public static final HelpCommand helpCmd = new HelpCommand(cmdProcess);
   public static final InspectCommand inspectCmd = new InspectCommand(cmdProcess);

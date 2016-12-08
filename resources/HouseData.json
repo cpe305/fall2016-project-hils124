@@ -129,7 +129,7 @@
 		},
 		{
 			"name": "library",
-			"description": "\nThe wooden floorboard creeks violently as you step into a high ceilinged library. Books line the walls and the floor and papers are scattered everywhere.\n",
+			"description": "\nThe wooden floorboard creeks violently as you step into a high ceilinged library. Books line the walls and papers are scattered all over the floor.\n",
 			"westWall": {
 				"name": "LIBRARY - WEST",
 				"direction": "w",
@@ -205,7 +205,7 @@
 		},
 		{
 			"name": "attic",
-			"description": "You cough as dust fills your lungs. Light creeps through a small crack in the ceiling and allows you to see boxes of broken items and old furniture all around you.",
+			"description": "You slowly creep through the passageway and find a rotting staircase. After climbing the creaking stairs you enter what must be the attic.\n\nYou cough as dust fills your lungs. Light creeps through a small crack in the ceiling and allows you to see boxes of broken items and old furniture all around you.",
 			"westWall": {
 				"name": "ATTIC - WEST",
 				"direction": "w",
@@ -344,14 +344,14 @@
 		},
 		{
 			"name": "basement",
-			"description": "You slowly climb down a ladder into the trapdoor and find yourself in an old basement. Several spiders hang from the corners of the room and you duck under multiple cobwebs as you peer at your surroundings.",
+			"description": "You slowly climb down a ladder into the trapdoor and find yourself in an old basement. Several spiders hang from the corners of the room and you duck under multiple cobwebs as you peer at your surroundings.\n",
 			"westWall": {
 				"name": "BASEMENT - WEST",
 				"direction": "w",
 				"containers": [
 					{
 						"name": "diamond",
-						"description": "You see an indentation of a \u001B[32mdiamond\u001B[0m in the wall in front of you.",
+						"description": "You see an indentation of a \u001B[32mdiamond\u001B[0m on the cement wall in front of you.",
 						"inspected": false,
 						"inspectDescript": "The diamond is formed by four separate triangles. It looks like something can be placed in them. Could this be what the letter had talked about?",
 						"items": []
@@ -365,7 +365,7 @@
 				"direction": "e",
 				"containers": [
 					{
-						"name": "bench",
+						"name": "workbench",
 						"description": "You see a cluttered \u001B[32mworkbench\u001B[0m.",
 						"inspected": false,
 						"inspectDescript": "",
@@ -402,7 +402,7 @@
 				"containers": [
 					{
 						"name": "tile",
-						"description": "You see a wall with a bunch of white tiles, but one \u001B[32mtile\u001B[0m in particular looks discolored.",
+						"description": "You see a wall with a bunch of white tiles, but one \u001B[32mtile\u001B[0m in particular looks discolored. ",
 						"inspected": false,
 						"inspectDescript": "You tap the tile with your knuckles and hear a hollow echo. You try to pull it off but it's stuck.",
 						"items": []

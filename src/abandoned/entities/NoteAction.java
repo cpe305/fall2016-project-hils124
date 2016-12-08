@@ -18,8 +18,7 @@ public class NoteAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
           "You use the numbers on the note to enter the combination '4, 11, 24' " 
-          + Ansi.ITEM + "and" + Ansi.RESET + " the combination falls off as you "
-              + "slowly lift the lid.\n", true);
+          + "and the combination falls off as you slowly lift the lid.\n\n", true);
       Container trunk = curWall.getContainer("trunk");
       trunk.setInspectDescript("");
       trunk.addItem(new Item("mirror",

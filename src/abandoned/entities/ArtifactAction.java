@@ -42,7 +42,7 @@ public class ArtifactAction implements EntityAction {
             + "splash right into water.\n\n", true);
         Print.printString("You gulp as you see that your problems haven't ended but have "
             + "only just begun. Stretched ahead of you for miles is an ocean.\n\n You are"
-            + "trapped on an island.\n\n", true);
+            + "stranded on an island.\n\n", true);
         Print.printString("END OF PART ONE\n", true);
         try {
           Main.endGame();
