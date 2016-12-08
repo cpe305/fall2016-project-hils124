@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class RoomTest {
   private static Room room;
+  private static Room room2;
   private static Wall newWall;
   private static Wall wall1; 
   
@@ -24,6 +25,7 @@ public class RoomTest {
     Wall wall4 = new Wall("BEDROOM - SOUTH", "s", containers, items, null);
     newWall = new Wall("KITCHEN - EAST", "e", containers, items, null);
     room = new Room("bedroom", "", wall1, wall2, wall3, wall4, true);
+    room2 = new Room("kitchen", "", wall1, wall2, wall3, wall4, false);
   }
   
   @Test
@@ -46,4 +48,13 @@ public class RoomTest {
     Assert.assertEquals(wall1, wall);
     Assert.assertEquals("BEDROOM - WEST", wall.getName());
   }
+  
+  @Test
+  public void testSeen() {
+    Assert.assertFalse(room2.getSeen());
+    room2.enter("eastWall");
+    Assert.assertTrue(room2.getSeen());
+  }
+  
+  
 }

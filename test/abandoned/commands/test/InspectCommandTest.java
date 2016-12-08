@@ -37,6 +37,7 @@ public class InspectCommandTest extends AbandonedTest {
     Assert.assertFalse(bookshelf.getInspected());
     player.setCurrentWall(library.getWestWall());
     Main.optionParser("take pin");
+    Main.optionParser("view inventory");
     Assert.assertNull(player.getItem("pin"));
     Main.optionParser("inspect bookshelf");
     Assert.assertTrue(bookshelf.getInspected());
@@ -56,6 +57,7 @@ public class InspectCommandTest extends AbandonedTest {
     Assert.assertFalse(bed.getInspected());
     player.setCurrentWall(bedroom.getSouthWall());
     Main.optionParser("take shovel");
+    Main.optionParser("view inventory");
     Assert.assertNull(player.getItem("shovel"));
     Main.optionParser("inspect bed");
     Assert.assertTrue(bed.getInspected());
