@@ -1,6 +1,7 @@
 package abandoned.game.test;
 
 import abandoned.commands.Player;
+import abandoned.entities.Item;
 import abandoned.house.Portal;
 import abandoned.house.Room;
 import abandoned.house.Wall;
@@ -25,13 +26,26 @@ public class PlayerTest extends AbandonedTest {
   }
   
   @Test
+  public void testArtifactCount() {
+    player.setArtifactCount(1);
+    Assert.assertEquals(1, player.getArtifactCount());
+    player.incrementArtifactCount();
+    player.incrementArtifactCount();
+    Assert.assertEquals(3, player.getArtifactCount());
+    player.setArtifactCount(0);
+    Assert.assertEquals(0, player.getArtifactCount());
+    
+    
+  }
+  
+  @Test
   public void testInventoryActions() {
-//    Assert.assertTrue(player.getInventory().size() == 0);
-//    Item item = new Item();
-//    player.addItem(item);
-//    Assert.assertTrue(player.getInventory().size() == 1);
-//    player.removeItem(item);
-//    Assert.assertTrue(player.getInventory().size() == 0);
+    int size = player.getInventory().size();
+    Item item = new Item();
+    player.addItem(item);
+    Assert.assertEquals(size + 1, player.getInventory().size());
+    player.removeItem(item);
+    Assert.assertEquals(size, player.getInventory().size());
   }
   
   @Test
@@ -43,6 +57,8 @@ public class PlayerTest extends AbandonedTest {
     Assert.assertEquals("BEDROOM - EAST", newPlayer.getCurrentWall().getName());
     newPlayer.turnRight();
     Assert.assertEquals("BEDROOM - SOUTH", newPlayer.getCurrentWall().getName());
+    newPlayer.turnRight();
+    Assert.assertEquals("BEDROOM - WEST", newPlayer.getCurrentWall().getName());
   }
   
   @Test
@@ -70,6 +86,8 @@ public class PlayerTest extends AbandonedTest {
     Assert.assertEquals("BEDROOM - WEST", newPlayer.getCurrentWall().getName());
     newPlayer.turnLeft();
     Assert.assertEquals("BEDROOM - SOUTH", newPlayer.getCurrentWall().getName());
+    newPlayer.turnLeft();
+    Assert.assertEquals("BEDROOM - EAST", newPlayer.getCurrentWall().getName());
   }
   
   @Test
