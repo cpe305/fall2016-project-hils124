@@ -55,13 +55,13 @@ Includes item actions and player commands
 #### Data Layer
 Handles saving and loading of the game into files.
 
-Related Classes:
+##### Related Classes:
 <ul>
   <li><em>GameSaver.java</em></li>
   <li><em>GameLoader.java</em></li>
 </ul>
 
-Files:
+##### Files:
 <ul>
   <li><em>HouseData.json</em></li>
   <li><em>saveHouse.json</em></li>
