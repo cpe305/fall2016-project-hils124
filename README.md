@@ -58,12 +58,10 @@ Related Classes:
 <ul>
   <li><em>GameSaver.java</em></li>
   <li><em>GameLoader.java</em></li>
+  <li><em>HouseData.json</em></li>
+  <li><em>saveHouse.json</em></li>
+  <li><em>savePlayer.json</em></li>
 </ul>
-
-##### Files:
-<li><em>HouseData.json</em></li>
-<li><em>saveHouse.json</em></li>
-<li><em>savePlayer.json</em></li>
 
 
 ## Source Code Documentation
@@ -88,8 +86,6 @@ The house is built from a JSON file called *HouseData.json* which holds all the 
 ```java
 House house = mapper.readValue(new File("resources/HouseData.json"), House.class);
 ```
-
-This house contains rooms, walls, portals, and containers that the player can now interact with.
 
 ### abandoned.entities
 Package that stores items and specific actions for each one.
@@ -118,15 +114,17 @@ Creates one instance of a house and a player.
   <li><em>GlobalPlayer.java</em></li>
 
 
-##### Benefits:
+####Benefits:
+<ul>
   <li>All files able to access the current house and player</li>
   <li>Avoids conflicting requests for the same resource</li>
+</ul>
 
 
 ### Command Pattern
 Allows the requester of a particular command to be decoupled from the object that performs the command
 
-##### Related Classes:
+#### Related Classes:
 <ul>
   <li><em>Invoker.java</em></li>
   <li><em>Command.java</em></li>
@@ -146,10 +144,10 @@ Allows the requester of a particular command to be decoupled from the object tha
       }
 ```
 
-##### Class Diagram
+#### Class Diagram
 ![](https://github.com/cpe305/fall2016-project-hils124/blob/master/Docs/CommandPattern.png?raw=true)
 
-##### Benefits:
+#### Benefits:
 <ul>
   <li>Extensibility - can add new commands without changing existing code</li>
   <li>Puts all commands in one location</li>
