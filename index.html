@@ -40,7 +40,7 @@
 
 <hr>
 
-<p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay1Abandoned.png" alt=""></p>
+<p><img src="https://github.com/cpe305/fall2016-project-hils124/blob/master/Docs/AbandonedGamePlay2.png?raw=true" alt=""></p>
 
 <hr>
 
@@ -64,6 +64,7 @@
 <a id="player-commands" class="anchor" href="#player-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Player Commands</h3>
 
 <ul>
+  <li>describe wall</li>
   <li>enter [PORTAL]</li>
   <li>inspect [ELEMENT]</li>
   <li>take [ITEM]</li>
@@ -73,7 +74,7 @@
   <li>quit</li>
 </ul>
 
-<p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay2Abandoned.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/AbandonedGamePlay1.png" alt=""></p>
 
 <hr>
 
@@ -86,9 +87,43 @@
 <p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/FloorPlanAbandoned.png" alt=""></p>
 
 <h3>
-<a id="class-diagram" class="anchor" href="#class-diagram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Class Diagram</h3>
+<a id="software-architecture" class="anchor" href="#software-architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Software Architecture</h3>
 
-<p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/ClassDiagramAbandoned.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/architectdesign.png" alt=""></p>
+
+<h4>
+<a id="presentation-layer" class="anchor" href="#presentation-layer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Presentation Layer</h4>
+
+<p>User interaction with the terminal.
+Users type commands directly in the command prompt and visually see the narration of the game.</p>
+
+<h4>
+<a id="business-logic-layer" class="anchor" href="#business-logic-layer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Business Logic Layer</h4>
+
+<p>Handles business logic of the application.
+Includes item actions and player commands</p>
+
+<ul>
+  <li><em>EntityUseType.java</em></li>
+  <li><em>CommandProcessor.java</em></li>
+</ul>
+
+<h4>
+<a id="data-layer" class="anchor" href="#data-layer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data Layer</h4>
+
+<p>Handles saving and loading of the game into files.
+Related Classes:</p>
+
+<ul>
+  <li><em>GameSaver.java</em></li>
+  <li><em>GameLoader.java</em></li>
+</ul>
+
+<p>Files:
+  </p><em>HouseData.json</em>
+  <em>saveHouse.json</em>
+  <em>savePlayer.json</em>
+
 
 <h2>
 <a id="source-code-documentation" class="anchor" href="#source-code-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Source Code Documentation</h2>
@@ -104,6 +139,11 @@
   <li>Portals</li>
   <li>Containers</li>
 </ul>
+
+<h4>
+<a id="class-diagram" class="anchor" href="#class-diagram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Class Diagram</h4>
+
+<p><img src="https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/ClassDiagramAbandoned.png" alt=""></p>
 
 <h3>
 <a id="abandonedgame" class="anchor" href="#abandonedgame" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.game</h3>
@@ -138,7 +178,74 @@
 
 <p>Each action class has a <em>use()</em> method that is specific to that item. This method is called by item's <em>use()</em> method.</p>
 
+<h3>
+<a id="abandonedcommands" class="anchor" href="#abandonedcommands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.commands</h3>
+
+<p>Package that stores player commands and their specific actions</p>
+
+<h4>
+<a id="command-pattern" class="anchor" href="#command-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command Pattern</h4>
+
+<p>Player actions are handled with the Command Pattern. There is a Command interface and multiple Command classes (such as SaveCommand, EnterCommand, etc...) that implement this interface.</p>
+
+<p><em>Invoker.java</em> sets the current Command action to be run. The function for each specific command is located in <em>CommandProcessor.java</em></p>
+
 <hr>
+
+<h2>
+<a id="design-patterns" class="anchor" href="#design-patterns" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design Patterns</h2>
+
+<h3>
+<a id="singleton-pattern" class="anchor" href="#singleton-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Singleton Pattern</h3>
+
+<p>Creates one instance of a house and a player.
+  </p><em>GlobalHouse.java</em>
+  <em>GlobalPlayer.java</em>
+
+<h5>
+<a id="benefits" class="anchor" href="#benefits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benefits:</h5>
+
+<p></p>All files able to access the current house and player
+  Avoids conflicting requests for the same resource
+
+<h3>
+<a id="command-pattern-1" class="anchor" href="#command-pattern-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command Pattern</h3>
+
+<p>Allows the requester of a particular command to be decoupled from the object that performs the command</p>
+
+<h5>
+<a id="related-classes" class="anchor" href="#related-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Related Classes:</h5>
+
+<p></p><em>Invoker.java</em>
+  <em>Command.java</em>
+  <em>CommandProcessor.java</em>
+
+<div class="highlight highlight-source-java"><pre>      <span class="pl-smi">Initialize</span><span class="pl-k">.</span>cmdProcess<span class="pl-k">.</span>setProcess(name);
+      <span class="pl-k">switch</span> (command) {
+        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">"</span>describe<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
+          <span class="pl-smi">Initialize</span><span class="pl-k">.</span>invoker<span class="pl-k">.</span>executeCommand(<span class="pl-smi">Initialize</span><span class="pl-k">.</span>describeCmd);
+          <span class="pl-k">break</span>;
+        }
+        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">"</span>enter<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
+          <span class="pl-smi">Initialize</span><span class="pl-k">.</span>invoker<span class="pl-k">.</span>executeCommand(<span class="pl-smi">Initialize</span><span class="pl-k">.</span>enterCmd);
+          <span class="pl-k">break</span>;
+        }
+        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">"</span>inspect<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
+          <span class="pl-smi">Initialize</span><span class="pl-k">.</span>invoker<span class="pl-k">.</span>executeCommand(<span class="pl-smi">Initialize</span><span class="pl-k">.</span>inspectCmd);
+          <span class="pl-k">break</span>;
+        }
+      }</pre></div>
+
+<h5>
+<a id="class-diagram-1" class="anchor" href="#class-diagram-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Class Diagram</h5>
+
+<p><img src="https://github.com/cpe305/fall2016-project-hils124/blob/master/Docs/CommandPattern.png?raw=true" alt=""></p>
+
+<h5>
+<a id="benefits-1" class="anchor" href="#benefits-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benefits:</h5>
+
+<p></p>Extensibility - can add new commands without changing existing code
+  Avoids conflicting requests for the same resource
       </section>
     </div>
 
