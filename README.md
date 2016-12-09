@@ -116,7 +116,7 @@ Creates one instance of a house and a player.
 </ul>
 
 
-####Benefits:
+#### Benefits:
 <ul>
   <li>All files able to access the current house and player</li>
   <li>Avoids conflicting requests for the same resource</li>
