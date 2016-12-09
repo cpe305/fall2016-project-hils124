@@ -117,13 +117,10 @@ Related Classes:</p>
 <ul>
   <li><em>GameSaver.java</em></li>
   <li><em>GameLoader.java</em></li>
+  <li><em>HouseData.json</em></li>
+  <li><em>saveHouse.json</em></li>
+  <li><em>savePlayer.json</em></li>
 </ul>
-
-<p>Files:
-  </p><em>HouseData.json</em>
-  <em>saveHouse.json</em>
-  <em>savePlayer.json</em>
-
 
 <h2>
 <a id="source-code-documentation" class="anchor" href="#source-code-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Source Code Documentation</h2>
@@ -156,8 +153,6 @@ Related Classes:</p>
 <p>The house is built from a JSON file called <em>HouseData.json</em> which holds all the data for each room in the house. <em>HouseBuilder.java</em> reads this file in and serializes the information into a java object which it then returns.</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-smi">House</span> house <span class="pl-k">=</span> mapper<span class="pl-k">.</span>readValue(<span class="pl-k">new</span> <span class="pl-smi">File</span>(<span class="pl-s"><span class="pl-pds">"</span>resources/HouseData.json<span class="pl-pds">"</span></span>), <span class="pl-smi">House</span><span class="pl-k">.</span>class);</pre></div>
-
-<p>This house contains rooms, walls, portals, and containers that the player can now interact with.</p>
 
 <h3>
 <a id="abandonedentities" class="anchor" href="#abandonedentities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>abandoned.entities</h3>
@@ -202,23 +197,27 @@ Related Classes:</p>
   </p><em>GlobalHouse.java</em>
   <em>GlobalPlayer.java</em>
 
-<h5>
-<a id="benefits" class="anchor" href="#benefits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benefits:</h5>
+<h4>
+<a id="benefits" class="anchor" href="#benefits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benefits:</h4>
 
-<p></p>All files able to access the current house and player
-  Avoids conflicting requests for the same resource
+<ul>
+  <li>All files able to access the current house and player</li>
+  <li>Avoids conflicting requests for the same resource</li>
+</ul>
 
 <h3>
 <a id="command-pattern-1" class="anchor" href="#command-pattern-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command Pattern</h3>
 
 <p>Allows the requester of a particular command to be decoupled from the object that performs the command</p>
 
-<h5>
-<a id="related-classes" class="anchor" href="#related-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Related Classes:</h5>
+<h4>
+<a id="related-classes" class="anchor" href="#related-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Related Classes:</h4>
 
-<p></p><em>Invoker.java</em>
-  <em>Command.java</em>
-  <em>CommandProcessor.java</em>
+<ul>
+  <li><em>Invoker.java</em></li>
+  <li><em>Command.java</em></li>
+  <li><em>CommandProcessor.java</em></li>
+</ul>
 
 <div class="highlight highlight-source-java"><pre>      <span class="pl-smi">Initialize</span><span class="pl-k">.</span>cmdProcess<span class="pl-k">.</span>setProcess(name);
       <span class="pl-k">switch</span> (command) {
@@ -230,22 +229,42 @@ Related Classes:</p>
           <span class="pl-smi">Initialize</span><span class="pl-k">.</span>invoker<span class="pl-k">.</span>executeCommand(<span class="pl-smi">Initialize</span><span class="pl-k">.</span>enterCmd);
           <span class="pl-k">break</span>;
         }
-        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">"</span>inspect<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
-          <span class="pl-smi">Initialize</span><span class="pl-k">.</span>invoker<span class="pl-k">.</span>executeCommand(<span class="pl-smi">Initialize</span><span class="pl-k">.</span>inspectCmd);
-          <span class="pl-k">break</span>;
-        }
       }</pre></div>
 
-<h5>
-<a id="class-diagram-1" class="anchor" href="#class-diagram-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Class Diagram</h5>
+<h4>
+<a id="class-diagram-1" class="anchor" href="#class-diagram-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Class Diagram</h4>
 
 <p><img src="https://github.com/cpe305/fall2016-project-hils124/blob/master/Docs/CommandPattern.png?raw=true" alt=""></p>
 
-<h5>
-<a id="benefits-1" class="anchor" href="#benefits-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benefits:</h5>
+<h4>
+<a id="benefits-1" class="anchor" href="#benefits-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benefits:</h4>
 
-<p></p>Extensibility - can add new commands without changing existing code
-  Avoids conflicting requests for the same resource
+<ul>
+  <li>Extensibility - can add new commands without changing existing code</li>
+  <li>Puts all commands in one location</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="favorite-parts-of-project" class="anchor" href="#favorite-parts-of-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Favorite Parts of Project</h2>
+
+<ul>
+  <li>Item Actions</li>
+  <li>Command Pattern with Player Actions</li>
+  <li>JSON Serialization</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="key-takeaways" class="anchor" href="#key-takeaways" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Key Takeaways</h2>
+
+<ul>
+  <li>Outlining/structuring project before implementation</li>
+  <li>Importance of testing as you go</li>
+  <li>Design patterns can be very effective when used appropriately</li>
+</ul>
       </section>
     </div>
 
