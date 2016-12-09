@@ -22,6 +22,7 @@ This game is a terminal application and is completely text-based. Players move a
   <li>describe wall</li>
   <li>enter [PORTAL]</li>
   <li>inspect [ELEMENT]</li>
+  <li>save</li>
   <li>take [ITEM]</li>
   <li>turn [LEFT, RIGHT, AROUND]</li>
   <li>use [ITEM]</li>
