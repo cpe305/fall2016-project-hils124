@@ -59,6 +59,10 @@ Related Classes:
 <ul>
   <li><em>GameSaver.java</em></li>
   <li><em>GameLoader.java</em></li>
+</ul>
+
+Files:
+<ul>
   <li><em>HouseData.json</em></li>
   <li><em>saveHouse.json</em></li>
   <li><em>savePlayer.json</em></li>
