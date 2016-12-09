@@ -27,8 +27,7 @@ public class UseCommandTest extends AbandonedTest {
     player.setCurrentRoom(kitchen);
     Wall curWall = kitchen.getEastWall();
     player.setCurrentWall(curWall);
-    Container cabinet = curWall.getContainer("cabinet");
-    Assert.assertTrue(cabinet.getItems().size() == 0);
+    final Container cabinet = curWall.getContainer("cabinet");
     Main.optionParser("take bucket");
     Assert.assertNull(player.getItem("bucket"));
     Main.optionParser("use handle");
@@ -50,9 +49,8 @@ public class UseCommandTest extends AbandonedTest {
     player.setCurrentRoom(bedroom);
     Wall curWall = bedroom.getWestWall();
     player.setCurrentWall(curWall);
-    Container desk = curWall.getContainer("desk");
+    final Container desk = curWall.getContainer("desk");
     Assert.assertTrue(curWall.getItems().size() == 0);
-    Assert.assertTrue(desk.getItems().size() == 0);
     Main.optionParser("take scissors");
     Assert.assertNull(player.getItem("scissors"));
     Main.optionParser("use pin");
