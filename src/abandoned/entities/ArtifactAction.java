@@ -22,7 +22,7 @@ public class ArtifactAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       if (GlobalPlayer.get().getArtifactCount() == 1) {
         Print.printString("The artifact fits into one of the triangle indentations. "
-            + "There must be three more of them lying around somewhere.", false);
+            + "There must be three more of them lying around somewhere.", true);
         return false;
       } else if (GlobalPlayer.get().getArtifactCount() < 4) {
         Print.printString("The artifacts fit into the triangle indentations. "
@@ -40,8 +40,8 @@ public class ArtifactAction implements EntityAction {
             + "there is nothing there but more trees...\n\nHurriedly, glad to be rid of the "
             + "place, you run north for several hundred feet until you almost fall as you "
             + "splash right into water.\n\n", true);
-        Print.printString("You gulp as you see that your problems haven't ended but have "
-            + "only just begun. Stretched ahead of you for miles is an ocean.\n\n You are "
+        Print.printString("You gulp as you see that your problems have "
+            + "only just begun. Stretched ahead of you for miles is an ocean.\n\nYou are "
             + "stranded on an island.\n\n", true);
         Print.printString("END OF PART ONE\n", true);
         try {

@@ -25,7 +25,7 @@ public class ShovelAction implements EntityAction {
       mound.setInspectDescript("");
       mound.addItem(new Item("artifact",
           "There is a golden, triangular " + Ansi.ITEM + "artifact" + Ansi.RESET + " lying in "
-              + "the dirt.", EntityUseType.ARTIFACT, true)); 
+              + "the dirt. ", EntityUseType.ARTIFACT, true)); 
       mound.addItem(new Item("bar", "You scoop away more dirt and find a dirty pry " + Ansi.ITEM 
           + "bar." + Ansi.RESET, EntityUseType.BAR, true)); 
       return true;
