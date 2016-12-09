@@ -1,6 +1,7 @@
 package abandoned.commands;
 
 import abandoned.entities.Item;
+import abandoned.game.Ansi;
 import abandoned.game.GameSaver;
 import abandoned.game.GlobalPlayer;
 import abandoned.game.Print;
@@ -63,11 +64,12 @@ public class CommandProcessor {
    */
   public void help() {
     Print.printString("\nCommands\n"
-        + "enter [\u001B[33mPORTAL\u001B[0m]\n" 
-        + "inspect [\u001B[32mELEMENT\u001B[0m]\n"
-        + "take [\u001B[36mITEM\u001B[0m]\n"
+        + "describe wall\n" 
+        + "enter " + Ansi.PORTAL + "[PORTAL]" + Ansi.RESET + "\n" 
+        + "inspect " + Ansi.BIN + "[ELEMENT]" + Ansi.RESET + "\n"
+        + "take " + Ansi.ITEM + "[ITEM]" + Ansi.RESET + "\n"
         + "turn [LEFT, RIGHT, AROUND]\n"
-        + "use [\u001B[36mITEM\u001B[0m]\n" 
+        + "use " + Ansi.ITEM + "[ITEM]" + Ansi.RESET + "\n"
         + "view inventory\n"
         + "quit\n", false);
   }

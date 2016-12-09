@@ -17,29 +17,33 @@ public class KnifeActionTest extends AbandonedTest {
   static {
     knife = new Item("knife", "You see knife.", EntityUseType.KNIFE,
         true);
-    player.addItem(knife);
   }
 
   @Test
   public void testIncorrectActionRoom() {
+    player.addItem(knife);
     Room curRoom = house.getRoom("kitchen");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getNorthWall());
     player.useItem(knife);
     Assert.assertNotNull(player.getItem("knife"));
+    player.removeItem(knife);
   }
   
   @Test
   public void testIncorrectActionWall() {
+    player.addItem(knife);
     Room curRoom = house.getRoom("bedroom");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getWestWall());
     player.useItem(knife);
     Assert.assertNotNull(player.getItem("knife"));
+    player.removeItem(knife);
   }
   
   @Test
   public void testCorrectActionWall() {
+    player.addItem(knife);
     Room curRoom = house.getRoom("bedroom");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getNorthWall());
@@ -50,6 +54,5 @@ public class KnifeActionTest extends AbandonedTest {
     Container envelope = curWall.getContainer("envelope");
     Assert.assertNotNull(envelope);
     Assert.assertNotNull(envelope.getItem("letter"));
-    player.addItem(knife);
   }
 }

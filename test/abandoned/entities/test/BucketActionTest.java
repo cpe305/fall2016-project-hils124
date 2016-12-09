@@ -16,29 +16,33 @@ public class BucketActionTest extends AbandonedTest {
   static {
     bucket = new Item("bucket", "You see bucket.", EntityUseType.BUCKET,
         true);
-    player.addItem(bucket);
   }
 
   @Test
   public void testIncorrectActionRoom() {
+    player.addItem(bucket);
     Room curRoom = house.getRoom("attic");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getWestWall());
     player.useItem(bucket);
     Assert.assertNotNull(player.getItem("bucket"));
+    player.removeItem(bucket);
   }
   
   @Test
   public void testIncorrectActionWall() {
+    player.addItem(bucket);
     Room curRoom = house.getRoom("garden");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
     player.useItem(bucket);
     Assert.assertNotNull(player.getItem("bucket"));
+    player.removeItem(bucket);
   }
   
   @Test
   public void testCorrectActionWall() {
+    player.addItem(bucket);
     Room curRoom = house.getRoom("garden");
     Wall curWall = curRoom.getWestWall();
     player.setCurrentRoom(curRoom);
@@ -46,6 +50,5 @@ public class BucketActionTest extends AbandonedTest {
     player.useItem(bucket);
     Assert.assertNull(player.getItem("bucket"));
     Assert.assertNotNull(player.getItem("water"));
-    player.addItem(bucket);
   }
 }

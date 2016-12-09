@@ -18,7 +18,7 @@ public class LetterAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
           "You slowly plunk the notes that match the uppercase letters in the letter you read. "
-          + "When you hit the last 'A' key, you hear the house groan as the wall to your left "
+          + "When you hit the last 'E' key, you hear the house groan as the wall to your left "
           + "starts to move.\n\n", true);
       Wall eastWall = curRoom.getEastWall();
       Container fireplace = eastWall.getContainer("fireplace");

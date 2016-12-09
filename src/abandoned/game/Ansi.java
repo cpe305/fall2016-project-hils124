@@ -28,6 +28,16 @@ public class Ansi {
   public static final String RESET = "\u001B[0m";
   
   /**
+   * underline text.
+   */
+  public static final String LINE = "\u001B[4m";
+  
+  /**
+   * not underline text.
+   */
+  public static final String UNLINE = "\u001B[24m";
+  
+  /**
    * clear terminal window.
    */
   public static final String CLEAR = "\033[H\033[2J";

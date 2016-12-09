@@ -18,6 +18,7 @@ public class TurnCommandTest extends AbandonedTest {
     player.setCurrentWall(curWall);
     Main.optionParser("turn left");
     Main.optionParser("help");
+    Main.optionParser("describe wall");
     Assert.assertEquals("n", player.getCurrentWall().getDirection());
     Main.optionParser("turn right");
     Assert.assertEquals("e", player.getCurrentWall().getDirection());
@@ -44,6 +45,7 @@ public class TurnCommandTest extends AbandonedTest {
     player.setCurrentWall(curWall);
     Main.optionParser("turn l");
     Main.optionParser("help");
+    Main.optionParser("describe wall");
     Assert.assertEquals("e", player.getCurrentWall().getDirection());
     Main.optionParser("turn around");
     Assert.assertEquals("w", player.getCurrentWall().getDirection());

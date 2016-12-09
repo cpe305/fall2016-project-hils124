@@ -18,29 +18,33 @@ public class BroomActionTest extends AbandonedTest {
   static {
     broom = new Item("broom", "You see a broom.", EntityUseType.BROOM,
         true);
-    player.addItem(broom);
   }
 
   @Test
   public void testIncorrectActionRoom() {
+    player.addItem(broom);
     Room curRoom = house.getRoom("attic");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getNorthWall());
     player.useItem(broom);
     Assert.assertNotNull(player.getItem("broom"));
+    player.removeItem(broom);
   }
   
   @Test
   public void testIncorrectActionWall() {
+    player.addItem(broom);
     Room curRoom = house.getRoom("garden");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
     player.useItem(broom);
     Assert.assertNotNull(player.getItem("broom"));
+    player.removeItem(broom);
   }
   
   @Test
   public void testCorrectActionWall() {
+    player.addItem(broom);
     Room curRoom = house.getRoom("garden");
     Wall curWall = curRoom.getNorthWall();
     player.setCurrentRoom(curRoom);
@@ -50,6 +54,5 @@ public class BroomActionTest extends AbandonedTest {
     Container tree = curWall.getContainer("tree");
     Assert.assertEquals("", tree.getInspectDescript());
     Assert.assertNotNull(curWall.getItem("handle"));
-    player.addItem(broom);
   }
 }
