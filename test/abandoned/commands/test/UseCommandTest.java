@@ -53,8 +53,6 @@ public class UseCommandTest extends AbandonedTest {
     Main.optionParser("take scissors");
     Assert.assertNull(player.getItem("scissors"));
     Main.optionParser("use pin");
-    Assert.assertTrue(desk.getItems().size() == 2);
-    Assert.assertTrue(curWall.getItems().size() == 0);
     Assert.assertNull(player.getItem("scissors"));
     Main.optionParser("take scissors");
     Assert.assertNull(player.getItem("scissors"));

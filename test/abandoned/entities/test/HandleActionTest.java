@@ -18,29 +18,33 @@ public class HandleActionTest extends AbandonedTest {
   static {
     handle = new Item("handle", "You see a handle.", EntityUseType.HANDLE,
         true);
-    player.addItem(handle);
   }
 
   @Test
   public void testIncorrectActionRoom() {
+    player.addItem(handle);
     Room curRoom = house.getRoom("library");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
     player.useItem(handle);
     Assert.assertNotNull(player.getItem("handle"));
+    player.removeItem(handle);
   }
   
   @Test
   public void testIncorrectActionWall() {
+    player.addItem(handle);
     Room curRoom = house.getRoom("kitchen");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getWestWall());
     player.useItem(handle);
     Assert.assertNotNull(player.getItem("handle"));
+    player.removeItem(handle);
   }
   
   @Test
   public void testCorrectActionWall() {
+    player.addItem(handle);
     Room curRoom = house.getRoom("kitchen");
     Wall curWall = curRoom.getEastWall();
     player.setCurrentRoom(curRoom);
@@ -49,6 +53,5 @@ public class HandleActionTest extends AbandonedTest {
     Assert.assertNull(player.getItem("handle"));
     Container cabinet = curWall.getContainer("cabinet");
     Assert.assertNotNull(cabinet.getItem("knife"));
-    player.addItem(handle);
   }
 }
