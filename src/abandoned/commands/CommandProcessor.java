@@ -69,6 +69,7 @@ public class CommandProcessor {
         + "describe wall\n" 
         + "enter " + Ansi.PORTAL + "[PORTAL]" + Ansi.RESET + "\n" 
         + "inspect " + Ansi.BIN + "[ELEMENT]" + Ansi.RESET + "\n"
+        + "save\n"
         + "take " + Ansi.ITEM + "[ITEM]" + Ansi.RESET + "\n"
         + "turn [LEFT, RIGHT, AROUND]\n"
         + "use " + Ansi.ITEM + "[ITEM]" + Ansi.RESET + "\n"
