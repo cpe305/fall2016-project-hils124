@@ -110,8 +110,10 @@ Player actions are handled with the Command Pattern. There is a Command interfac
 ## Design Patterns
 ### Singleton Pattern
 Creates one instance of a house and a player.
+<ul>
   <li><em>GlobalHouse.java</em></li>
   <li><em>GlobalPlayer.java</em></li>
+</ul>
 
 
 ####Benefits:
