@@ -60,11 +60,11 @@ Related Classes:
   <li><em>GameLoader.java</em></li>
 </ul>
 
-Files:
-  <li><em>HouseData.json</em></li>
-  <li><em>saveHouse.json</em></li>
-  <li><em>savePlayer.json</em></li>
-</ul>
+##### Files:
+<li><em>HouseData.json</em></li>
+<li><em>saveHouse.json</em></li>
+<li><em>savePlayer.json</em></li>
+
 
 ## Source Code Documentation
 ### abandoned.house
@@ -117,16 +117,21 @@ Creates one instance of a house and a player.
   <li><em>GlobalHouse.java</em></li>
   <li><em>GlobalPlayer.java</em></li>
 
+
 ##### Benefits:
   <li>All files able to access the current house and player</li>
   <li>Avoids conflicting requests for the same resource</li>
 
+
 ### Command Pattern
 Allows the requester of a particular command to be decoupled from the object that performs the command
+
 ##### Related Classes:
+<ul>
   <li><em>Invoker.java</em></li>
   <li><em>Command.java</em></li>
   <li><em>CommandProcessor.java</em></li>
+</ul>
 ```java
       Initialize.cmdProcess.setProcess(name);
       switch (command) {
@@ -138,14 +143,32 @@ Allows the requester of a particular command to be decoupled from the object tha
           Initialize.invoker.executeCommand(Initialize.enterCmd);
           break;
         }
-        case "inspect": {
-          Initialize.invoker.executeCommand(Initialize.inspectCmd);
-          break;
-        }
       }
 ```
+
 ##### Class Diagram
 ![](https://github.com/cpe305/fall2016-project-hils124/blob/master/Docs/CommandPattern.png?raw=true)
+
 ##### Benefits:
+<ul>
   <li>Extensibility - can add new commands without changing existing code</li>
-  <li>Avoids conflicting requests for the same resource</li>
+  <li>Puts all commands in one location</li>
+</ul>
+
+<hr>
+
+## Favorite Parts of Project
+<ul>
+  <li>Item Actions</li>
+  <li>Command Pattern with Player Actions</li>
+  <li>JSON Serialization</li>
+</ul>
+
+<hr>
+
+## Key Takeaways
+<ul>
+  <li>Outlining/structuring project before implementation</li>
+  <li>Importance of testing as you go</li>
+  <li>Design patterns can be very effective when used appropriately</li>
+</ul>
