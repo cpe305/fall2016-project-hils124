@@ -19,7 +19,7 @@ public class ScissorsAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
           "You use the scissors to snip a string on the wind chime and watch as a "
-          + "" + Ansi.ITEM + "key" + Ansi.RESET + " falls to the floor.\n",
+          + "" + Ansi.ITEM + "key" + Ansi.RESET + " falls to the floor.\n\n",
           true);
       Container chimes = curWall.getContainer("chimes");
       chimes.setInspectDescript("");

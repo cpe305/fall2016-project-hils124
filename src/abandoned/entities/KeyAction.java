@@ -20,7 +20,7 @@ public class KeyAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString(
           "The key fits perfectly into the lock and clicks open. You notice a lever inside. "
-          + "Curious, you pull it down.\n\n **METALLIC SHIFTING SOUNDS**\n\n ...What could "
+          + "Curious, you pull it down.\n\n **METALLIC SHIFTING SOUNDS**\n\n...What could "
           + "that have been? Sounds like it came from either the kitchen or bedroom.\n\n", true);
       Container box = curWall.getContainer("box");
       box.setInspectDescript("The electric box has a lever that has been pulled down.");

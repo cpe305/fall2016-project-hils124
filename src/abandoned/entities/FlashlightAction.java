@@ -16,7 +16,7 @@ public class FlashlightAction implements EntityAction {
   
   @Override
   public boolean use(Item item, Room curRoom, Wall curWall) {
-    if (curWall.getContainer("fire") != null) {
+    if (curWall.getContainer("fireplace").getItem("fire") != null) {
       return false;
     }
     if (item.getUseType().getWall().equals(curWall.getName())) {

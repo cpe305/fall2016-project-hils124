@@ -26,8 +26,8 @@ public class MatchAction implements EntityAction {
           "You strike a match and hold it over the fireplace to "
               + "peer into the passageway. All of a sudden, you hear a floorboard creak behind you "
               + "and, startled, you drop the match. The whole fireplace goes up into flames as you "
-              + "step back quickly. Oh no, you're never getting into that passageway unless you "
-              + "put that fire out!\n\n", true);
+              + "step back quickly. Oh no, you're never getting into that passageway unless that "
+              + "fire gets put out!\n\n", true);
       Container fireplace = curWall.getContainer("fireplace");
       fireplace.setInspectDescript("Through the crackling flames in the fireplace, you can see "
           + "the passageway.");

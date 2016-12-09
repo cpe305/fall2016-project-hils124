@@ -53,6 +53,8 @@ public class CommandProcessor {
       Portal portal = curWal.getPortal();
       if (portal.getType().equals(name)) {
         GlobalPlayer.get().enter(portal);
+      } else {
+        Print.printString("No such portal to enter.\n", false);
       }
     } else {
       Print.printString("No such portal to enter.\n", false);

@@ -205,7 +205,7 @@
 		},
 		{
 			"name": "attic",
-			"description": "You slowly creep through the passageway and find a rotting staircase. After climbing the creaking stairs you enter what must be the attic.\n\nYou cough as dust fills your lungs. Light creeps through a small crack in the ceiling and allows you to see boxes of broken items and old furniture all around you.",
+			"description": "You slowly creep through the passageway and find a rotting staircase. After climbing the creaking stairs you enter what must be the attic.\n\nYou cough as dust fills your lungs. Light creeps through a small crack in the ceiling and allows you to see boxes of broken items and old furniture all around you.\n",
 			"westWall": {
 				"name": "ATTIC - WEST",
 				"direction": "w",
@@ -242,7 +242,7 @@
 						"name": "trunk",
 						"description": "You notice a brass, bound \u001B[32mtrunk\u001B[0m propped against the wall.",
 						"inspected": false,
-						"inspectDescript": "You notice a combination lock on the trunk. If you want to open it, you're going to need to know the combination.",
+						"inspectDescript": "You notice a combination lock on the trunk. If you want to open it, you're going to need a combination.",
 						"items": []
 					}
 				],
@@ -257,7 +257,7 @@
 						"name": "box",
 						"description": "You notice an electric \u001B[32mbox\u001B[0m attached to the left of the wall.",
 						"inspected": false,
-						"inspectDescript": "You see a keyhole just as you try to open the electric box. Just as you feared, its locked.",
+						"inspectDescript": "You see a keyhole as you try to open the electric box. Just as you feared, its locked.",
 						"items": []
 					}
 				],
@@ -276,7 +276,7 @@
 						"name": "pond",
 						"description": "You notice a deep, murky \u001B[32mpond\u001B[0m filled with fallen leaves and wilted flowers. ",
 						"inspected": false,
-						"inspectDescript": "You peer into the water and can just make out something shiny in the depths below. With the water this high though, there's no way you could possibly reach to get it.",
+						"inspectDescript": "You peer into the water and can just make out something shining in the depths below. With the water this high though, there's no way you could possibly reach to get it.",
 						"items": []
 					}
 				],

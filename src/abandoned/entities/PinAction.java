@@ -25,7 +25,7 @@ public class PinAction implements EntityAction {
       desk.setInspectDescript("");
       desk.addItem(new Item("matches",
           "There is a small box of " + Ansi.ITEM + "matches" + Ansi.RESET + " inside "
-              + "the unlocked desk drawer.", EntityUseType.MATCHES, true));
+              + "the unlocked desk drawer. ", EntityUseType.MATCHES, true));
       desk.addItem(new Item("scissors",
           "You reach your hand to the back of the desk drawer and find a pair of "
           + "" + Ansi.ITEM + "scissors" + Ansi.RESET + ".", EntityUseType.SCISSORS, true));

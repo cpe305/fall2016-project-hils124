@@ -32,10 +32,8 @@ public class KnifeAction implements EntityAction {
               + "    one is Buried under dirt and Grime,\n    another wherE there is no time.\n"
               + "    the third is trapped unDer lock and key,\n    and the last is west of the "
               + "old oAk tree.\n\n    once amassed toGether in their shApe,\n    a path will lead"
-              + " to your Escape.\n", 
-          EntityUseType.LETTER, true));
-      Print.printString("Hmm what a strange letter. Why are some of the letters capitalized?"
-          + "\n\n", true);
+              + " to your Escape.\n\nHmm what a strange letter. Why are some of the letters "
+              + "capitalized?", EntityUseType.LETTER, true));
       curWall.addContainer(envelope);
       return true;
     }

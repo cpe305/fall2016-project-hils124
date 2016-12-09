@@ -170,10 +170,12 @@ public class Main {
   public static void endGame() throws IOException {
     File houseFile = new File("resources/saveHouse.json");
     File playerFile = new File("resources/savePlayer.json");
-    boolean success1 = houseFile.delete();
-    boolean success2 = playerFile.delete();
-    if (!success1 || !success2) {
-      throw new IOException();
+    if (houseFile.isFile() && playerFile.isFile()) {
+      boolean success1 = houseFile.delete();
+      boolean success2 = playerFile.delete();
+      if (!success1 || !success2) {
+        throw new IOException();
+      }
     }
     gameEnded = true;
   }

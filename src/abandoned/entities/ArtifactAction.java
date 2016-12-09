@@ -37,11 +37,11 @@ public class ArtifactAction implements EntityAction {
             + "in fresh air as you pull yourself out of the room and onto fresh grass.\n\n", true);
         Print.printString("You find you are in the woods that you saw through the fence "
             + "in the garden. You quickly look behind you, expecting to see the house, but "
-            + "there is nothing there but more trees...Hurriedly, glad to be rid of the "
+            + "there is nothing there but more trees...\n\nHurriedly, glad to be rid of the "
             + "place, you run north for several hundred feet until you almost fall as you "
             + "splash right into water.\n\n", true);
         Print.printString("You gulp as you see that your problems haven't ended but have "
-            + "only just begun. Stretched ahead of you for miles is an ocean.\n\n You are"
+            + "only just begun. Stretched ahead of you for miles is an ocean.\n\n You are "
             + "stranded on an island.\n\n", true);
         Print.printString("END OF PART ONE\n", true);
         try {

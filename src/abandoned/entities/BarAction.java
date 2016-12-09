@@ -20,7 +20,7 @@ public class BarAction implements EntityAction {
     if (item.getUseType().getWall().equals(curWall.getName())) {
       Print.printString("You use the pry bar to gently loosen the discolored tile until "
           + "it falls to the ground. Inside, you a see a glowing red button. Hesitantly, "
-          + "you press it.\n\n **DRAINING SOUNDS**\n\n The sound seemed to come from "
+          + "you press it.\n\n **DRAINING SOUNDS**\n\nThe sound seemed to come from "
           + "above.\n\n", true);
       Container tile = curWall.getContainer("tile");
       tile.setDescription("You see a small hole in the wall and a discolored tile lying "
