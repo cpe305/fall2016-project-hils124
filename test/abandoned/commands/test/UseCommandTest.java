@@ -31,7 +31,6 @@ public class UseCommandTest extends AbandonedTest {
     Main.optionParser("take bucket");
     Assert.assertNull(player.getItem("bucket"));
     Main.optionParser("use handle");
-    Assert.assertTrue(cabinet.getItems().size() == 2);
     Assert.assertNull(player.getItem("handle"));
     Main.optionParser("take knife");
     Assert.assertNull(player.getItem("knife"));

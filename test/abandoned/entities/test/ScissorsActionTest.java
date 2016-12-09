@@ -17,29 +17,33 @@ public class ScissorsActionTest extends AbandonedTest {
   static {
     scissors = new Item("scissors", "You see scissors.", EntityUseType.SCISSORS,
         true);
-    player.addItem(scissors);
   }
 
   @Test
   public void testIncorrectActionRoom() {
+    player.addItem(scissors);
     Room curRoom = house.getRoom("kitchen");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
     player.useItem(scissors);
     Assert.assertNotNull(player.getItem("scissors"));
+    player.removeItem(scissors);
   }
   
   @Test
   public void testIncorrectActionWall() {
+    player.addItem(scissors);
     Room curRoom = house.getRoom("garden");
     player.setCurrentRoom(curRoom);
     player.setCurrentWall(curRoom.getEastWall());
     player.useItem(scissors);
     Assert.assertNotNull(player.getItem("scissors"));
+    player.removeItem(scissors);
   }
   
   @Test
   public void testCorrectActionWall() {
+    player.addItem(scissors);
     Room curRoom = house.getRoom("garden");
     Wall curWall = curRoom.getSouthWall();
     player.setCurrentRoom(curRoom);
@@ -49,6 +53,5 @@ public class ScissorsActionTest extends AbandonedTest {
     Assert.assertNotNull(curWall.getItem("key"));
     Container chimes = curWall.getContainer("chimes");
     Assert.assertEquals("", chimes.getInspectDescript());
-    player.addItem(scissors);
   }
 }
