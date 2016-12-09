@@ -4,7 +4,7 @@ Players find themselves trapped in a house and have to collect and use items in 
 
 *Hilary Schulz*
 <hr>
-![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay1Abandoned.png)
+![](https://github.com/cpe305/fall2016-project-hils124/blob/master/Docs/AbandonedGamePlay2.png?raw=true)
 <hr>
 ## Setup
 
@@ -19,6 +19,7 @@ This game is a terminal application and is completely text-based. Players move a
 
 ### Player Commands
 <ul>
+  <li>describe wall</li>
   <li>enter [PORTAL]</li>
   <li>inspect [ELEMENT]</li>
   <li>take [ITEM]</li>
@@ -27,7 +28,7 @@ This game is a terminal application and is completely text-based. Players move a
   <li>view inventory</li>
   <li>quit</li>
 </ul>
-![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/GamePlay2Abandoned.png)
+![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/AbandonedGamePlay1.png)
 
 <hr>
 
@@ -36,9 +37,34 @@ This game is a terminal application and is completely text-based. Players move a
 ### Floor Plan
 ![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/FloorPlanAbandoned.png)
 
-### Class Diagram
-![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/ClassDiagramAbandoned.png)
+### Software Architecture
+![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/architectdesign.png)
 
+#### Presentation Layer
+User interaction with the terminal.
+Users type commands directly in the command prompt and visually see the narration of the game.
+
+#### Business Logic Layer
+Handles business logic of the application.
+Includes item actions and player commands
+<ul>
+  <li><em>EntityUseType.java</em></li>
+  <li><em>CommandProcessor.java</em></li>
+</ul>
+
+#### Data Layer
+Handles saving and loading of the game into files.
+Related Classes:
+<ul>
+  <li><em>GameSaver.java</em></li>
+  <li><em>GameLoader.java</em></li>
+</ul>
+
+Files:
+  <li><em>HouseData.json</em></li>
+  <li><em>saveHouse.json</em></li>
+  <li><em>savePlayer.json</em></li>
+</ul>
 
 ## Source Code Documentation
 ### abandoned.house
@@ -49,6 +75,9 @@ Package that stores all the classes that form the house:
   <li>Portals</li>
   <li>Containers</li>
 </ul>
+
+#### Class Diagram
+![](https://raw.githubusercontent.com/cpe305/fall2016-project-hils124/master/Docs/ClassDiagramAbandoned.png)
 
 ### abandoned.game
 Package that stores all the game logic and the initial creation of the house itself.
@@ -73,4 +102,46 @@ Item actions are handled with Java enums found in *EntityUseType.java*. Each ite
 
 Each action class has a *use()* method that is specific to that item. This method is called by item's *use()* method.
 
+### abandoned.commands
+Package that stores player commands and their specific actions
+#### Command Pattern
+Player actions are handled with the Command Pattern. There is a Command interface and multiple Command classes (such as SaveCommand, EnterCommand, etc...) that implement this interface.
+
+<em>Invoker.java</em> sets the current Command action to be run. The function for each specific command is located in <em>CommandProcessor.java</em>
+
 <hr>
+
+## Design Patterns
+### Singleton Pattern
+Creates one instance of a house and a player.
+  <li><em>GlobalHouse.java</em></li>
+  <li><em>GlobalPlayer.java</em></li>
+
+##### Benefits:
+  <li>All files able to access the current house and player</li>
+  <li>Avoids conflicting requests for the same resource</li>
+
+### Command Pattern
+Allows the requester of a particular command to be decoupled from the object that performs the command
+##### Related Classes:
+  <li><em>Invoker.java</em></li>
+  <li><em>Command.java</em></li>
+  <li><em>CommandProcessor.java</em></li>
+```java
+      Initialize.cmdProcess.setProcess(name);
+      switch (command) {
+        case "describe": {
+          Initialize.invoker.executeCommand(Initialize.describeCmd);
+          break;
+        }
+        case "enter": {
+          Initialize.invoker.executeCommand(Initialize.enterCmd);
+          break;
+        }
+        case "inspect": {
+          Initialize.invoker.executeCommand(Initialize.inspectCmd);
+          break;
+        }
+      }
+```
+##### Class Diagram
