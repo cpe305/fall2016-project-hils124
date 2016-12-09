@@ -145,3 +145,7 @@ Allows the requester of a particular command to be decoupled from the object tha
       }
 ```
 ##### Class Diagram
+![](https://github.com/cpe305/fall2016-project-hils124/blob/master/Docs/CommandPattern.png?raw=true)
+##### Benefits:
+  <li>Extensibility - can add new commands without changing existing code</li>
+  <li>Avoids conflicting requests for the same resource</li>
